@@ -1,0 +1,206 @@
+/**
+ * @file
+ * Views Styling
+ */
+
+/*
+ * Views' admin tabs
+ *
+ * The views admin tabs use the same classes as the secondary tabs. We prevent
+ * some of our tab styling from bleeding into (and breaking) the Views admin
+ * pages. If your sub-theme isn't used for admin pages, you can remove this
+ * entire section.
+ */
+
+.views-displays .secondary li {
+  float: none;
+  margin: 0 6px 0;
+}
+
+.views-displays .secondary a:link,
+.views-displays .secondary a:visited {
+  text-shadow: none;
+  padding: 2px 7px 3px;
+}
+
+.views-displays .secondary .open > a {
+  -webkit-border-radius: 7px 7px 0 0;
+  -moz-border-radius: 7px 7px 0 0;
+  -ms-border-radius: 7px 7px 0 0;
+  -o-border-radius: 7px 7px 0 0;
+  border-radius: 7px 7px 0 0;
+}
+
+.views-displays .secondary .open > a:hover {
+  color: #333;
+}
+
+.views-displays .secondary .action-list li {
+  margin: 0;
+}
+
+.views-displays .secondary .action-list li:first-child {
+  -webkit-border-radius: 0 7px 0 0;
+  -moz-border-radius: 0 7px 0 0;
+  -ms-border-radius: 0 7px 0 0;
+  -o-border-radius: 0 7px 0 0;
+  border-radius: 0 7px 0 0;
+}
+
+.views-displays .secondary .action-list li:last-child {
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+/*
+ * Slideshow
+*/
+
+#featured {
+
+ /* padding: 0 15px;*/
+ 
+/* 2013-05-10 : jwhiklo */
+  /*margin-top: 26px;*/
+  /*margin-top: 35px; /* Height of the navigation bar */
+  background: #fff;
+  position:relative;
+  margin-top:5px;
+
+/*  background: #75a3a9; */ /* Old browsers */
+/*  background: -moz-linear-gradient(top,  #75a3a9 0%, #75a3a9 50%, #739da0 51%, #386d75 100%); /* FF3.6+ */
+/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#75a3a9), color-stop(50%,#75a3a9), color-stop(51%,#739da0), color-stop(100%,#386d75)); /* Chrome,Safari4+ */
+/*  background: -webkit-linear-gradient(top,  #75a3a9 0%,#75a3a9 50%,#739da0 51%,#386d75 100%); /* Chrome10+,Safari5.1+ */
+/*  background: -o-linear-gradient(top,  #75a3a9 0%,#75a3a9 50%,#739da0 51%,#386d75 100%); /* Opera 11.10+ */
+/*  background: -ms-linear-gradient(top,  #75a3a9 0%,#75a3a9 50%,#739da0 51%,#386d75 100%); /* IE10+ */
+/*  background: linear-gradient(to bottom,  #75a3a9 0%,#75a3a9 50%,#739da0 51%,#386d75 100%); /* W3C */
+/*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75a3a9', endColorstr='#386d75',GradientType=0 ); /* IE6-9 */ 
+
+
+
+ /* height: 340px; */ /* jwhiklo: 2013-05-10 */
+/*  height: 144px;*/
+  width: 100%;
+  /*max-width: 1166px; */
+ }
+
+#featured a {
+  color: #fff;
+  outline: none;
+}
+
+#block-views-node-slideshow-block {
+  position: absolute;
+  height: 277px; width: 472px;
+/* jwhiklo : 2013-05-10 */
+/*  top: 50px; */
+  top: 10px;
+  right: 15px;
+  padding: 6px; 
+
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(51, 51, 51);
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(51, 51, 51, 0.6);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+
+  box-shadow: 0px 3px 3px #222 inset;
+  -moz-box-shadow: 0px 3px 3px #222 inset;
+  -webkit-box-shadow: 0px 3px 3px #222 inset;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.views-slideshow-controls-bottom {
+  z-index: 40;
+  margin-top: 8px;
+}
+
+.views-slideshow-cycle-main-frame-row img {
+  box-shadow: 0px 3px 3px #222;
+  -moz-box-shadow: 0px 3px 3px #222;
+  -webkit-box-shadow: 0px 3px 3px #222;
+}
+
+.views-slideshow-pager-field-item a {
+  border: 1px solid #777;
+  padding: 0 3px;
+  font-size: 85%;
+  background: #ffbb22; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffbb22 0%, #e2a51f 50%, #e89d35 51%, #ed971b 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffbb22), color-stop(50%,#e2a51f), color-stop(51%,#e89d35), color-stop(100%,#ed971b)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffbb22 0%,#e2a51f 50%,#e89d35 51%,#ed971b 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffbb22 0%,#e2a51f 50%,#e89d35 51%,#ed971b 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffbb22 0%,#e2a51f 50%,#e89d35 51%,#ed971b 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ffbb22 0%,#e2a51f 50%,#e89d35 51%,#ed971b 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbb22', endColorstr='#ed971b',GradientType=0 ); /* IE6-9 */
+}
+
+.views-slideshow-pager-field-item a:hover, .views-slideshow-pager-fields div.active a {
+  background: #633706; /* Old browsers */
+  background: -moz-linear-gradient(top,  #633706 0%, #5b3a1a 50%, #56310d 51%, #3e1f00 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#634221), color-stop(50%,#5b3a1a), color-stop(51%,#56310d), color-stop(100%,#3e1f00)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #633706 0%,#5b3a1a 50%,#56310d 51%,#3e1f00 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #633706 0%,#5b3a1a 50%,#56310d 51%,#3e1f00 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #633706 0%,#5b3a1a 50%,#56310d 51%,#3e1f00 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #633706 0%,#5b3a1a 50%,#56310d 51%,#3e1f00 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#634221', endColorstr='#3e1f00',GradientType=0 ); /* IE6-9 */
+}
+
+.views-slideshow-pager-fields div {
+  display: inline;
+}
+
+/* ==========SLIDESHOW CSS STYLES==========
+
+.views-content-counter a {
+display: block;
+float: left;
+margin-right: 20px;
+height: 25px;
+width: 25px;
+}
+
+.views-content-counter a:hover {
+background-position: -25px 0px;
+}
+
+.active .views-content-counter a{
+background-position: -25px 0px;
+}
+*/
+
+.front #content .view-whats-new {
+  border: 1px solid #ccc;
+  padding: 0 5px 7px;
+  min-height: 130px;
+}
+
+.featured-new .views-row {
+  padding: 5px;
+  clear:left;
+  overflow:hidden;
+  position:relative;
+}
+
+.featured-thumb {
+/* jwhiklo : 2013-05-16 */
+/*  width: 40px; height: 40px; */
+    width: 60px;
+    height: 60px;
+  float: left;
+  border: 1px solid #999;
+  margin-right:8px;
+}
+
+.featured-new .date {
+  font-size: 80%;
+  color: #444;
+}

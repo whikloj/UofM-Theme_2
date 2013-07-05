@@ -1,0 +1,558 @@
+/**
+ * @file
+ * Block Styling
+ */
+
+
+
+.block { /* Block wrapper */
+  margin-bottom: 1.5em;
+}
+
+.sidebars .block {
+	background: #fff;
+	border: 2px solid #dedede;
+	padding: 3px;
+/*	border-bottom-left-radius: 15px; */
+	/*font-size: 90%;*/
+    position:relative;
+    margin-top:29px; /* to allow the title to move above the box */
+    margin-bottom:0;
+    padding-bottom:0; 
+}
+
+.block.first { /* The first block in the region */
+}
+
+.block.last { /* The last block in the region */
+}
+
+.block.odd { /* Zebra striping for each block in the region */
+}
+
+.block.even { /* Zebra striping for each block in the region */
+}
+
+h2.block-title {
+	/*font-size: 200%;*/ /* 2013-05-27 - jwhiklo : Stripping */
+	font-size: 0.93em;
+}
+
+
+#block-manidora-manidora-newspaper-search,
+#block-islandora-solr-advanced {
+    margin-top: 20px;
+    border: 1px solid #7a7a7a;
+    border-radius: 4px 4px 4px 4px;
+    padding: 10px 20px;
+    background-color: #fff;
+    position: relative;
+}
+html.lt-ie9 #block-manidora-manidora-newspaper-search,
+html.lt-ie9 #block-islandora-solr-advanced,
+html.gte-ie9 #block-manidora-manidora-newspaper-search,
+html.gte-ie9 #block-islandora-solr-advanced {
+    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+}
+
+#block-manidora-manidora-newspaper-search h2.block-title,
+#block-islandora-solr-advanced h2.block-title {
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1em;
+}
+#block-manidora-manidora-newspaper-search h2.block-title:hover,
+#block-islandora-solr-advanced h2.block-title:hover {
+    text-decoration:underline;
+}
+#block-manidora-manidora-newspaper-search form {
+    display: none;
+}
+
+.islandora-solr-advanced-controls {
+    right: auto;
+    top:auto;
+}
+
+.block-islandora-solr, .block-manidora {
+    overflow:hidden;
+}
+
+
+#block-menu-menu-search-bar,
+#block-menu-menu-search-bar-menu {
+    float:right;
+    overflow:hidden;
+    margin:0;
+}
+
+#block-menu-menu-search-bar ul.menu,
+#block-menu-menu-search-bar-menu ul.menu {
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0;
+    position:relative;
+}
+#block-menu-menu-search-bar ul.menu li,
+#block-menu-menu-search-bar-menu ul.menu li {
+    display:inline-block;
+    float:left;
+    margin: 2px 5px;
+    padding: 0 10px;
+    border-left: 1px solid rgb(170,170,170);
+}
+
+#block-menu-menu-search-bar ul.menu li.first,
+#block-menu-menu-search-bar-menu ul.menu li.first {
+ 
+}
+
+#block-menu-menu-search-bar ul.menu li a,
+#block-menu-menu-search-bar ul.menu li a:link,
+#block-menu-menu-search-bar ul.menu li a:visited,
+#block-menu-menu-search-bar-menu ul.menu li a,
+#block-menu-menu-search-bar-menu ul.menu li a:link,
+#block-menu-menu-search-bar-menu ul.menu li a:visited {
+    color:#fff;
+    font-weight: bold;
+    font-size:0.93em;
+    text-decoration:none;
+}
+
+#block-menu-menu-search-bar ul.menu li a:hover,
+#block-menu-menu-search-bar-menu ul.menu li a:hover {
+    text-decoration:underline;
+}
+
+/* jwhiklo : 2013-05-13 */
+/*
+#block-views-whats-new-block h2.block-title {
+	background-color: #EEA40F;
+}
+*/
+
+
+.sidebar .block {
+    position:relative;
+}
+
+.sidebar h2.block-title {
+    /** jwhiklo : 2013-05-15 */
+    /*background-color: #633706;
+    border-bottom-right-radius: 10px;*/
+    position: absolute;
+    top:-22px;
+/*    background: -moz-linear-gradient(top,  #a3a3a3, #717171); /* FF3.6+ */
+/*    background: -webkit-gradient(linear, left top, left bottom, from(#a3a3a3), to(#717171)); /* Safari 4+, Chrome 2+ */
+/*    background: -webkit-linear-gradient(#a3a3a3, #717171); /* Safari 5.1+, Chrome 10+ */
+/*    background: -o-linear-gradient(#a3a3a3, #717171); /* Opera 11.10 */
+    /*filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#a3a3a3', endColorstr='#717171'); /* IE6 & IE7 */
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#a3a3a3', endColorstr='#717171')"; /* IE8+ */
+/*    background: linear-gradient(#a3a3a3, #717171);*/
+    background: transparent url('../images/dark-grey-gradient.png') repeat-x 0% 0%;
+    -moz-border-radius-topright:40px;
+    -webkit-border-top-right-radius:40px;
+    border-radius: 0 40px 0 0; 
+    
+    z-index: 1;
+	color: #FFFFFF;
+	/*font-size: 11px;*/
+	font-size: 0.93em;
+	/*font-size:1.286em;*/
+	height: 22px;
+	letter-spacing: 1pt;
+	line-height: 22px;
+	margin: -5px 25px 0 -3px;
+	/*overflow: hidden;*/
+	padding: 2px 50px 2px 13px;
+/*	text-transform: uppercase;*/
+	/*width: 95%;*/
+	behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+}
+
+#block-aggregator-category-1 { /* Block for the latest news items in the first category */
+}
+
+#block-aggregator-feed-1 { /* Block for the latest news items in the first feed */
+}
+
+#block-block-1 { /* First block created with "Add block" link */
+    float:right;
+    overflow:hidden;
+}
+
+/* block-block-3 is the Welcome block */
+#block-block-3 {
+	position: relative;
+	float: left;
+	overflow:hidden;
+/*	width: 38%;*/
+    max-width: 400px;
+    font-size:0.833em;
+    padding: 0px;
+    font-weight:bold;
+    border-right: 1px dotted #aaa;
+    
+}
+
+#block-block-3 p {
+	line-height: 1.5em;
+	margin: 0 8px 12px 8px;
+}
+#block-block-3 p.invisible {
+    margin:0;
+}
+
+#block-block-3 h2 {
+    font-size: 1.75em;
+    margin-left: 8px;
+    margin-bottom: 0;
+}
+
+/*#block-islandora-solr-basic-facets {
+    margin-bottom:0;
+    padding-bottom:0; 
+}*/
+
+#block-islandora-solr-advanced {
+    clear: left;
+}
+
+#block-islandora-solr-display-switch {
+    float:right;
+}
+
+ul.islandora-solr-display {
+    list-style-type: none;
+    list-style-position:outside;
+    margin:0;
+}
+ul.islandora-solr-display li {
+    float:left;
+    margin-left: 5px;
+    padding-left: 5px;
+    border-left: 1px solid #aeaeae;
+}
+ul.islandora-solr-display li.first {
+    border-left: 0;
+}
+
+#block-blog-recent { /* "Recent blog posts" block */
+}
+
+#block-book-navigation { /* "Book navigation" block for the current book's table of contents */
+}
+
+#block-comment-recent { /* "Recent comments" block */
+}
+
+#block-forum-active { /* "Active forum topics" block */
+}
+
+#block-forum-new { /* "New forum topics" block */
+}
+
+#block-locale-language { /* Language switcher block */
+}
+
+#block-menu-menu-NAME { /* Custom menu block */
+}
+
+#block-node-recent { /* "Recent content" block */
+}
+
+#block-node-syndicate { /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
+}
+
+#block-poll-recent { /* "Most recent poll" block */
+}
+
+#block-profile-author-information { /* "Author information" block for the profile of the page's author */
+}
+
+#block-search-form { /* "Search form" block */
+}
+
+#block-shortcut-shortcuts { /* "Shortcuts" block */
+}
+
+#block-statistics-popular { /* "Popular content" block */
+}
+
+#block-system-main-menu ul li { /* "Main menu" block */
+    border-right: 1px solid rgb(102,70,37);
+   /* background: transparent url('../images/topnavlinegrey.png') no-repeat 0% 50%;*/
+}
+#block-system-main-menu ul li.last {
+    border-right:none;
+    /*background-image: none;*/
+}
+
+#block-system-management { /* "Management" block for Drupal management menu */
+}
+
+#block-system-navigation { /* "Navigation" block for Drupal navigation menu */
+}
+
+#block-system-user-menu { /* "User menu" block for Drupal user menu */
+}
+
+#block-system-help { /* "System help" block */
+}
+
+#block-system-main { /* "Main page content" block */
+}
+
+#block-system-powered-by { /* "Powered by Drupal" block */
+}
+
+#block-user-login { /* "User login form" block */
+}
+
+#block-user-new { /* "Who's new" block for a list of the newest users */
+}
+
+#block-user-online { /* "Who's online" block for a list of the online users */
+}
+
+/***************/
+/******************************/
+/***************/
+
+span.plusminus {
+	display: none;
+}
+
+.facet-list .count {
+	color: #555;
+}
+
+.sidebar ul.islandora-solr-facet {
+	margin: 0;
+	padding: 0 0 0 0.7em;
+}
+
+.sidebar h3 {
+	margin: 5px 0;	
+}
+
+.islandora-solr-facet-wrapper {
+	border-bottom: 1px solid #dedede;
+	padding: 3.5px 7px;
+}
+
+.islandora-solr-facet-wrap/*, .islandora-solr-content*/ {
+	background: #fff;
+	padding: 11px 25px;
+	border: 2px solid #dedede;
+	margin-top: 22px;
+}
+
+.islandora-solr-search-result {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1em;
+}
+
+dl.solr-fields {
+	background: #efefef;
+}
+
+.block ul.islandora-solr-facet {
+	list-style: none;
+}
+.block ul.islandora-solr-facet li a {
+    color: #31313f;
+}
+
+#slogan-floater {
+	position: relative;
+	/*top: -94px;*/
+	float: right;
+	/*right: -10px;*/
+}
+
+#googleButton {
+	max-height: 32px;
+	float: left;
+	margin: -1px 0 0 3px;
+}
+
+#googleSearch {
+	float: left;
+}
+
+#search_parameters {
+	float: left;
+	clear: left;
+}
+
+span.radio1, span.radio2, span.radio3, #search_parameters input, #search_parameters p {
+	display: inline;
+}
+
+#utilityLinks a {
+  color: #4D2700;
+  font-family: "Helvetica";
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#slogan-floater #search {
+  color: #4D2700;
+  font-family: "Helvetica";
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+#search_parameters p {
+	display: inline;	
+	margin: 0 5px;
+}
+
+#featured h2 {
+	line-height: 1em;
+}
+
+/* Manidora Homepage Tabs block styles */
+ul.home-tabs-container {
+    list-style-type: none;
+    list-style-position: outside;
+    position: relative;
+    overflow: hidden;
+    width:auto;
+    clear:left;
+    padding:0;
+    margin:2px 0 0 2px;
+}
+
+
+.home-tab-link, .home-tab-link:link, .home-tab-link:focus, .home-tab-link:hover, .home-tab-link:visited {
+    color:#fff;
+    font-weight:bold;
+    cursor: pointer;
+    height:100%;
+    width:100%;
+    display: inline-block;
+    text-decoration:none;
+}
+
+
+.home-panel {
+    display: none;
+    overflow:auto;
+    clear:left;
+    padding: 5px;
+    border: 2px solid #dedede;
+    background-color:#fff;
+    margin-top:-1px;
+}
+.home-panel.active {
+    display: block;
+
+}
+
+.column_50 {
+    float:left;
+    padding-left: 10px;
+    width: 48%;
+    border-right: 1px dotted #aaa;
+    height: 284px;
+}
+.column_50.last {
+    border-right: 0px solid transparent;
+}
+
+#home-panel-collections .column_50 {
+    height:263px;
+}
+
+.coll_alpha_list {
+    display:block;
+    text-align:center;
+}
+.coll_alpha_list a {
+    font-weight:bold;
+}
+
+/* UofM Footer info */
+#block-block-4 {
+    line-height: 1.5em;
+    clear:left;
+    overflow:hidden;
+}
+#block-block-4 .unit {
+    font-weight:bold;
+    color:#717174;
+}
+
+
+.region-featured .block {
+    margin-bottom: 0;
+}
+
+
+#manidora-simple-search-form .form-item {
+    margin:0;
+}
+#manidora-simple-search-form #edit-islandora-simple-search-query {
+    margin-top:2px;
+}
+#manidora-simple-search-form #edit-simple {
+    line-height:1em;
+    font-size: 0.93em;
+}
+
+/** Search results facets */
+.islandora-solr-facet, 
+.islandora-solr-facet-wrapper .soft-limit {
+    display: none;
+}
+/* Because FLOT doesn't work if the canvas is display:none; 
+   We move it off screen and hide it once the DOM is loaded 
+   with javascript */
+.islandora-solr-range-slider, 
+.islandora-solr-date-filter {
+    left: -1000; 
+}
+
+ .islandora-solr-facet-wrapper h3 {
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-image: url('../images/menu-collapsed.png');
+    padding-left: 10px;
+    cursor: pointer;
+}
+.islandora-solr-facet-wrapper h3.expanded {
+    background-image: url('../images/menu-expanded.png');
+}
+
+#block-manidora-manidora-homepage-thumbnails {
+    float:left;
+    position:relative;
+    max-width:562px;
+}
+
+#manidora-homepage-thumbs {
+    overflow:hidden;
+    padding:1px;
+    line-height: 0;
+}
+.manidora-homepage-thumb-link {
+    padding:0;
+    margin:6px 3px;
+    overflow:hidden;
+    display:block;
+    float:left;
+    height:64px;
+    width:64px;
+}
+
+.manidora-homepage-thumb-img {
+    height:64px;
+    width:64px;
+    margin:0;
+    padding:0;
+    /*border:1px solid #000;*/
+}

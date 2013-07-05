@@ -1,0 +1,467 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+
+
+/*
+ * Body
+ */
+
+html, button, input, select, textarea {
+    /* Override the font-family */
+    font-family: Helvetica;
+    font-size: 14px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* jwhiklo: 2013-05-13 */
+  background: #F4F4F3;
+ 
+
+  /*font-family: 'News Cycle'; 
+  font-size: 90%;*/
+  font-style: normal; 
+  font-weight: 100;
+  letter-spacing: 0.5pt;
+}
+
+#page {
+/* jwhiklo : 2013-05-10 */
+  /*padding-top: 15px;*/
+  background-color: #f4f4f3;
+}
+
+#page-title {
+    float:left;
+}
+
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+
+#skip-link {
+  margin: 0;
+}
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+
+#header {
+    position:relative;
+  height: 90px;
+  background: transparent url('../images/top_banner.jpg') no-repeat 0% 0%;
+  box-shadow: 0px 2px 4px #777;
+  -moz-box-shadow: 0px 2px 4px #777;
+  -webkit-box-shadow: 0px 2px 4px #777;
+  behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+}
+
+#logo { /* Wrapping link for logo */
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+#logo img {
+  vertical-align: bottom;
+}
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+  border-left: 1px solid #643609;
+  color: #442404;
+  float: left;
+  font-family: serif;
+  margin: 24px 0 0 7px;
+  padding-left: 15px;
+  font-weight: normal;
+}
+
+#site-name { /* The name of the website */
+  margin: 0;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  font-weight: normal;
+}
+#site-name a:link,
+#site-name a:visited {
+  color: #442404;
+  text-decoration: none;
+}
+#site-name a:hover,
+#site-name a:focus {
+}
+
+#site-slogan { /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.region-header { /* Wrapper for any blocks placed in the header region */
+  /*clear: both; /* Clear the logo */
+}
+
+/* jwhiklo - 2013-05-13 */
+.region-featured {
+    overflow:hidden;
+    padding:2px;
+    border: 1px solid #dedede;
+    box-shadow: 0 2px 4px #777;
+    behavior: url(/drupal7/sites/all/themes/css/PIE.htc); 
+}
+
+
+
+/*
+ * Main (container for everything else)
+ */
+
+#main {
+}
+
+/*
+ *
+ */
+#searchbar {
+    position:relative;
+    margin-top:10px;
+    width: 100%;
+    background: #828282; /* Old browsers */
+    background: linear-gradient(#aeaeae, #707070);
+    box-shadow: 0 2px 4px #777;
+    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+}
+
+/*
+ * Content
+ */
+
+#content {
+  float: left;
+}
+
+.no-sidebars #content {
+    width:100%;
+}
+
+
+
+
+.region-highlighted {
+}
+
+
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title { /* Comment title */
+  margin: 0.2em 0;
+}
+
+
+.page-islandora-search h1.solr-result, #viewer-content h1.solr-result {
+    background: -moz-linear-gradient(top,  #a3a3a3, #717171); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, from(#a3a3a3), to(#717171)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#a3a3a3, #717171); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#a3a3a3, #717171); /* Opera 11.10 */
+    background: linear-gradient(#a3a3a3, #717171);
+    -moz-border-radius-topright:40px;
+    -webkit-border-top-right-radius:40px;
+    border-radius: 0 40px 0 0;*/
+
+    position: relative;
+    color: #FFFFFF;
+    font-size:1.286em;
+    height: 25px;
+    letter-spacing: 1pt;
+    line-height: 22px;
+    margin: -3px 0 0 2px;
+    overflow: hidden;
+    padding: 2px 50px 2px 13px;
+}
+html.lt-ie9 .page-islandora-search h1.solr-result, 
+html.lt-ie9 #viewer-content h1.solr-result,
+html.gte-ie9 .page-islandora-search h1.solr-result, 
+html.gte-ie9 #viewer-content h1.solr-result {
+    -pie-background: linear-gradient(#a3a3a3,#717171);
+    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+}
+
+.page-islandora-search h1, #viewer-content h1 {
+    position: relative;
+    /*color: #FFFFFF;*/
+    font-size:1.286em;
+    /*height: 25px;*/
+    letter-spacing: 1pt;
+    line-height: 22px;
+    margin: -3px 0 0 2px;
+    /*overflow: hidden;*/
+    /*padding: 2px 50px 2px 13px;*//* This has the large right padding for the tabs */
+    padding: 2px 13px;
+    max-width:75%; /* To make room for the Printer link */
+}
+
+/* Islandora viewer area */
+#viewer-content {
+    background-color:#fff;
+    border: 2px solid #dedede;
+    padding: 5px;
+    clear:both;
+    position:relative;
+    margin-top:23px;
+}
+#viewer-content.solr-result {
+    margin-top: 24px;
+}
+
+#viewer-content h1.solr-result {
+    margin-top:-31px;
+    margin-left:-5px;
+    font-size: 0.93em;
+}
+
+.print-link, .return-book-link, .print_html {
+    float:right;
+    font-size: 1em;
+    padding-right:5px;
+    margin: 0.25em 0;
+}
+
+.islandora-basic-image-content-wrapper, 
+.islandora-large-image-content-wrapper,
+#book-page-viewer, 
+#book-viewer, 
+.islandora-objects-grid, 
+.islandora-solr-grid {
+    clear:left;
+    border-top: 1px dotted #dedede;
+}
+/* above except in search results */
+.islandora-solr-search-results .islandora-solr-grid {
+    border-top: none;
+}
+
+
+/*.islandora-solr-search-results*/
+.islandora-solr-content {
+    background-color: #fff;
+    border: 2px solid #dedede;
+    margin-top:22px;
+}
+
+/* viewer-content already has the border and background so strip it from solr-search-results */
+#viewer-content .islandora-solr-content {
+    border:none;
+    margin-top: 0;
+}
+
+#book-page-viewer, #book-viewer {
+    padding: 15px 0;
+}
+
+.islandora-basic-image-content {
+    border: 0 solid transparent;
+    background-color:#fff;
+}
+
+.important-download {
+    font-weight: bold;
+}
+
+.manidora-metadata {
+    clear:left;
+    border-top: 1px dotted #dedede;
+}
+
+/* Hide the play button from the book viewer */
+#BRtoolbar .play {
+    display:none;
+}
+
+
+tr.even, tr.odd {
+    border-bottom: 1px solid #fff;
+}
+
+tr.even { /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+  background-color: #dfdfdf;
+}
+
+tr.odd {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.status { /* Normal priority messages */
+}
+
+div.warning,
+tr.warning { /* Medium priority messages */
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+}
+
+div.error,
+tr.error { /* High priority messages. See also the .error declaration below. */
+}
+
+.error { /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */ /* Drupal core uses a #e55 background */
+}
+
+.warning { /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
+}
+
+.tabs { /* See also the tabs.css file. */
+}
+
+.region-help { /* Help text on a page */
+}
+
+.more-help-link { /* Link to more help */
+}
+
+.region-content { /* Wrapper for the actual page content */
+}
+
+ul.inline { /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0; /* LTR */
+}
+
+span.field-label { /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0; /* LTR */
+}
+
+.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+.item-list .pager li { /* Each page number in the pager list */
+  padding: 0px 0.5em 3px;
+  border: 1px solid #ececec;
+}
+
+.item-list .pager li:hover { 
+  background: #ececec;
+}
+
+.feed-icon { /* The link to the RSS or Atom feed for the current list of content */
+  display: none;
+}
+
+.more-link { /* Aggregator, blog, and forum more link */
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+
+.region-sidebar-first {
+  margin-top: 1em;
+}
+
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+
+.region-sidebar-second {
+}
+
+/*
+ * Footer
+ */
+
+#footer {
+    border-top: 1px solid #aaa;
+    font-size:0.714em;
+    color: #909092;
+    margin-top:15px;
+}
+
+/*
+ * Page bottom
+ */
+
+.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+}
+
+/*
+ * Search Results
+*/
+
+#islandora-solr-top {
+  float: right;
+  min-height: 45px;
+ /* margin-left: 5px;*/
+  margin-top: -30px;
+  position:absolute;
+  right: 0;
+  /*display:none; *//* jwhiklo : 2013-05-17 */
+}
+#islandora-solr-top .item-list, #islandora-solr-result-count {
+    float:right;
+    margin-left: 15px;
+}
+#islandora-solr-result-count { /* We don't need this display right now */
+    display:none;
+}
+
+#islandora-solr-top .pager {
+    margin:0;
+}
+
+#manidora-newspaper-search-form {
+    clear:left;
+}
+
+.no-results {
+  margin-left: 6em;
+}
+
+.islandora-solr-filter-list {
+  list-style:none;
+}
+
+button.BRicon.info {
+    display: none;
+}

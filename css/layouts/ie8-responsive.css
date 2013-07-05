@@ -1,0 +1,100 @@
+/* 
+ * Because IE doesn't seem to support these stylesheets even with respond.js
+ * This is from the responsive-sidebars.css and represents the code needed for
+ * the desired display in IE8
+ */
+html.lt-ie9 #main {
+    padding-top: 0.8em;
+    position: relative;
+}
+html.lt-ie9 #navigation {
+  top: 0; /* Move the navbar up inside #main's padding. */
+  /*height: 3em;*/
+  width: 100%;
+}
+
+
+/*
+ * Again...IE 8 does not support media queries even with respond.min.js
+ */
+html.lt-ie9 .sidebar-first #content { /* Span 4 columns, starting in 2nd column from left. */
+    float: left;
+    width: 76%;
+    clear: left;
+    margin: 15px -100% 0 24%;
+}
+
+html.lt-ie9 .sidebar-first .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+  float: left;
+  width: 23%;
+  margin: 9px -20% 0 0;
+  /*margin: 3.5em -20% 0 0%;*/
+}
+html.lt-ie9 .front.sidebar-first .region-sidebar-first {
+  margin-top: 13px; /* 2.2em;*/
+}
+
+html.lt-ie9 .front #content .block-views {
+  width: 31%;  
+}
+
+
+
+/*
+ * The layout when there is only one sidebar, the right one.
+*/
+
+html.lt-ie9 .sidebar-second #content { /* Span 4 columns, starting in 1st column from left. */
+    float: left;
+    width: 80%;
+    margin-left: 0%;
+    margin-right: -80%;
+}
+html.lt-ie9 .sidebar-second .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
+    float: left;
+    width: 20%;
+    margin-left: 80%;
+    margin-right: -100%;
+}
+
+    /*
+    * The layout when there are two sidebars.
+    */
+
+html.lt-ie9 .two-sidebars #content { /* Span 3 columns, starting in 2nd column from left. */
+    float: left;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: -80%;
+}
+html.lt-ie9 .two-sidebars .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+    float: left;
+    width: 20%;
+    margin-left: 0%;
+    margin-right: -20%;
+}
+html.lt-ie9 .two-sidebars .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
+    float: left;
+    width: 20%;
+    margin-left: 80%;
+    margin-right: -100%;
+}
+
+
+/*
+ * From islandora-basic-image-theme.css
+ */
+html.lt-ie9 body.no-sidebars .islandora-basic-image-content {
+    width: 65%;
+    float: left; /* LTR */
+}
+
+html.lt-ie9 body.no-sidebars .islandora-basic-image-sidebar {
+    padding-left: 20px;
+}
+
+html.lt-ie9 body.no-sidebars .islandora-basic-image-sidebar {
+    float: right; /* LTR */
+    width: 35%;
+    clear: none;
+}

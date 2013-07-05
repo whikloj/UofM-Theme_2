@@ -1,0 +1,114 @@
+/**
+ * General style sheet for UofM D7
+ */
+
+/**
+ * Front page blocks
+ */
+
+.front #content .block-menu {
+  float: left;
+  width: 100%;
+  margin: 0 0 35px;
+}
+
+.front #content .block-menu h2.block-title {
+  height: 22px;
+  margin: -5px 10px 0 -5px;
+  padding: 0 12px 0 13px;
+  border-bottom-right-radius: 10px;
+  background-color: #633706;
+  color: #fff;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.front #content .block-menu ul.menu {
+  height: 200px;
+  padding: 10px;
+  margin: 0 15px 0 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  list-style: none;
+  list-style-image: none;
+}
+
+.front #content #block-menu-menu-departments ul.menu {
+  height: 110px;
+}
+
+.front #content #block-menu-menu-archives-special-collection ul.menu {
+  height: 190px;
+}
+
+.front #content #block-menu-menu-archives-special-coll2 ul.menu {
+  height: 160px;
+}
+
+.front #content #block-menu-menu-facutly-of-medicine-archive ul.menu {
+  height: 40px;
+}
+
+.front #content #block-menu-menu-rare-books-collection ul.menu {
+  height: 90px;
+}
+
+.front #content #block-menu-menu-faculty-of-architecture ul.menu {
+  height: 40px;
+}
+
+.front #content .block-menu ul.menu li {
+  list-style: none;
+  list-style-image: none;  
+}
+
+/* from 840px */
+@media all and (min-width: 840px) {
+  .front #content .block-menu {
+    width: 50%;
+  }
+
+  .front #content #block-menu-menu-departments ul.menu,
+  .front #content #block-menu-menu-archives-special-collection ul.menu {
+    height: 200px;
+  }
+
+  .front #content #block-menu-menu-archives-special-coll2 ul.menu,
+  .front #content #block-menu-menu-facutly-of-medicine-archive ul.menu {
+    height: 150px;
+  }
+
+  .front #content #block-menu-menu-rare-books-collection ul.menu,
+  .front #content #block-menu-menu-faculty-of-architecture ul.menu {
+    height: 100px;
+  }
+  
+}
+
+/* from 1100px */
+@media all and (min-width: 1100px) {
+
+  .front #content .block-menu {
+    width: 33%;
+  }
+
+  .front #content #block-menu-menu-departments ul.menu,
+  .front #content #block-menu-menu-archives-special-collection ul.menu,
+  .front #content #block-menu-menu-archives-special-coll2 ul.menu {
+    height: 200px;
+  }
+
+  .front #content #block-menu-menu-facutly-of-medicine-archive ul.menu,
+  .front #content #block-menu-menu-rare-books-collection ul.menu,
+  .front #content #block-menu-menu-faculty-of-architecture ul.menu {
+    height: 100px;
+  }
+}
+
+.islandora-openseadragon-highlight {
+  opacity: 0.1;
+}
+
