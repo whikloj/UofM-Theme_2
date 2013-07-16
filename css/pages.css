@@ -72,7 +72,7 @@ body {
   box-shadow: 0px 2px 4px #777;
   -moz-box-shadow: 0px 2px 4px #777;
   -webkit-box-shadow: 0px 2px 4px #777;
-  behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+  behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 #logo { /* Wrapping link for logo */
@@ -125,7 +125,7 @@ body {
     padding:2px;
     border: 1px solid #dedede;
     box-shadow: 0 2px 4px #777;
-    behavior: url(/drupal7/sites/all/themes/css/PIE.htc); 
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
 }
 
 
@@ -147,7 +147,7 @@ body {
     background: #828282; /* Old browsers */
     background: linear-gradient(#aeaeae, #707070);
     box-shadow: 0 2px 4px #777;
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 /*
@@ -205,7 +205,7 @@ html.lt-ie9 #viewer-content h1.solr-result,
 html.gte-ie9 .page-islandora-search h1.solr-result, 
 html.gte-ie9 #viewer-content h1.solr-result {
     -pie-background: linear-gradient(#a3a3a3,#717171);
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 .page-islandora-search h1, #viewer-content h1 {

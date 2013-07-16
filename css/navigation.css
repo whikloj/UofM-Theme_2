@@ -43,7 +43,7 @@ li a.active {
     position:relative;
     width:100%;
     box-shadow: 0 2px 4px #777777;
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 #navigation .block {
@@ -203,7 +203,7 @@ li a.active {
 
 html.lt-ie9 #manidora-simple-search-form #edit-collection-select option,
 html.gte-ie9 #manidora-simple-search-form #edit-collection-select option {
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 #manidora-simple-search-form {

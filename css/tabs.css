@@ -16,7 +16,7 @@
 /*ul.primary,*/
 ul.secondary {
   overflow: hidden;
-  *zoom: 1;
+  zoom: 1;
   border-bottom: 1px solid #bbbbbb;
   list-style: none;
   margin: 1em 0 1.5em;
@@ -73,7 +73,7 @@ ul.primary li, .home-tab {
 /*    background: -o-linear-gradient(#c9c9c9, #aaa); /* Opera 11.10 */
 /*    background: linear-gradient(#c9c9c9, #aaa); */
     background: transparent url('../images/light-grey-gradient.png') repeat-x 0% 0%;
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);    
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);    
 }
 
 
@@ -89,7 +89,7 @@ ul.primary li:hover,
     /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#a3a3a3', endColorstr='#717171')"; /* IE8+ */
 /*    background: linear-gradient(#a3a3a3, #717171);*/
     background: transparent url('../images/dark-grey-gradient.png') repeat-x 0% 0%;
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 ul.primary li a, 
