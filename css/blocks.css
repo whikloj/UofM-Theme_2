@@ -182,7 +182,8 @@ html.gte-ie9 #block-islandora-solr-advanced {
 }
 
 /* block-block-3 is the Welcome block */
-#block-block-3 {
+#block-block-3,
+#block-block-2 {
 	position: relative;
 	float: left;
 	overflow:hidden;
@@ -195,14 +196,18 @@ html.gte-ie9 #block-islandora-solr-advanced {
     
 }
 
+#block-block-2 p,
 #block-block-3 p {
 	line-height: 1.5em;
 	margin: 0 8px 12px 8px;
 }
+
+#block-block-2 p.invisible,
 #block-block-3 p.invisible {
     margin:0;
 }
 
+#block-block-2 h2,
 #block-block-3 h2 {
     font-size: 1.75em;
     margin-left: 8px;
@@ -450,7 +455,9 @@ ul.home-tabs-container {
 }
 .home-panel.active {
     display: block;
-
+}
+.home-panel a:hover {
+    text-decoration: underline;
 }
 
 .column_50 {
@@ -461,12 +468,23 @@ ul.home-tabs-container {
     height: 284px;
 }
 .column_50.last {
-    border-right: 0px solid transparent;
+    border-right: none;
+}
+
+#home-panel-collections {
+    height: 284px;
+    overflow:auto;
 }
 
 #home-panel-collections .column_50 {
-    height:263px;
+    height:auto;
+    padding-top:10px;
 }
+
+.coll_letter_box  {
+    overflow:hidden;
+}
+
 
 .coll_alpha_list {
     display:block;
@@ -474,6 +492,12 @@ ul.home-tabs-container {
 }
 .coll_alpha_list a {
     font-weight:bold;
+}
+.coll_alpha_list a:active,
+.coll_alpha_list a:hover {
+    background-color: #3e727a;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* UofM Footer info */
@@ -490,6 +514,11 @@ ul.home-tabs-container {
 
 .region-featured .block {
     margin-bottom: 0;
+}
+
+.view-whats-new .views-field-info {
+    max-width: 113px;
+    display: inline-block;
 }
 
 
