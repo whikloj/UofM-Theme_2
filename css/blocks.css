@@ -52,7 +52,7 @@ html.lt-ie9 #block-manidora-manidora-newspaper-search,
 html.lt-ie9 #block-islandora-solr-advanced,
 html.gte-ie9 #block-manidora-manidora-newspaper-search,
 html.gte-ie9 #block-islandora-solr-advanced {
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+    behavior: url(/sites/all/themes/UofM-Theme/css/PIE.htc);
 }
 
 #block-manidora-manidora-newspaper-search h2.block-title,
@@ -167,7 +167,7 @@ html.gte-ie9 #block-islandora-solr-advanced {
 	padding: 2px 50px 2px 13px;
 /*	text-transform: uppercase;*/
 	/*width: 95%;*/
-	behavior: url(/drupal7/sites/all/themes/UofM-Theme/css/PIE.htc);
+	behavior: url(/sites/all/themes/UofM-Theme/css/PIE.htc);
 }
 
 #block-aggregator-category-1 { /* Block for the latest news items in the first category */
