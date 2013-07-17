@@ -35,13 +35,16 @@
         }
       });
     jQuery('.islandora-solr-range-slider, .islandora-solr-date-filter').css('left',0).hide(); // Move FLOT graph over and hide now
-    if (jQuery('#edit-collection-select').length > 0){
+    // 2013-06-17 whikloj - 
+    //   Removing the selectBoxIt as it requires jQuery-UI 10 and that requires the jQuery Update module which 
+    //   causes problems with the Drupal overlay administration pages.
+    /*if (jQuery('#edit-collection-select').length > 0){
       jQuery('#edit-collection-select').selectBoxIt({'theme':'bootstrap'});
       jQuery('#edit-collection-select').change(function(){ 
         jQuery("#edit-collection-select option").removeAttr("selected");
         jQuery("#edit-collection-select option[value='" + jQuery('#edit-collection-selectSelectBoxItText').attr('data-val') + "']").attr('selected','selected');
       });
-    }
+    }*/
   });
 
 
