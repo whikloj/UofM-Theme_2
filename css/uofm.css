@@ -112,3 +112,13 @@
   opacity: 0.1;
 }
 
+.solr-grid-thumb {
+  margin: 0 auto 5px auto;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+.solr-grid-thumb img {
+  margin: 0 auto;
+  display: block;
+}
