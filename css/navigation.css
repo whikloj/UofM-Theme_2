@@ -39,11 +39,13 @@ li a.active {
  */
 
 #navigation {
-    height: 30px;
+ /*   height: 30px;
     position:relative;
     width:100%;
     box-shadow: 0 2px 4px #777777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+ */
+  display:none; /* 2013-06-25 (whikloj) : we are not using this anymore */
 }
 
 #navigation .block {
@@ -161,7 +163,7 @@ li a.active {
 
  #block-islandora-collection-search-islandora-collection-search {
   position: relative;
-  float: left;
+  float: right;
   /*background: url('../images/search_bar_bg.png') repeat;*/
   z-index: 10;
   padding: 0 10px; margin: 0;
