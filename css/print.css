@@ -5,7 +5,9 @@
  * We provide some sane print styling for Drupal using Zen's layout method.
  */
 
-@media print {
+/*@media print {*/
+
+/* We are only using this with the print stylesheet type or printer module */
 
   a:link,
   a:visited { /* underline all links */
@@ -55,9 +57,10 @@
   .book-navigation,
   .forum-topic-navigation,
   .pager,
-  .feed-icons { /* Hide sidebars and nav elements */
+  .feed-icons,
+  .print-link  { /* Hide sidebars and nav elements */
     visibility: hidden;
     display: none;
   }
 
-} /* End @media print */
+/*}*/  /* End @media print */

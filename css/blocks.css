@@ -78,12 +78,18 @@ html.gte-ie9 #block-islandora-solr-advanced {
     overflow:hidden;
 }
 
+#block-menu-menu-new-main-menu {
+    overflow: hidden;
+    float: left;
+    margin: 0;
+}
 
 #block-menu-menu-search-bar,
 #block-menu-menu-search-bar-menu {
     float:right;
     overflow:hidden;
     margin:0;
+    height: 100%;
 }
 
 #block-menu-menu-search-bar ul.menu,
@@ -133,6 +139,49 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-menu-menu-search-bar-menu ul.menu li a:hover, 
 #block-menu-menu-new-main-menu ul.menu li a:hover {
     text-decoration:underline;
+}
+
+/* Collection search bar block */
+#block-islandora-collection-search-islandora-collection-search {
+  position: relative;
+  float: right;
+  /*background: url('../images/search_bar_bg.png') repeat;*/
+  z-index: 10;
+  padding: 0 10px; margin: 0;
+  overflow: visible; /* Needed for the selectBoxIt */
+  height: 100%;
+}
+
+#block-islandora-collection-search-islandora-collection-search h2 {
+  float: left;
+  font-size: 0.833em;
+  color: #fff;
+  margin-right: 15px;
+}
+
+#islandora-collection-search-form .form-text {
+    height: 16px;
+}
+
+#islandora-collection-search-form #edit-collection-select {
+    background-color: transparent;
+    color:#fff;
+    border: 0px solid transparent;
+}
+#islandora-collection-search-form #edit-collection-select option,
+#islandora-collection-search-form #edit-collection-select .selectboxit-container {
+    background: #828282;  /* Old browsers */
+    color:#fff;
+}
+
+
+html.lt-ie9 #islandora-collection-search-form #edit-collection-select option,
+html.gte-ie9 #islandora-collection-search-form #edit-collection-select option {
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+}
+
+#islandora-collection-search-form {
+  float: left;
 }
 
 /* jwhiklo : 2013-05-13 */

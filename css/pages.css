@@ -16,6 +16,7 @@ html, button, input, select, textarea {
     /* Override the font-family */
     font-family: Helvetica;
     font-size: 14px;
+    line-height: normal;
 }
 
 body {
@@ -127,6 +128,7 @@ body {
     border: 1px solid #dedede;
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
+    width: 964px;
 }
 
 
@@ -135,7 +137,9 @@ body {
  * Main (container for everything else)
  */
 
-#main {
+#main,
+html.lt-ie9 #main,
+html.gte-ie9 #main {
   padding-top: 0;
 }
 
@@ -143,13 +147,14 @@ body {
  *
  */
 #searchbar {
-    position:relative;
+    position: absolute;
     margin-top:10px;
     width: 100%;
     background: #828282; /* Old browsers */
     background: linear-gradient(#aeaeae, #707070);
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+  line-height: 1.5em;
 }
 
 /*
@@ -158,6 +163,8 @@ body {
 
 #content {
   float: left;
+  line-height: 1.5em;
+  margin-top: 15px;
 }
 
 .no-sidebars #content {
@@ -248,6 +255,11 @@ html.gte-ie9 #viewer-content h1.solr-result {
     font-size: 1em;
     padding-right:5px;
     margin: 0.25em 0;
+}
+
+.print-content .print-link {
+  visibility: hidden;
+  display:none;
 }
 
 .islandora-basic-image-content-wrapper, 
