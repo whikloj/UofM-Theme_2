@@ -63,4 +63,13 @@
     display: none;
   }
 
+  #searchbar {
+    position: relative;
+  }
+
+  .region-searchbar .block, 
+  .region-header .block {
+    display: block;
+    visibility: visible;
+  }
 /*}*/  /* End @media print */

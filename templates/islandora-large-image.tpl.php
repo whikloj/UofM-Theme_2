@@ -21,6 +21,20 @@
  * @see theme_islandora_large_image()
  */
   $collection_pids = array(); // To hold parent collection pids for Google Analytics
+  $object_id = $islandora_object->id;
+  if (!$parent_collections || (is_array($parent_collections) && count($parent_collections) == 0)){
+    module_load_include('inc','islandora','includes/utilities');
+    $parent_collections = islandora_get_parents_from_rels_ext($islandora_object);
+    if (is_array($parent_collections) && count($parent_collections) == 0){
+      $part = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI,'isPartOf');
+      if (is_array($part) && count($part) > 0){
+        $object_id = $part[0]['object']['value'];
+        $new_object = islandora_object_load($object_id);
+        $parent_collections = islandora_get_parents_from_rels_ext($new_object);
+      }
+    }
+  }
+
 ?>
 
 <div class="islandora-large-image-object islandora">
@@ -52,7 +66,7 @@
 <script type="text/javascript">
 <!--
   var _gaq = _gaq || [];
-  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object_id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
 //-->
 </script>

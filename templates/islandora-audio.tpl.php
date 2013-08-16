@@ -7,6 +7,7 @@
  * @TODO: add documentation about file and available variables
 *  @TODO: drupal_set_title shouldn't be called here
  */
+  $collection_pids = array(); // To hold parent collection pids for Google Analytics
 ?>
 
 <div class="islandora-audio-object islandora">
@@ -27,6 +28,7 @@
         <ul>
           <?php foreach ($parent_collections as $collection): ?>
             <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
+            <?php $collection_pids[] = $collection->id; ?>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -34,4 +36,11 @@
   </div>
   </div>
 </div>
+<script type="text/javascript">
+<!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
+//-->
+</script>
 

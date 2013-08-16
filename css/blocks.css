@@ -38,6 +38,12 @@ h2.block-title {
 	font-size: 0.93em;
 }
 
+.page-user-login .region-sidebar-second .block.first { 
+  /* copyright text box on login page in right sidebar */
+  border: 1px solid #dedede;
+  margin-top: 95px;
+  padding: 5px;
+}
 
 #block-manidora-manidora-newspaper-search,
 #block-islandora-solr-advanced {
@@ -646,4 +652,8 @@ ul.home-tabs-container {
     margin:0;
     padding:0;
     /*border:1px solid #000;*/
+}
+
+.user-login-copyright-text p {
+  margin: 10px 0px;
 }
