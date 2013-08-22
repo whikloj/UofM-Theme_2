@@ -109,30 +109,6 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_library('system', 'ui.widget');
 }
 
-/** 
- *For the future hopefully 
-*/
-/*
-function UofM_2_preprocess_islandora_newspaper_page(&$variables){
-  module_load_include('inc','islandora_newspaper','includes/utilities');
-  $issue_pid = islandora_newspaper_get_issue($variables['object']);
-  dsm("issue pid ($issue_pid)");
-  $collections = array();
-  if ($issue_pid){
-    if (is_array($issue_pid)){
-      foreach ($issue_pid as $pid){
-        $tmpobj = islandora_object_load($pid);
-        $collections[] = islandora_newspaper_get_newspaper($tmpobj);
-      }
-    } else {
-      $tmpobj = islandora_object_load($issue_pid);
-      $collections[] = islandora_newspaper_get_newspaper($tmpobj);
-    }
-  } 
-  $variables['parent_collections'] = $collections;
-}
-*/
-
 /**
  * Override or insert variables into the maintenance page template.
  *
@@ -177,8 +153,7 @@ function UofM_2_preprocess_html(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("page" in this case.)
  */
-/*
-function UofM_2_preprocess_page(&$vars, $hook) {
+/* function UofM_2_preprocess_page(&$vars, $hook) {
   // To get theme hook suggestions 
   //watchdog('UM Theme','theme hook suggestions <pre>%c</pre>',array('%c'=>$vars['theme_hook_suggestions']));
   ob_start();
@@ -186,7 +161,7 @@ function UofM_2_preprocess_page(&$vars, $hook) {
   $n = ob_get_clean();
   //watchdog('UM Theme','available vars in page <pre>%n</pre>',array('%n'=>$n));
 }
-// */
+*/
 
 /**
  * Override or insert variables into the node templates.
