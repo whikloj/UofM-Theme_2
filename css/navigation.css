@@ -39,11 +39,13 @@ li a.active {
  */
 
 #navigation {
-    height: 30px;
+ /*   height: 30px;
     position:relative;
     width:100%;
     box-shadow: 0 2px 4px #777777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+ */
+  display:none; /* 2013-06-25 (whikloj) : we are not using this anymore */
 }
 
 #navigation .block {
@@ -159,9 +161,9 @@ li a.active {
     height: 32px;
 }
 
- #block-manidora-manidora-simple-search {
+ #block-islandora-collection-search-islandora-collection-search {
   position: relative;
-  float: left;
+  float: right;
   /*background: url('../images/search_bar_bg.png') repeat;*/
   z-index: 10;
   padding: 0 10px; margin: 0;
@@ -169,24 +171,24 @@ li a.active {
 
  }
 
-#block-manidora-manidora-simple-search h2 {
+#block-islandora-collection-search-islandora-collection-search h2 {
   float: left;
   font-size: 0.833em;
   color: #fff;
   margin-right: 15px;
 }
 
-#manidora-simple-search-form .form-text {
+#islandora-collection-search-form .form-text {
     height: 16px;
 }
 
-#manidora-simple-search-form #edit-collection-select {
+#islandora-collection-search-form #edit-collection-select {
     background-color: transparent;
     color:#fff;
     border: 0px solid transparent;
 }
-#manidora-simple-search-form #edit-collection-select option,
-#manidora-simple-search-form #edit-collection-select .selectboxit-container {
+#islandora-collection-search-form #edit-collection-select option,
+#islandora-collection-search-form #edit-collection-select .selectboxit-container {
     
     background: #828282;  /* Old browsers */
    /* background: -moz-linear-gradient(top,  #aeaeae, #707070); /* FF3.6+ */
@@ -201,12 +203,12 @@ li a.active {
 }
 
 
-html.lt-ie9 #manidora-simple-search-form #edit-collection-select option,
-html.gte-ie9 #manidora-simple-search-form #edit-collection-select option {
+html.lt-ie9 #islandora-collection-search-form #edit-collection-select option,
+html.gte-ie9 #islandora-collection-search-form #edit-collection-select option {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
-#manidora-simple-search-form {
+#islandora-collection-search-form {
   float: left;
 }
 
@@ -225,7 +227,6 @@ html.gte-ie9 #manidora-simple-search-form #edit-collection-select option {
     margin-top:10px;
     margin-left:15px;
     font-weight:bold;
-
 }
 .breadcrumb ol {
   margin: 0;

@@ -94,7 +94,7 @@
   <?php if ($add_respond_js): ?>
     <!--[if lt IE 9]>
     <!--<script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>-->
-    <script src="<?php print $base_path . drupal_get_path('theme','UofM');?>/js/respond.min.js"></script>
+    <script src="<?php print $base_path . drupal_get_path('theme','UofM_2');?>/js/respond.min.js"></script>
     <![endif]-->
   <?php elseif ($add_html5_shim): ?>
     <!--[if lt IE 9]>
