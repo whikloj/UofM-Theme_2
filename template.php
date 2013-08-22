@@ -118,7 +118,7 @@ function UofM_2_preprocess_html(&$variables) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function UofM_preprocess_maintenance_page(&$variables, $hook) {
+function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
   // When a variable is manipulated or added in preprocess_html or
   // preprocess_page, that same work is probably needed for the maintenance page
   // as well, so we can just re-use those functions to do that work here.
@@ -136,7 +136,7 @@ function UofM_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("html" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function UofM_preprocess_html(&$variables, $hook) {
+function UofM_2_preprocess_html(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // The body tag's classes are controlled by the $classes_array variable. To
@@ -154,7 +154,7 @@ function UofM_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 /*
-function UofM_preprocess_page(&$vars, $hook) {
+function UofM_2_preprocess_page(&$vars, $hook) {
   // To get theme hook suggestions 
   //watchdog('UM Theme','theme hook suggestions <pre>%c</pre>',array('%c'=>$vars['theme_hook_suggestions']));
   ob_start();
@@ -173,7 +173,7 @@ function UofM_preprocess_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 /*
-function UofM_preprocess_node(&$vars, $hook) {
+function UofM_2_preprocess_node(&$vars, $hook) {
   ob_start();
   print_r($vars);
   $n = ob_get_clean();
@@ -190,7 +190,7 @@ function UofM_preprocess_node(&$vars, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function UofM_preprocess_comment(&$variables, $hook) {
+function UofM_2_preprocess_comment(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -204,7 +204,7 @@ function UofM_preprocess_comment(&$variables, $hook) {
  *   The name of the template being rendered ("region" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function UofM_preprocess_region(&$variables, $hook) {
+function UofM_2_preprocess_region(&$variables, $hook) {
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
@@ -221,7 +221,7 @@ function UofM_preprocess_region(&$variables, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function UofM_preprocess_block(&$variables, $hook) {
+function UofM_2_preprocess_block(&$variables, $hook) {
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
@@ -232,8 +232,3 @@ function UofM_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-
-/*function UofM_preprocess_islandora_solr(&$vars){
-  //module_load_include('inc', 'islandora_solr', 'includes/block');
-  //$solr_display = islandora_solr_display();
-}*/
