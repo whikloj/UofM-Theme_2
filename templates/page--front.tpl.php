@@ -82,7 +82,7 @@
       <!--<hgroup id="name-and-slogan">-->
       <div id="name-and-slogan">
         <?php if ($site_name): ?>
-          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
+          <h1 id="site-slogan"><a href="http://umanitoba.ca/libraries/" title="UM Libraries"><?php print $site_slogan; ?></a></h1>
         <?php endif; ?>
 
         <?php if ($site_slogan): ?>

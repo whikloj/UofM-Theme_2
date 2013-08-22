@@ -104,7 +104,7 @@ scripts[] = js/jquery.selectBoxIt.min.js
 
 regions[header]         = Header
 regions[navigation]     = Navigation bar
-regions[featured]		= Featured
+regions[featured]       = Featured
 regions[searchbar]      = Search Bar
 regions[highlighted]    = Highlighted
 regions[help]           = Help

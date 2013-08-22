@@ -97,12 +97,14 @@ body {
 
 #site-name { /* The name of the website */
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
   line-height: 1.3em;
   font-weight: normal;
 }
 #site-name a:link,
-#site-name a:visited {
+#site-name a:visited,
+#site-slogan a:link,
+#site-slogan a:visited {
   color: #442404;
   text-decoration: none;
 }
@@ -111,8 +113,9 @@ body {
 }
 
 #site-slogan { /* The slogan (or tagline) of a website */
+    /* jwhiklo : this is "Libraries" on our site */
   margin: 0;
-  font-size: 0.6em;
+  font-size: 1em;
   font-weight: normal;
 }
 
@@ -277,6 +280,15 @@ html.gte-ie9 #viewer-content h1.solr-result {
     border-top: none;
 }
 
+/* Make the viewer take the whole page */
+body.no-sidebars .islandora-large-image-content {
+    width: 100%; 
+}
+body.no-sidebars .islandora-large-image-sidebar {
+    clear:left;
+    float:none;
+}
+
 
 /*.islandora-solr-search-results*/
 .islandora-solr-content {
@@ -307,6 +319,10 @@ html.gte-ie9 #viewer-content h1.solr-result {
 .manidora-metadata {
     clear:left;
     border-top: 1px dotted #dedede;
+}
+
+.manidora-metadata .label {
+    max-width: 130px;
 }
 
 /* Hide the play button from the book viewer */

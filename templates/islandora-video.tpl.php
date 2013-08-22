@@ -16,10 +16,11 @@
  * @see template_preprocess_islandora_video()
  * @see theme_islandora_video()
  */
-  $collection_pids = array(); // To hold parent collection pids for Google Analytics
+ $collection_pids = array(); // To hold parent collection pids for Google Analytics
+ 
 ?>
 
-<div class="islandora-video-object islandora">
+<div class="islandora-video-object islandora" itemscope itemtype="http://schema.org/VideoObject">
   <div class="islandora-video-content-wrapper clearfix">
     <?php if ($islandora_content): ?>
       <div class="islandora-video-content">
@@ -29,7 +30,7 @@
   <div class="islandora-video-sidebar">
     <?php if (!empty($dc_array['dc:description']['value'])): ?>
       <h2><?php print $dc_array['dc:description']['label']; ?></h2>
-      <p><?php print $dc_array['dc:description']['value']; ?></p>
+      <p itemprop="description"><?php print $dc_array['dc:description']['value']; ?></p>
     <?php endif; ?>
     <?php if ($parent_collections): ?>
       <div>
@@ -37,35 +38,20 @@
         <ul>
           <?php foreach ($parent_collections as $collection): ?>
         <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
-            <?php $collection_pids[] = $collection->id; ?>
+          <?php $collection_pids[] = $collection->id; ?>
           <?php endforeach; ?>
         </ul>
       </div>
     <?php endif; ?>
   </div>
   </div>
-  <fieldset class="collapsible collapsed islandora-video-metadata">
-  <legend><span class="fieldset-legend"><?php print t('Details'); ?></span></legend>
-    <div class="fieldset-wrapper">
-      <dl class="islandora-inline-metadata islandora-video-fields">
-        <?php $row_field = 0; ?>
-        <?php foreach($dc_array as $key => $value): ?>
-          <dt class="<?php print $value['class']; ?><?php print $row_field == 0 ? ' first' : ''; ?>">
-            <?php print $value['label']; ?>
-          </dt>
-          <dd class="<?php print $value['class']; ?><?php print $row_field == 0 ? ' first' : ''; ?>">
-            <?php print $value['value']; ?>
-          </dd>
-          <?php $row_field++; ?>
-        <?php endforeach; ?>
-      </dl>
-    </div>
-  </fieldset>
 </div>
 <script type="text/javascript">
 <!--
   var _gaq = _gaq || [];
-  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
+  _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
 //-->
 </script>
+
