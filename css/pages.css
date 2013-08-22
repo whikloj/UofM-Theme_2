@@ -220,7 +220,7 @@ html.gte-ie9 #viewer-content h1.solr-result {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
-.page-islandora-search h1, #viewer-content h1 {
+.page-islandora-search #main h1, #viewer-content h1 {
     position: relative;
     /*color: #FFFFFF;*/
     font-size:1.286em;
