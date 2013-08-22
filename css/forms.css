@@ -29,8 +29,9 @@
   font-weight: normal;
 }
 
-.form-item input {
-    max-width:99%;
+#content .form-item input.form-text {
+  width: auto;
+  max-width: 99%;
 }
 .form-required { /* The part of the label that indicates a required field */
   color: #c00;
