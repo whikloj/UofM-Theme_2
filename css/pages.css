@@ -322,7 +322,11 @@ body.no-sidebars .islandora-large-image-sidebar {
 }
 
 .manidora-metadata .label {
-    max-width: 130px;
+  max-width: 130px;
+}
+
+.manidora-metadata td.label {
+    width: 130px;
 }
 
 /* Hide the play button from the book viewer */
