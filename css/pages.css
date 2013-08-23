@@ -478,7 +478,8 @@ span.field-label { /* The inline field label used by the Fences module */
     margin-left: 15px;
 }
 #islandora-solr-result-count { /* We don't need this display right now */
-    display:none;
+    display:block;
+  padding-top:30px;
 }
 
 #islandora-solr-top .pager {
