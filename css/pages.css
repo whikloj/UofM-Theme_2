@@ -281,10 +281,12 @@ html.gte-ie9 #viewer-content h1.solr-result {
 }
 
 /* Make the viewer take the whole page */
-body.no-sidebars .islandora-large-image-content {
+body.no-sidebars .islandora-large-image-content,
+body.no-sidebars .islandora-newspaper-content {
     width: 100%; 
 }
-body.no-sidebars .islandora-large-image-sidebar {
+body.no-sidebars .islandora-large-image-sidebar,
+body.no-sidebars .islandora-newspaper-sidebar {
     clear:left;
     float:none;
 }
