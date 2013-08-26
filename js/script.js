@@ -28,10 +28,10 @@
     jQuery('.islandora-solr-facet-wrapper h3').click(
       function(){
         var showIt = (jQuery(this).siblings().css('display') == 'none' ? 1 : 0);
-        jQuery('.islandora-solr-facet, .islandora-solr-facet-wrapper .soft-limit, .islandora-solr-range-slider, .islandora-solr-date-filter').hide();
+        jQuery('.islandora-solr-facet, .islandora-solr-range-slider, .islandora-solr-date-filter').hide();
         jQuery('.islandora-solr-facet-wrapper h3').removeClass('expanded');
         if (showIt){
-          jQuery(this).addClass('expanded').siblings().show();
+          jQuery(this).addClass('expanded').siblings('.islandora-solr-facet, .islandora-solr-range-slider, .islandora-solr-date-filter').show();
         }
       });
     jQuery('.islandora-solr-range-slider, .islandora-solr-date-filter').css('left',0).hide(); // Move FLOT graph over and hide now

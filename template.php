@@ -101,13 +101,27 @@
  *   http://drupal.org/node/223440 and http://drupal.org/node/1089656
  */
 
-/* -- Custom Fonts -- */
+ /**
+  * Override or insert variables into the html templates.
+  *
+  * @param $variables
+  *   An array of variables to pass to the theme template.
+  * @param $hook
+  *   The name of the template being rendered ("html" in this case.)
+  */
 function UofM_2_preprocess_html(&$variables) {
+  /* -- Custom Fonts -- */
   drupal_add_css('http://openfontlibrary.org/face/linear-regular', array('type' => 'external'));
   drupal_add_css('http://openfontlibrary.org/face/open-baskerville', array('type' => 'external'));
   drupal_add_css('http://openfontlibrary.org/face/news-cycle', array('type' => 'external'));
   drupal_add_library('system', 'ui.widget');
+  
+  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])){
+    $variables['classes_array'][] = 'islandora-collection';
+  }
+  
 }
+
 
 /**
  * Override or insert variables into the maintenance page template.
@@ -127,23 +141,6 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
 }
 // */
 
-/**
- * Override or insert variables into the html templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("html" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function UofM_2_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
-}
-// */
 
 /**
  * Override or insert variables into the page templates.
@@ -153,14 +150,11 @@ function UofM_2_preprocess_html(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("page" in this case.)
  */
-/*
-function UofM_2_preprocess_page(&$vars, $hook) {
-  // To get theme hook suggestions 
-  //watchdog('UM Theme','theme hook suggestions <pre>%c</pre>',array('%c'=>$vars['theme_hook_suggestions']));
-  ob_start();
-  print_r($vars);
-  $n = ob_get_clean();
-  //watchdog('UM Theme','available vars in page <pre>%n</pre>',array('%n'=>$n));
+
+function UofM_2_preprocess_page(&$variables, $hook) {
+  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])){
+    $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
+  }
 }
 // */
 
@@ -232,3 +226,4 @@ function UofM_2_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+

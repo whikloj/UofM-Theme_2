@@ -246,6 +246,11 @@ html.gte-ie9 #viewer-content h1.solr-result {
     font-size: 0.93em;
 }
 
+body.islandora-collection #viewer-content {
+    background-color: transparent;
+    border: none;
+}
+
 .print-link, .return-book-link, .print_html {
     float:right;
     font-size: 1em;
@@ -266,6 +271,30 @@ html.gte-ie9 #viewer-content h1.solr-result {
 .islandora-solr-search-results .islandora-solr-grid {
     border-top: none;
 }
+
+.islandora-basic-collection-info,
+.islandora-basic-collection-wrapper {
+    overflow:hidden;
+    margin-top: 23px;
+    overflow:hidden;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    padding: 2px;
+    box-shadow: 0 2px 4px #777;
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+}
+
+.islandora-basic-collection-info-text,
+.islandora-basic-collection-info-img {
+    float: left;
+    width: 48%;
+    overflow:hidden;
+}
+
+.islandora-basic-collection-wrapper {
+    margin-top:20px;
+}
+
 
 /* Make the viewer take the whole page */
 body.no-sidebars .islandora-large-image-content {
@@ -468,9 +497,36 @@ span.field-label { /* The inline field label used by the Fences module */
     margin:0;
 }
 
+/* Newspaper search page */
 #manidora-newspaper-search-form {
     clear:left;
 }
+#manidora-newspaper-search-form #edit-right-column {
+    float:right;
+}
+#manidora-newspaper-search-form #edit-right-column .label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.date-limiter .date-spacer {
+    padding: 0 2px;
+}
+#manidora-newspaper-search-form #edit-right-column .date-limiter {
+    overflow:hidden;
+}
+#manidora-newspaper-search-form .date-limiter span,
+#manidora-newspaper-search-form .form-item-date-from,
+#manidora-newspaper-search-form .form-item-date-to {
+    display: inline-block;
+    float: left;
+    margin: 0px;
+}
+
+#manidora-newspaper-search-form .form-item-date-from label,
+#manidora-newspaper-search-form .form-item-date-to label {
+    display: none;
+}
+
 
 .no-results {
   margin-left: 6em;
@@ -483,3 +539,6 @@ span.field-label { /* The inline field label used by the Fences module */
 button.BRicon.info {
     display: none;
 }
+
+
+
