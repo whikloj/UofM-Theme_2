@@ -43,10 +43,6 @@ body {
     float:left;
 }
 
-.islandora-basic-collection-info-text #page-title {
-  float: none;
-  font-size: 1.5em;
-}
 
 /*
  * The skip-link link will be completely hidden until a user tabs to the link.
@@ -104,6 +100,7 @@ body {
   font-size: 1.3em;
   line-height: 1.3em;
   font-weight: normal;
+  max-width:100%;
 }
 #site-name a:link,
 #site-name a:visited,
@@ -121,6 +118,7 @@ body {
   margin: 0;
   font-size: 1em;
   font-weight: normal;
+  max-width:100%;
 }
 
 .region-header { /* Wrapper for any blocks placed in the header region */
@@ -287,9 +285,11 @@ body.islandora-collection #viewer-content {
     border-top: none;
 }
 
-.collection-info-description {
-  font-size: 0.8em;
+.islandora-basic-collection-info-description {
+  font-size: 0.9em;
   line-height: 1.2em;
+  max-height: 60px;
+  overflow: auto;
 }
 
 .islandora-basic-collection-info,
@@ -304,13 +304,15 @@ body.islandora-collection #viewer-content {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
-.islandora-basic-collection-info-text,
-.islandora-basic-collection-info-img {
-    float: left;
-    overflow:hidden;
+.islandora-basic-collection-info #page-title {
+  float: none;
+  font-size: 1.5em;
 }
-.islandora-basic-collection-info-text {
-    width: 88%;
+.islandora-basic-collection-info-thumbnail {
+  float: right;
+  padding: 5px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .islandora-basic-collection-wrapper {

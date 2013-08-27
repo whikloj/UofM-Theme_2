@@ -8,17 +8,13 @@
  */
 ?>
 <div class="islandora-basic-collection-info">
-  <div class="islandora-basic-collection-info-text">
+   <?php if (isset($islandora_object['TN'])){
+      print '<img src="' . url('islandora/object/' . $islandora_object->id . '/datastream/TN/view') . '" alt="' . check_plain($dc_array['dc:title']['value']) . '" class="islandora-basic-collection-info-thumbnail" />';
+    }?>
   <h1 class="title" id="page-title"><?php if (array_key_exists('dc:title',$dc_array) && !empty($dc_array['dc:title']['value'])){ print $dc_array['dc:title']['value']; }?></h1>
   <?php if (array_key_exists('dc:description',$dc_array) && !empty($dc_array['dc:description']['value'])){
-      print '<div class="collection-info-description">' . check_plain($dc_array['dc:description']['value']) . '</div>';
+      print '<div class="islandora-basic-collection-info-description">' . check_plain($dc_array['dc:description']['value']) . '</div>';
     } ?>
-  </div> <!-- /islandora-basic-collection-info-text -->
-  <div class="islandora-basic-collection-info-img">
-   <?php if (isset($islandora_medium_img)){
-      print $islandora_medium_img;
-    }?>
-  </div> <!-- /islandora-basic-collection-info-img -->
 </div> <!-- /islandora-basic-collection-info -->
 <div class="islandora-basic-collection-wrapper">
   <div class="islandora-basic-collection clearfix">
@@ -33,6 +29,6 @@
     </span>
     <?php print $collection_pager; ?>
     <?php print $collection_content; ?>
-    <?php print $collection_pager; ?>
+    <?php //print $collection_pager; ?>
   </div>
 </div>
