@@ -42,6 +42,10 @@ body {
     float:left;
 }
 
+.islandora-basic-collection-info-text #page-title {
+  float: none;
+  font-size: 1.5em;
+}
 
 /*
  * The skip-link link will be completely hidden until a user tabs to the link.
@@ -272,6 +276,11 @@ body.islandora-collection #viewer-content {
     border-top: none;
 }
 
+.collection-info-description {
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
 .islandora-basic-collection-info,
 .islandora-basic-collection-wrapper {
     overflow:hidden;
@@ -279,7 +288,7 @@ body.islandora-collection #viewer-content {
     overflow:hidden;
     border: 1px solid #dedede;
     background-color: #fff;
-    padding: 2px;
+    padding: 5px;
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
@@ -287,14 +296,20 @@ body.islandora-collection #viewer-content {
 .islandora-basic-collection-info-text,
 .islandora-basic-collection-info-img {
     float: left;
-    width: 48%;
     overflow:hidden;
+}
+.islandora-basic-collection-info-text {
+    width: 88%;
 }
 
 .islandora-basic-collection-wrapper {
     margin-top:20px;
 }
 
+.islandora-basic-collection-grid {
+  height: 280px;
+  overflow: auto;
+}
 
 /* Make the viewer take the whole page */
 body.no-sidebars .islandora-large-image-content {
