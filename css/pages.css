@@ -16,7 +16,6 @@ html, button, input, select, textarea {
     /* Override the font-family */
     font-family: Helvetica;
     font-size: 14px;
-    line-height: normal;
 }
 
 body {
@@ -37,6 +36,7 @@ body {
 /* jwhiklo : 2013-05-10 */
   /*padding-top: 15px;*/
   background-color: #f4f4f3;
+  line-height: normal; /* 2013-08-27 (whikloj) This solved the menu expansion in Chrome. Line height is re-added to #content */
 }
 
 #page-title {
@@ -100,6 +100,7 @@ body {
   font-size: 1.3em;
   line-height: 1.3em;
   font-weight: normal;
+  max-width:100%;
 }
 #site-name a:link,
 #site-name a:visited,
@@ -117,6 +118,7 @@ body {
   margin: 0;
   font-size: 1em;
   font-weight: normal;
+  max-width:100%;
 }
 
 .region-header { /* Wrapper for any blocks placed in the header region */
@@ -124,14 +126,22 @@ body {
 }
 
 /* jwhiklo - 2013-05-13 */
+.region-featured:before,
+.region-featured:after {
+    content:"";
+    display:table;
+}
+.region-featured:after {
+    clear:both;
+}
+
 .region-featured {
-    overflow:hidden;
     padding: 2px;
     margin-top: 10px;
     border: 1px solid #dedede;
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
-    width: 964px;
+    zoom:1;
 }
 
 
@@ -140,9 +150,7 @@ body {
  * Main (container for everything else)
  */
 
-#main,
-html.lt-ie9 #main,
-html.gte-ie9 #main {
+#main {
   padding-top: 0;
 }
 
@@ -150,14 +158,13 @@ html.gte-ie9 #main {
  *
  */
 #searchbar {
-    position: absolute;
+    position:relative;
     margin-top:10px;
     width: 100%;
     background: #828282; /* Old browsers */
     background: linear-gradient(#aeaeae, #707070);
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
-  line-height: 1.5em;
 }
 
 /*
@@ -167,7 +174,6 @@ html.gte-ie9 #main {
 #content {
   float: left;
   line-height: 1.5em;
-  margin-top: 15px;
 }
 
 .no-sidebars #content {
@@ -220,7 +226,7 @@ html.gte-ie9 #viewer-content h1.solr-result {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
-.page-islandora-search #main h1, #viewer-content h1 {
+.page-islandora-search h1, #viewer-content h1 {
     position: relative;
     /*color: #FFFFFF;*/
     font-size:1.286em;
@@ -253,6 +259,11 @@ html.gte-ie9 #viewer-content h1.solr-result {
     font-size: 0.93em;
 }
 
+body.islandora-collection #viewer-content {
+    background-color: transparent;
+    border: none;
+}
+
 .print-link, .return-book-link, .print_html {
     float:right;
     font-size: 1em;
@@ -260,14 +271,8 @@ html.gte-ie9 #viewer-content h1.solr-result {
     margin: 0.25em 0;
 }
 
-.print-content .print-link {
-  visibility: hidden;
-  display:none;
-}
-
 .islandora-basic-image-content-wrapper, 
 .islandora-large-image-content-wrapper,
-.islandora-video-content-wrapper,
 #book-page-viewer, 
 #book-viewer, 
 .islandora-objects-grid, 
@@ -280,13 +285,50 @@ html.gte-ie9 #viewer-content h1.solr-result {
     border-top: none;
 }
 
+.islandora-basic-collection-info-description {
+  font-size: 0.9em;
+  line-height: 1.2em;
+  max-height: 60px;
+  overflow: auto;
+}
+
+.islandora-basic-collection-info,
+.islandora-basic-collection-wrapper {
+    overflow:hidden;
+    margin-top: 23px;
+    overflow:hidden;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 2px 4px #777;
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+}
+
+.islandora-basic-collection-info #page-title {
+  float: none;
+  font-size: 1.5em;
+}
+.islandora-basic-collection-info-thumbnail {
+  float: right;
+  padding: 5px;
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.islandora-basic-collection-wrapper {
+    margin-top:20px;
+}
+
+.islandora-basic-collection-grid {
+  height: 280px;
+  overflow: auto;
+}
+
 /* Make the viewer take the whole page */
-body.no-sidebars .islandora-large-image-content,
-body.no-sidebars .islandora-newspaper-content {
+body.no-sidebars .islandora-large-image-content {
     width: 100%; 
 }
-body.no-sidebars .islandora-large-image-sidebar,
-body.no-sidebars .islandora-newspaper-sidebar {
+body.no-sidebars .islandora-large-image-sidebar {
     clear:left;
     float:none;
 }
@@ -324,11 +366,7 @@ body.no-sidebars .islandora-newspaper-sidebar {
 }
 
 .manidora-metadata .label {
-  max-width: 130px;
-}
-
-.manidora-metadata td.label {
-    width: 130px;
+    max-width: 130px;
 }
 
 /* Hide the play button from the book viewer */
@@ -480,17 +518,43 @@ span.field-label { /* The inline field label used by the Fences module */
     margin-left: 15px;
 }
 #islandora-solr-result-count { /* We don't need this display right now */
-    display:block;
-  padding-top:30px;
+    display:none;
 }
 
 #islandora-solr-top .pager {
     margin:0;
 }
 
+/* Newspaper search page */
 #manidora-newspaper-search-form {
     clear:left;
 }
+#manidora-newspaper-search-form #edit-right-column {
+    float:right;
+}
+#manidora-newspaper-search-form #edit-right-column .label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.date-limiter .date-spacer {
+    padding: 0 2px;
+}
+#manidora-newspaper-search-form #edit-right-column .date-limiter {
+    overflow:hidden;
+}
+#manidora-newspaper-search-form .date-limiter span,
+#manidora-newspaper-search-form .form-item-date-from,
+#manidora-newspaper-search-form .form-item-date-to {
+    display: inline-block;
+    float: left;
+    margin: 0px;
+}
+
+#manidora-newspaper-search-form .form-item-date-from label,
+#manidora-newspaper-search-form .form-item-date-to label {
+    display: none;
+}
+
 
 .no-results {
   margin-left: 6em;
@@ -503,3 +567,6 @@ span.field-label { /* The inline field label used by the Fences module */
 button.BRicon.info {
     display: none;
 }
+
+
+

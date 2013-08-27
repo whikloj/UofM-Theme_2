@@ -38,12 +38,6 @@ h2.block-title {
 	font-size: 0.93em;
 }
 
-.page-user-login .region-sidebar-second .block.first { 
-  /* copyright text box on login page in right sidebar */
-  border: 1px solid #dedede;
-  margin-top: 95px;
-  padding: 5px;
-}
 
 #block-manidora-manidora-newspaper-search,
 #block-islandora-solr-advanced {
@@ -85,17 +79,15 @@ html.gte-ie9 #block-islandora-solr-advanced {
 }
 
 #block-menu-menu-new-main-menu {
-    overflow: hidden;
-    float: left;
-    margin: 0;
+  float:left;
+  overflow:hidden;
+  margin: 6px 0 0 0;
 }
-
 #block-menu-menu-search-bar,
 #block-menu-menu-search-bar-menu {
     float:right;
     overflow:hidden;
-    margin:0;
-    height: 100%;
+  margin: 6px 0 0 0;
 }
 
 #block-menu-menu-search-bar ul.menu,
@@ -145,49 +137,6 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-menu-menu-search-bar-menu ul.menu li a:hover, 
 #block-menu-menu-new-main-menu ul.menu li a:hover {
     text-decoration:underline;
-}
-
-/* Collection search bar block */
-#block-islandora-collection-search-islandora-collection-search {
-  position: relative;
-  float: right;
-  /*background: url('../images/search_bar_bg.png') repeat;*/
-  z-index: 10;
-  padding: 0 10px; margin: 0;
-  overflow: visible; /* Needed for the selectBoxIt */
-  height: 100%;
-}
-
-#block-islandora-collection-search-islandora-collection-search h2 {
-  float: left;
-  font-size: 0.833em;
-  color: #fff;
-  margin-right: 15px;
-}
-
-#islandora-collection-search-form .form-text {
-    height: 16px;
-}
-
-#islandora-collection-search-form #edit-collection-select {
-    background-color: transparent;
-    color:#fff;
-    border: 0px solid transparent;
-}
-#islandora-collection-search-form #edit-collection-select option,
-#islandora-collection-search-form #edit-collection-select .selectboxit-container {
-    background: #828282;  /* Old browsers */
-    color:#fff;
-}
-
-
-html.lt-ie9 #islandora-collection-search-form #edit-collection-select option,
-html.gte-ie9 #islandora-collection-search-form #edit-collection-select option {
-    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
-}
-
-#islandora-collection-search-form {
-  float: left;
 }
 
 /* jwhiklo : 2013-05-13 */
@@ -652,8 +601,4 @@ ul.home-tabs-container {
     margin:0;
     padding:0;
     /*border:1px solid #000;*/
-}
-
-.user-login-copyright-text p {
-  margin: 10px 0px;
 }
