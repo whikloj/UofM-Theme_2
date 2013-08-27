@@ -123,13 +123,22 @@ body {
 }
 
 /* jwhiklo - 2013-05-13 */
+.region-featured:before,
+.region-featured:after {
+    content:"";
+    display:table;
+}
+.region-featured:after {
+    clear:both;
+}
+
 .region-featured {
-    overflow:hidden;
     padding: 2px;
     margin-top: 10px;
     border: 1px solid #dedede;
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
+    zoom:1;
 }
 
 
