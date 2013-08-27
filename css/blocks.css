@@ -78,12 +78,16 @@ html.gte-ie9 #block-islandora-solr-advanced {
     overflow:hidden;
 }
 
-
+#block-menu-menu-new-main-menu {
+  float:left;
+  overflow:hidden;
+  margin: 6px 0 0 0;
+}
 #block-menu-menu-search-bar,
 #block-menu-menu-search-bar-menu {
     float:right;
     overflow:hidden;
-    margin:0;
+  margin: 6px 0 0 0;
 }
 
 #block-menu-menu-search-bar ul.menu,

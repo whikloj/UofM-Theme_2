@@ -161,15 +161,13 @@ li a.active {
     height: 32px;
 }
 
- #block-islandora-collection-search-islandora-collection-search {
+#block-islandora-collection-search-islandora-collection-search {
   position: relative;
   float: right;
-  /*background: url('../images/search_bar_bg.png') repeat;*/
   z-index: 10;
-  padding: 0 10px; margin: 0;
-  overflow: visible; /* Needed for the selectBoxIt */
-
- }
+  padding: 0 10px; 
+  margin: 0;
+}
 
 #block-islandora-collection-search-islandora-collection-search h2 {
   float: left;

@@ -36,6 +36,7 @@ body {
 /* jwhiklo : 2013-05-10 */
   /*padding-top: 15px;*/
   background-color: #f4f4f3;
+  line-height: normal; /* 2013-08-27 (whikloj) This solved the menu expansion in Chrome. Line height is re-added to #content */
 }
 
 #page-title {
@@ -174,6 +175,7 @@ body {
 
 #content {
   float: left;
+  line-height: 1.5em;
 }
 
 .no-sidebars #content {
