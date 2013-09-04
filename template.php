@@ -115,6 +115,7 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_css('http://openfontlibrary.org/face/open-baskerville', array('type' => 'external'));
   drupal_add_css('http://openfontlibrary.org/face/news-cycle', array('type' => 'external'));
   drupal_add_library('system', 'ui.widget');
+  drupal_add_js(drupal_get_path('theme','UofM_2') . '/js/collection_page.js',array('group'=>JS_THEME));
   
   if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])){
     $variables['classes_array'][] = 'islandora-collection';
