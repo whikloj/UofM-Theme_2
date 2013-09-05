@@ -284,7 +284,7 @@ body.islandora-collection #viewer-content {
 /* above except in search results */
 .islandora-solr-search-results .islandora-solr-grid {
     border-top: none;
-    max-height: 600px;
+    height: 280px;
     overflow: auto;
 }
 .islandora-solr-content .pager {
