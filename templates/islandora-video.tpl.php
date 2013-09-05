@@ -45,7 +45,7 @@
 <script type="text/javascript">
 <!--
   var _gaq = _gaq || [];
-  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
 //-->
