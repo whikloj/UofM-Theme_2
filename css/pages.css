@@ -283,6 +283,23 @@ body.islandora-collection #viewer-content {
     clear:left;
     border-top: 1px dotted #dedede;
 }
+
+.islandora-basic-image-content, 
+.islandora-large-image-content,
+.islandora-video-content,
+.islandora-audio-content {
+    width: 100%;
+    text-align:center;
+    float:none;
+}
+.islandora-basic-image-sidebar, 
+.islandora-large-image-sidebar,
+.islandora-video-sidebar,
+.islandora-audio-sidebar {
+    clear:left;
+    float:none;
+}
+
 /* above except in search results */
 .islandora-solr-search-results .islandora-solr-grid {
     border-top: none;
