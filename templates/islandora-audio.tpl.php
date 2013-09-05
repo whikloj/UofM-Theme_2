@@ -19,10 +19,6 @@
       </div>
     <?php endif; ?>
   <div class="islandora-audio-sidebar">
-    <?php if (!empty($dc_array['dc:description']['value'])): ?>
-      <h2><?php print $dc_array['dc:description']['label']; ?></h2>
-      <p><?php print $dc_array['dc:description']['value']; ?></p>
-    <?php endif; ?>
     <?php if ($parent_collections): ?>
       <div>
         <h2><?php print t('In collections'); ?></h2>
