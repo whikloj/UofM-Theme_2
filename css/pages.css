@@ -284,18 +284,18 @@ body.islandora-collection #viewer-content {
     border-top: 1px dotted #dedede;
 }
 
-.islandora-basic-image-content, 
-.islandora-large-image-content,
-.islandora-video-content,
-.islandora-audio-content {
+body.no-sidebars .islandora-basic-image-content, 
+body.no-sidebars .islandora-large-image-content,
+body.no-sidebars .islandora-video-content,
+body.no-sidebars .islandora-audio-content {
     width: 100%;
     text-align:center;
     float:none;
 }
-.islandora-basic-image-sidebar, 
-.islandora-large-image-sidebar,
-.islandora-video-sidebar,
-.islandora-audio-sidebar {
+body.no-sidebars .islandora-basic-image-sidebar, 
+body.no-sidebars .islandora-large-image-sidebar,
+body.no-sidebars .islandora-video-sidebar,
+body.no-sidebars .islandora-audio-sidebar {
     clear:left;
     float:none;
 }
