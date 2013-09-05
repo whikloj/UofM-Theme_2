@@ -277,7 +277,9 @@ body.islandora-collection #viewer-content {
 #book-page-viewer, 
 #book-viewer, 
 .islandora-objects-grid, 
-.islandora-solr-grid {
+.islandora-solr-grid,
+.islandora-video-content-wrapper,
+.islandora-audio-content-wrapper {
     clear:left;
     border-top: 1px dotted #dedede;
 }
