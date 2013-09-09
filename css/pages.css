@@ -166,8 +166,8 @@ body {
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
-body.lt-ie9 #searchbar {
-    background: transparent url('../images/search_bar_bg.png') 0% 0%;
+html.lt-ie9 .region-searchbar {
+    background: transparent url('../images/search_bar_bg.png') repeat-x 50% 0%;
 }
 
 /*
