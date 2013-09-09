@@ -161,10 +161,13 @@ body {
     position:relative;
     margin-top:10px;
     width: 100%;
-    background: #828282; /* Old browsers */
+   /* background: #828282; /* Old browsers */
     background: linear-gradient(#aeaeae, #707070);
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+}
+body.lt-ie9 #searchbar {
+    background: transparent url('../images/search_bar_bg.png') 0% 0%;
 }
 
 /*
@@ -285,13 +288,18 @@ body.islandora-collection #viewer-content {
 }
 
 body.no-sidebars .islandora-basic-image-content, 
-body.no-sidebars .islandora-large-image-content,
-body.no-sidebars .islandora-video-content,
-body.no-sidebars .islandora-audio-content {
+body.no-sidebars .islandora-large-image-content {
     width: 100%;
     text-align:center;
     float:none;
 }
+body.no-sidebars .islandora-video-content,
+body.no-sidebars .islandora-audio-content {
+    text-align:center;
+    float:none;
+    width: 65%;    
+}
+
 body.no-sidebars .islandora-basic-image-sidebar, 
 body.no-sidebars .islandora-large-image-sidebar,
 body.no-sidebars .islandora-video-sidebar,
@@ -581,6 +589,11 @@ span.field-label { /* The inline field label used by the Fences module */
 .islandora-compound-thumb .islandora-compound-caption {
     /* Caption above each thumbnail in a compound object */
     display:none;
+}
+
+.islandora-compound-thumb img {
+    max-height: 100px;
+    max-width: 110px;
 }
 
 
