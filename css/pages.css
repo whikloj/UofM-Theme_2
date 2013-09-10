@@ -289,7 +289,8 @@ body.islandora-collection #viewer-content {
 .islandora-objects-grid, 
 .islandora-solr-grid,
 .islandora-video-content-wrapper,
-.islandora-audio-content-wrapper {
+.islandora-audio-content-wrapper,
+.islandora-pdf-content-wrapper {
     clear:left;
     border-top: 1px dotted #dedede;
 }

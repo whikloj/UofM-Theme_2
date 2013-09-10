@@ -58,7 +58,10 @@
   .forum-topic-navigation,
   .pager,
   .feed-icons,
-  .print-link  { /* Hide sidebars and nav elements */
+  .print-link,
+  #navigation,
+  #searchbar,
+  .block-islandora-compound-object  { /* Hide sidebars and nav elements */
     visibility: hidden;
     display: none;
   }
