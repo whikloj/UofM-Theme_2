@@ -534,7 +534,7 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .region-sidebar-first {
   margin-top: 1em;
-  line-height: auto;
+  line-height: normal;
 }
 
 /*
