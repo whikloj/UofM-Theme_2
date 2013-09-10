@@ -102,6 +102,10 @@ body {
   font-weight: normal;
   max-width:100%;
 }
+html.lt-ie9 #site-name {
+  max-width:auto;
+  width:100%;
+}
 #site-name a:link,
 #site-name a:visited,
 #site-slogan a:link,
@@ -166,7 +170,10 @@ body {
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
-html.lt-ie9 .region-searchbar {
+
+html.lt-ie9 .region-searchbar,
+html.gte-ie9 .region-searchbar {
+    /* Because IE doesn't support gradients */
     background: transparent url('../images/search_bar_bg.png') repeat-x 50% 0%;
 }
 

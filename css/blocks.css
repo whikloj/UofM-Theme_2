@@ -389,6 +389,7 @@ dl.solr-fields {
 	/*top: -94px;*/
 	float: right;
 	/*right: -10px;*/
+	margin-top:10px;
 }
 
 #googleButton {
