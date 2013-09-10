@@ -36,7 +36,7 @@ body {
 /* jwhiklo : 2013-05-10 */
   /*padding-top: 15px;*/
   background-color: #f4f4f3;
-  line-height: normal; /* 2013-08-27 (whikloj) This solved the menu expansion in Chrome. Line height is re-added to #content */
+  line-height: 11px; /* 2013-08-27 (whikloj) This solved the menu expansion in Chrome. Line height is re-added to #content */
 }
 
 #page-title {
@@ -295,7 +295,8 @@ body.islandora-collection #viewer-content {
 }
 
 body.no-sidebars .islandora-basic-image-content, 
-body.no-sidebars .islandora-large-image-content {
+body.no-sidebars .islandora-large-image-content,
+body.no-sidebars .islandora-newspaper-content {
     width: 100%;
     text-align:center;
     float:none;
@@ -310,7 +311,8 @@ body.no-sidebars .islandora-audio-content {
 body.no-sidebars .islandora-basic-image-sidebar, 
 body.no-sidebars .islandora-large-image-sidebar,
 body.no-sidebars .islandora-video-sidebar,
-body.no-sidebars .islandora-audio-sidebar {
+body.no-sidebars .islandora-audio-sidebar,
+body.no-sidebars .islandora-newspaper-sidebar {
     clear:left;
     float:none;
 }
@@ -532,6 +534,7 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .region-sidebar-first {
   margin-top: 1em;
+  line-height: auto;
 }
 
 /*
