@@ -11,7 +11,7 @@
 ?>
 
 <div class="islandora-audio-object islandora">
-  <?php print manidora_print_insert_link("print/islandora/object/{$islandora_object->id}"); ?>
+  <?php print manidora_print_insert_link("islandora/object/{$islandora_object->id}"); ?>
   <div class="islandora-audio-content-wrapper clearfix">
     <?php if (isset($islandora_content)): ?>
       <div class="islandora-audio-content">

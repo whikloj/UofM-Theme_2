@@ -10,7 +10,7 @@
 ?>
 
 <div class="islandora-pdf-object islandora">
-  <div><?php print t('click image to print'); ?></div>
+  <div class="print-link"><?php print t('click image to print'); ?></div>
   <div class="islandora-pdf-content-wrapper clearfix">
     <?php if (isset($islandora_content)): ?>
       <div class="islandora-pdf-content">

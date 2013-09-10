@@ -302,7 +302,8 @@ body.no-sidebars .islandora-newspaper-content {
     float:none;
 }
 body.no-sidebars .islandora-video-content,
-body.no-sidebars .islandora-audio-content {
+body.no-sidebars .islandora-audio-content,
+body.no-sidebars .islandora-pdf-content {
     text-align:center;
     float:none;
     width: 65%;    
@@ -312,7 +313,8 @@ body.no-sidebars .islandora-basic-image-sidebar,
 body.no-sidebars .islandora-large-image-sidebar,
 body.no-sidebars .islandora-video-sidebar,
 body.no-sidebars .islandora-audio-sidebar,
-body.no-sidebars .islandora-newspaper-sidebar {
+body.no-sidebars .islandora-newspaper-sidebar,
+body.no-sidebars .islandora-pdf-sidebar {
     clear:left;
     float:none;
 }
