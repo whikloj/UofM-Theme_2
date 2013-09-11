@@ -16,6 +16,7 @@
  document.createElement('section');
  document.createElement('aside');
  document.createElement('nav');
+ document.createElement('article');
 
 // JavaScript should be made compatible with libraries other than jQuery by
 // wrapping it with an "anonymous closure". See:
