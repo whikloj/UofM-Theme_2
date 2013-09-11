@@ -166,6 +166,7 @@ html.lt-ie9 #site-name {
     margin-top:10px;
     width: 100%;
    /* background: #828282; /* Old browsers */
+   background: -webkit-linear-gradient(top, #aeaeae 0%, #707070 99%);
     background: linear-gradient(#aeaeae, #707070);
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
