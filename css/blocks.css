@@ -461,13 +461,15 @@ ul.home-tabs-container {
 
 
 .home-panel {
-    display: none;
-    overflow:auto;
-    clear:left;
-    padding: 5px;
-    border: 2px solid #dedede;
-    background-color:#fff;
-    margin-top:-1px;
+  display: none;
+  overflow:auto;
+  clear:left;
+  padding: 5px;
+  border: 2px solid #dedede;
+  background-color:#fff;
+  margin-top:-1px;
+  font-size: 0.85em;
+  font-weight:bold;
 }
 .home-panel.active {
     display: block;
@@ -537,6 +539,8 @@ ul.home-tabs-container {
 .view-whats-new .views-field-info {
     max-width: 113px;
     display: inline-block;
+  font-size: 0.85em;
+  font-weight: bold;
 }
 
 
