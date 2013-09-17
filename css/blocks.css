@@ -129,6 +129,7 @@ html.gte-ie9 #block-islandora-solr-advanced {
  
 }
 
+#block-menu-menu-search-bar-menu ul.menu li.last,
 #block-menu-menu-search-bar ul.menu li.last {
     border-right: 1px solid rgb(170,170,170);
 }
