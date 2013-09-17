@@ -342,6 +342,7 @@ body.no-sidebars .islandora-pdf-sidebar {
 
 dl.solr-grid-field {
     height: 200px;
+    overflow: hidden;
 }
 
 .islandora-solr-content .pager {
