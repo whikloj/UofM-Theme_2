@@ -91,7 +91,10 @@ html.gte-ie9 #block-islandora-solr-advanced {
     overflow:hidden;
   margin: 6px 0 0 0;
 }
-
+#block-menu-menu-new-main-menu {
+    /* Move over Search box a bit on non-frontpage pages */
+    margin-right: 100px;
+}
 .page-frontpage #block-menu-menu-new-main-menu {
     /* Pad Home to push search in line with Subject tab only on front page*/
     margin-right:172px;

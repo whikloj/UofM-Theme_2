@@ -40,9 +40,11 @@
     #slogan-floater {
         display:block;
     }
-    #block-menu-menu-new-main-menu {
-        margin-right:0;
+    #block-menu-menu-new-main-menu,
+    .page-frontpage #block-menu-menu-new-main-menu {
+        margin-right:0px;
     }
+    
     .view-whats-new .views-field-info {
         max-width: 68px;
     }
@@ -52,5 +54,8 @@
     }
     #block-views-whats-new-block {
         height: 298px;
+    }
+    article {
+        padding: 0 5px;
     }
 }
