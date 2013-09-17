@@ -1,4 +1,4 @@
-@media (max-width : 768px), handheld and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
     /* iPad non-retina - Portrait*/
     #page, .region-bottom {
         max-width: 764px;
@@ -21,6 +21,8 @@
     }
     #block-manidora-manidora-homepage-thumbnails {
         max-width: 346px;
+        max-height: 154px;
+        overflow:hidden;
     }
     .manidora-homepage-thumb-link {
         margin: 6px 2px;

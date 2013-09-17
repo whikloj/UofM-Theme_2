@@ -144,12 +144,14 @@ html.lt-ie9 #site-name {
     margin-top: 10px;
     border: 1px solid #dedede;
     box-shadow: 0 2px 4px #777;
-    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
-    zoom:1;
     height: 154px; /* Trying to limit to allow for hiding extra images on tablets/smartphones */
-    overflow: hidden;
 }
 
+html.lt-ie9 .region-featured,
+html.gte-ie9 .region-featured {
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
+    zoom:1;
+}
 
 
 /*
