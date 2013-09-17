@@ -169,6 +169,7 @@ html.gte-ie9 .region-featured {
     position:relative;
     margin-top:10px;
     width: 100%;
+    background: -moz-linear-gradient(top, #aeaeae, #555555);
     background: -webkit-linear-gradient(top, #aeaeae 0%, #555555 99%);
     background: linear-gradient(#aeaeae, #555555);
     box-shadow: 0 2px 4px #777;
