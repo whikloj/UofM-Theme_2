@@ -118,7 +118,8 @@ html.gte-ie9 #block-islandora-solr-advanced {
     border-left: 1px solid rgb(170,170,170);
     line-height: normal;
 }
-#block-menu-menu-new-main-menu ul.menu li {
+#block-menu-menu-new-main-menu ul.menu li,
+#block-menu-menu-search-bar-user-menu ul.menu li {
   border-left:none;
 }
 
@@ -126,6 +127,10 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-menu-menu-search-bar-menu ul.menu li.first,
 #block-menu-menu-new-main-menu ul.menu li.first {
  
+}
+
+#block-menu-menu-search-bar ul.menu li.last {
+    border-right: 1px solid rgb(170,170,170);
 }
 
 #block-menu-menu-search-bar ul.menu li a,
