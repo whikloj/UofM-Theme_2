@@ -62,18 +62,14 @@ ul.primary li, .home-tab {
 /*    letter-spacing: 1pt;*/
     padding:2px 50px 2px 13px;
     height: 22px;
-    -moz-border-radius-topright:40px;
-    -webkit-border-top-right-radius:40px;
     border-radius: 0 40px 0 0;
+    /*-moz-border-radius-topright:40px;*/
+    -webkit-border-top-right-radius:40px;
     position: relative;
 
-/*    background: -moz-linear-gradient(top,  #c9c9c9, #aaa); /* FF3.6+ */
-/*    background: -webkit-gradient(linear, left top, left bottom, from(#c9c9c9), to(#aaa)); /* Safari 4+, Chrome 2+ */
-/*    background: -webkit-linear-gradient(#c9c9c9, #aaa); /* Safari 5.1+, Chrome 10+ */
-/*    background: -o-linear-gradient(#c9c9c9, #aaa); /* Opera 11.10 */
-/*    background: linear-gradient(#c9c9c9, #aaa); */
+    background: linear-gradient(#c9c9c9, #aaaaaa);
+    background: -webkit-linear-gradient(#c9c9c9, #aaa); /* Safari 5.1+, Chrome 10+ */
     background: transparent url('../images/light-grey-gradient.png') repeat-x 0% 0%;
-    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);    
 }
 
 
@@ -81,14 +77,16 @@ ul.primary li.active,
 ul.primary li:hover,
 .home-tab.active,
 .home-tab:hover {
-/*    background: -moz-linear-gradient(top,  #a3a3a3, #717171); /* FF3.6+ */
-/*    background: -webkit-gradient(linear, left top, left bottom, from(#a3a3a3), to(#717171)); /* Safari 4+, Chrome 2+ */
-/*    background: -webkit-linear-gradient(#a3a3a3, #717171); /* Safari 5.1+, Chrome 10+ */
-/*    background: -o-linear-gradient(#a3a3a3, #717171); /* Opera 11.10 */
-    /*filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#a3a3a3', endColorstr='#717171'); /* IE6 & IE7 */
-    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#a3a3a3', endColorstr='#717171')"; /* IE8+ */
-/*    background: linear-gradient(#a3a3a3, #717171);*/
+    background: linear-gradient(#a3a3a3, #717171);
+    background: -moz-linear-gradient(top,  #a3a3a3, #717171); /* FF3.6+ */
+    background: -webkit-linear-gradient(#a3a3a3, #717171); /* Safari 5.1+, Chrome 10+ */
     background: transparent url('../images/dark-grey-gradient.png') repeat-x 0% 0%;
+}
+
+html.lt-ie9 ul.primary li,
+html.lt-ie9 .home-tab,
+html.gte-ie9 ul.primary li,
+html.gte-ie9 .home-tab {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 

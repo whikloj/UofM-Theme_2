@@ -163,7 +163,7 @@ li a.active {
 
 #block-islandora-collection-search-islandora-collection-search {
   position: relative;
-  float: right;
+  float: left;
   z-index: 10;
   padding: 0 10px; 
   margin: 0;
@@ -171,7 +171,7 @@ li a.active {
 
 #block-islandora-collection-search-islandora-collection-search h2 {
   float: left;
-  font-size: 0.833em;
+  font-size: 0.93em;
   color: #fff;
   margin-right: 15px;
 }
@@ -189,14 +189,6 @@ li a.active {
 #islandora-collection-search-form #edit-collection-select .selectboxit-container {
     
     background: #828282;  /* Old browsers */
-   /* background: -moz-linear-gradient(top,  #aeaeae, #707070); /* FF3.6+ */
-    /*background: linear-gradient(to bottom, #aeaeae, #707070);
-    background: -webkit-gradient(linear, left top, left bottom, from(#aeaeae), to(#707070)); /* Safari 4+, Chrome 2+ */
-    /*background: -webkit-linear-gradient(#aeaeae, #707070); /* Safari 5.1+, Chrome 10+ */
-    /*background: -o-linear-gradient(#aeaeae, #707070); /* Opera 11.10 */
-    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aeaeae', endColorstr='#707070'); /* IE6 & IE7 */
-    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#aeaeae', endColorstr='#707070')"; /* IE8+ */
-    /*background: linear-gradient(#aeaeae, #707070);*/
     color:#fff;
 }
 

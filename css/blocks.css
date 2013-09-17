@@ -78,21 +78,29 @@ html.gte-ie9 #block-islandora-solr-advanced {
     overflow:hidden;
 }
 
-#block-menu-menu-new-main-menu {
+#block-menu-menu-new-main-menu,
+#block-menu-menu-search-bar,
+#block-menu-menu-search-bar-menu {
   float:left;
   overflow:hidden;
   margin: 6px 0 0 0;
 }
-#block-menu-menu-search-bar,
-#block-menu-menu-search-bar-menu {
+
+#block-menu-menu-search-bar-user-menu {
     float:right;
     overflow:hidden;
   margin: 6px 0 0 0;
 }
 
+#block-menu-menu-new-main-menu {
+    /* Pad Home to push search in line with Subject tab */
+    margin-right:172px;
+}
+
 #block-menu-menu-search-bar ul.menu,
 #block-menu-menu-search-bar-menu ul.menu,
-#block-menu-menu-new-main-menu ul.menu {
+#block-menu-menu-new-main-menu ul.menu,
+#block-menu-menu-search-bar-user-menu ul.menu {
     list-style-type:none;
     list-style-position:outside;
     margin:0;
@@ -101,12 +109,14 @@ html.gte-ie9 #block-islandora-solr-advanced {
 }
 #block-menu-menu-search-bar ul.menu li,
 #block-menu-menu-search-bar-menu ul.menu li,
-#block-menu-menu-new-main-menu ul.menu li {
+#block-menu-menu-new-main-menu ul.menu li,
+#block-menu-menu-search-bar-user-menu ul.menu li {
     display:inline-block;
     float:left;
     margin: 2px 5px;
     padding: 0 10px;
     border-left: 1px solid rgb(170,170,170);
+    line-height: normal;
 }
 #block-menu-menu-new-main-menu ul.menu li {
   border-left:none;
@@ -126,7 +136,11 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-menu-menu-search-bar-menu ul.menu li a:visited,
 #block-menu-menu-new-main-menu ul.menu li a,
 #block-menu-menu-new-main-menu ul.menu li a:link,
-#block-menu-menu-new-main-menu ul.menu li a:visited {
+#block-menu-menu-new-main-menu ul.menu li a:visited,
+#block-menu-menu-search-bar-user-menu ul.menu li a,
+#block-menu-menu-search-bar-user-menu ul.menu li a:link,
+#block-menu-menu-search-bar-user-menu ul.menu li a:visited
+ {
     color:#fff;
     font-weight: bold;
     font-size:0.93em;
@@ -135,7 +149,8 @@ html.gte-ie9 #block-islandora-solr-advanced {
 
 #block-menu-menu-search-bar ul.menu li a:hover,
 #block-menu-menu-search-bar-menu ul.menu li a:hover, 
-#block-menu-menu-new-main-menu ul.menu li a:hover {
+#block-menu-menu-new-main-menu ul.menu li a:hover,
+#block-menu-menu-search-bar-user-menu ul.menu li a:hover {
     text-decoration:underline;
 }
 

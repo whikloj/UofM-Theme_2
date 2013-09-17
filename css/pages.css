@@ -167,17 +167,17 @@ html.lt-ie9 #site-name {
     position:relative;
     margin-top:10px;
     width: 100%;
-   /* background: #828282; /* Old browsers */
-   background: -webkit-linear-gradient(top, #aeaeae 0%, #707070 99%);
-    background: linear-gradient(#aeaeae, #707070);
+    background: -webkit-linear-gradient(top, #aeaeae 0%, #555555 99%);
+    background: linear-gradient(#aeaeae, #555555);
     box-shadow: 0 2px 4px #777;
-    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+    
 }
 
 html.lt-ie9 .region-searchbar,
 html.gte-ie9 .region-searchbar {
     /* Because IE doesn't support gradients */
     background: transparent url('../images/search_bar_bg.png') repeat-x 50% 0%;
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
 }
 
 /*
