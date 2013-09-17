@@ -1,0 +1,47 @@
+@media (max-width : 768px), handheld and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* iPad non-retina - Portrait*/
+    #page, .region-bottom {
+        max-width: 764px;
+    }
+    .sidebar-first #content {
+        width:78%;
+        margin: 15px -100% 0 22%;
+    }
+    .sidebar-first .region-sidebar-first {
+        width: 21%;
+    }
+    
+    ul.primary li, .home-tab {
+        padding-right: 40px;
+    }
+    
+    .sidebar h2.block-title {
+        margin-right: 15px;
+        padding-right: 40px;
+    }
+    #block-manidora-manidora-homepage-thumbnails {
+        max-width: 346px;
+    }
+    .manidora-homepage-thumb-link {
+        margin: 6px 2px;
+    }
+    #featured {
+        font-size: 100% !important;
+    }
+    #slogan-floater {
+        display:block;
+    }
+    #block-menu-menu-new-main-menu {
+        margin-right:0;
+    }
+    .view-whats-new .views-field-info {
+        max-width: 68px;
+    }
+    .featured-new .views-row {
+        padding: 2px;
+        max-height: 66px;
+    }
+    #block-views-whats-new-block {
+        height: 298px;
+    }
+}
