@@ -3,6 +3,13 @@
     #page, .region-bottom {
         max-width: 764px;
     }
+    #header {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    #search_parameters p {
+        margin: 0 3px;
+    }
     .sidebar-first #content {
         width:78%;
         margin: 15px -100% 0 22%;
