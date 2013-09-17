@@ -146,6 +146,8 @@ html.lt-ie9 #site-name {
     box-shadow: 0 2px 4px #777;
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
     zoom:1;
+    height: 154px; /* Trying to limit to allow for hiding extra images on tablets/smartphones */
+    overflow: hidden;
 }
 
 
@@ -335,8 +337,13 @@ body.no-sidebars .islandora-pdf-sidebar {
     height: 280px;
     overflow: auto;
     margin: 0; /* otherwise our resize JS looks weird */
-    width: auto; /* override Islandora setting of 96% */
+    width: 100%; /* override Islandora setting of 96% */
 }
+
+dl.solr-grid-field {
+    height: 200px;
+}
+
 .islandora-solr-content .pager {
     /* Hide the bottom pager from the search results screen */
     display:none;
@@ -575,9 +582,9 @@ span.field-label { /* The inline field label used by the Fences module */
 
 #islandora-solr-top {
   float: right;
-  min-height: 45px;
+  min-height: 20px;
  /* margin-left: 5px;*/
-  margin-top: -30px;
+  margin-top: -54px;
  /* position:absolute;
   right: 0; */
   /*display:none; *//* jwhiklo : 2013-05-17 */

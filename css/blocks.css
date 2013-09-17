@@ -207,8 +207,6 @@ html.gte-ie9 #block-islandora-solr-advanced {
     font-size:0.833em;
     padding: 0px;
     font-weight:bold;
-    border-right: 1px dotted #aaa;
-    
 }
 
 #block-block-2 p,
@@ -583,6 +581,7 @@ ul.home-tabs-container {
     float:left;
     position:relative;
     max-width:562px;
+    border-left: 1px dotted #aaa;
 }
 
 #manidora-homepage-thumbs {
@@ -606,4 +605,9 @@ ul.home-tabs-container {
     margin:0;
     padding:0;
     /*border:1px solid #000;*/
+}
+
+.welcome-about {
+    font-size: 1.15em;
+    color: #3e727a;
 }
