@@ -95,13 +95,19 @@ body {
   font-weight: normal;
 }
 
-#site-name, /* The name of the website */
-#site-slogan { /* The slogan (or tagline) of a website, this is "Libraries" on our site */
+#site-name { /* The name of the website (UM Digital Collections) */
   margin: 0;
-  font-size: 1.3em;
-  line-height: 1.3em;
+  font-size: 1.1em;
   font-weight: normal;
   max-width:100%;
+}
+#site-slogan {
+    /* The slogan (or tagline) of a website, this is "Libraries" on our site */
+    margin: 0;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    font-weight: normal;
+    max-width:100%;
 }
 html.lt-ie9 #site-name {
   max-width:auto;
@@ -114,6 +120,8 @@ html.lt-ie9 #site-name {
   color: #442404;
   text-decoration: none;
 }
+
+
 
 .region-header { /* Wrapper for any blocks placed in the header region */
   /*clear: both; /* Clear the logo */
