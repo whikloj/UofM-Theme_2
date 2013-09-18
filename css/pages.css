@@ -89,13 +89,14 @@ body {
   border-left: 1px solid #643609;
   color: #442404;
   float: left;
-  font-family: serif;
+  font-family: "Times New Roman", serif;
   margin: 24px 0 0 7px;
   padding-left: 15px;
   font-weight: normal;
 }
 
-#site-name { /* The name of the website */
+#site-name, /* The name of the website */
+#site-slogan { /* The slogan (or tagline) of a website, this is "Libraries" on our site */
   margin: 0;
   font-size: 1.3em;
   line-height: 1.3em;
@@ -112,17 +113,6 @@ html.lt-ie9 #site-name {
 #site-slogan a:visited {
   color: #442404;
   text-decoration: none;
-}
-#site-name a:hover,
-#site-name a:focus {
-}
-
-#site-slogan { /* The slogan (or tagline) of a website */
-    /* jwhiklo : this is "Libraries" on our site */
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal;
-  max-width:100%;
 }
 
 .region-header { /* Wrapper for any blocks placed in the header region */
