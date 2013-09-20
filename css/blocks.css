@@ -635,3 +635,43 @@ ul.home-tabs-container {
     font-size: 1.15em;
     color: #3e727a;
 }
+
+
+.islandora-compound-thumbs-wrapper {
+    /**
+     * http://jsfiddle.net/mattball/avTgR/
+     *   for answer to infinite horizontal scroll
+     */ 
+    position:relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    overflow:auto;
+}
+
+.islandora-compound-thumbs {
+    height: 115px; /* Max size of a thumbnail to limit the display box */
+    display: inline-block;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.islandora-compound-thumb {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: inline-block;
+}
+
+.islandora-compound-thumb .islandora-compound-caption {
+    /* Caption above each thumbnail in a compound object */
+    display:none;
+}
+
+.islandora-compound-thumb img {
+    max-height: 100px;
+    max-width: 110px;
+}
+

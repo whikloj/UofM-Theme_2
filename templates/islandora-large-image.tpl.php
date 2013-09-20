@@ -30,7 +30,9 @@
       if (is_array($part) && count($part) > 0){
         $object_id = $part[0]['object']['value'];
         $new_object = islandora_object_load($object_id);
-        $parent_collections = islandora_get_parents_from_rels_ext($new_object);
+        if ($new_object instanceof AbstractObject) {
+          $parent_collections = islandora_get_parents_from_rels_ext($new_object);
+        }
       }
     }
   }

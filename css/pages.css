@@ -294,7 +294,8 @@ body.islandora-collection #viewer-content {
 .islandora-solr-grid,
 .islandora-video-content-wrapper,
 .islandora-audio-content-wrapper,
-.islandora-pdf-content-wrapper {
+.islandora-pdf-content-wrapper,
+#pbcore-display {
     clear:left;
     border-top: 1px dotted #dedede;
 }
@@ -341,9 +342,15 @@ body.no-sidebars .islandora-pdf-sidebar {
     width: 100%; /* override Islandora setting of 96% */
 }
 
+
+
 dl.solr-grid-field {
     height: 200px;
     overflow: hidden;
+}
+
+.solr-grid-thumb img {
+    max-height: 110px;
 }
 
 .islandora-solr-content .pager {
@@ -602,20 +609,6 @@ span.field-label { /* The inline field label used by the Fences module */
 
 #islandora-solr-top .pager {
     margin:0;
-}
-
-.islandora-compound-thumbs {
-    max-height: 110px; /* Max size of a thumbnail to limit the display box */
-}
-
-.islandora-compound-thumb .islandora-compound-caption {
-    /* Caption above each thumbnail in a compound object */
-    display:none;
-}
-
-.islandora-compound-thumb img {
-    max-height: 100px;
-    max-width: 110px;
 }
 
 
