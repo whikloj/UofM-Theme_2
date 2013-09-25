@@ -54,7 +54,7 @@
       var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper').width();
       var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper').offset().left;
       if (activeLeft > (wrapLeft + wrapWidth)){
-        jQuery('.islandora-compound-thumb a.active').scrollParent().animate({'scrollLeft': (activeLeft + (wrapWidth / 2 )) + 'px'},500);
+        jQuery('.islandora-compound-thumb a.active').scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
       }
     }
   });
