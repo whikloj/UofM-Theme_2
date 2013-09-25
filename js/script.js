@@ -48,5 +48,15 @@
     }*/
   });
 
+  jQuery(window).load(function(){ 
+    if (jQuery('.islandora-compound-thumbs').length > 0 && jQuery('.islandora-compound-thumbs').width() > jQuery('.islandora-compound-thumbs-wrapper').width()){
+      var activeLeft = jQuery('.islandora-compound-thumb a.active').offset().left;
+      var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper').width();
+      var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper').offset().left;
+      if (activeLeft > (wrapLeft + wrapWidth)){
+        jQuery('.islandora-compound-thumb a.active').scrollParent().animate({'scrollLeft': (activeLeft + (wrapWidth / 2 )) + 'px'},500);
+      }
+    }
+  });
 
 })(jQuery, Drupal, this, this.document);
