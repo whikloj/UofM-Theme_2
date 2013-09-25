@@ -21,6 +21,7 @@
 ?>
 
 <div class="islandora-video-object islandora" itemscope itemtype="http://schema.org/VideoObject">
+  <?php print l(t("Printer Friendly Version"), "islandora/object/{$object->id}/print_object", array('attributes'=>array('class'=>array('print-link')))); ?>
   <div class="islandora-video-content-wrapper clearfix">
     <?php if ($islandora_content): ?>
       <div class="islandora-video-content">
