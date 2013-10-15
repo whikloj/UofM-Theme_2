@@ -417,7 +417,6 @@ dl.solr-grid-field {
 
 html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
-    behavior: url(/drupal7/sites/all/themes/UofM-Theme_2/css/PIE.htc);
     position: relative;
 }
 dt.islandora-basic-collection-thumb,
