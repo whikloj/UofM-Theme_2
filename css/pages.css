@@ -347,6 +347,7 @@ body.no-sidebars .islandora-pdf-sidebar {
 dl.solr-grid-field {
     height: 200px;
     overflow: hidden;
+    position: relative;
 }
 
 .solr-grid-thumb img {
@@ -397,9 +398,44 @@ dl.solr-grid-field {
   overflow: auto;
 }
 
+
+.islandora-basic-collection-grid dl {
+    position: relative;
+}
+.solr-grid-thumb a.item-type-collection,
+.islandora-basic-collection-grid a.item-type-collection,
+.islandora-basic-collection-info-thumbnail {
+    border-bottom: 18px solid #3e727a;
+    border-top: 9px solid #3e727a;
+    border-left: 9px solid #3e727a;
+    border-right: 9px solid #3e727a;
+    border-radius: 10px 10px 10px 10px;
+    display: inline-block;
+}
+
+html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
+    behavior: url(/drupal7/sites/all/themes/UofM-Theme_2/css/PIE.htc);
+    position: relative;
+}
+dt.islandora-basic-collection-thumb,
+dd.islandora-basic-collection-caption,
+dt.solr-grid-thumb,
+dd.solr-grid-caption {
+    margin: 0 auto;
+    display: table;
+}
 .islandora-basic-collection-thumb img {
     max-width: 110px;
     max-height: 110px;
+}
+
+.islandora-basic-collection-collection,
+.islandora-solr-grid-collection {
+    width:100%;
+    text-align:center;
+    position: absolute;
+    margin-top: -17px;
+    color: #fff;
 }
 
 /* Make the viewer take the whole page */

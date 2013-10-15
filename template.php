@@ -227,4 +227,29 @@ function UofM_2_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+function UofM_2_preprocess_islandora_basic_collection_grid(&$variables){
+  foreach ($variables['associated_objects_array'] as $pid => $obj){
+    try {
+      $new_class = "";
+      $classes = $variables['associated_objects_array'][$pid]['class'];
+      $models = $obj['object']->relationships->get(FEDORA_MODEL_URI, 'hasModel');
+      foreach ($models as $model){
+        if ($model['object']['value'] == 'islandora:collectionCModel'){
+          $new_class .= ' item-type-collection';
+        } else if ($model['object']['value'] == 'islandora:sp_videoCModel'){
+          $new_class .= ' item-type-video';
+        }
+      }
+      if (!empty($new_class)){
+        $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'];
+        $path = $variables['associated_objects_array'][$pid]['path'];
+        $title = $variables['associated_objects_array'][$pid]['title'];
+        $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('title' => $title,'class' => $classes.$new_class)));
+        $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
+      }
+    } catch (Exception $e){
+      drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
+    }
+  }
+}
 
