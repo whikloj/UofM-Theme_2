@@ -352,7 +352,7 @@ dl.solr-grid-field {
     position: relative;
 }
 
-.solr-grid-thumb img {
+dt.solr-grid-thumb img {
     max-height: 110px;
     max-width: 110px;
 }
