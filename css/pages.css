@@ -342,7 +342,9 @@ body.no-sidebars .islandora-pdf-sidebar {
     width: 100%; /* override Islandora setting of 96% */
 }
 
-
+.islandora-object-thumb img {
+    width: auto;
+}
 
 dl.solr-grid-field {
     height: 200px;
@@ -352,6 +354,7 @@ dl.solr-grid-field {
 
 .solr-grid-thumb img {
     max-height: 110px;
+    max-width: 110px;
 }
 
 .islandora-solr-content .pager {
