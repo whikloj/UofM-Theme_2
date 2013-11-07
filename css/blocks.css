@@ -77,6 +77,10 @@ html.gte-ie9 #block-islandora-solr-advanced {
 .block-islandora-solr, .block-manidora {
     overflow:hidden;
 }
+/* Except for the new what's new block */
+#block-manidora-manidora-whats-new {
+    overflow:visible;
+}
 
 #block-menu-menu-new-main-menu,
 #block-menu-menu-search-bar,
