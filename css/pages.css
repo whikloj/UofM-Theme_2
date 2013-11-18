@@ -700,4 +700,8 @@ button.BRicon.info {
     clear:left;
 }
 
-
+.islandora-object .vertical-tabs ul.vertical-tabs-list {
+    height:25em;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
