@@ -219,14 +219,11 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-aggregator-feed-1 { /* Block for the latest news items in the first feed */
 }
 
-#block-block-1 { /* First block created with "Add block" link */
+.region-header .block { /* Or the search box at the top appears too low */
     float:right;
-    overflow:hidden;
 }
 
-/* block-block-3 is the Welcome block */
-#block-block-3,
-#block-block-2 {
+#welcome-block {
 	position: relative;
 	float: left;
 	overflow:hidden;
@@ -237,19 +234,16 @@ html.gte-ie9 #block-islandora-solr-advanced {
     font-weight:bold;
 }
 
-#block-block-2 p,
-#block-block-3 p {
+#welcome-block p {
 	line-height: 1.5em;
 	margin: 0 8px 12px 8px;
 }
 
-#block-block-2 p.invisible,
-#block-block-3 p.invisible {
+#welcome-block p.invisible {
     margin:0;
 }
 
-#block-block-2 h2,
-#block-block-3 h2 {
+#welcome-block h2 {
     font-size: 1.75em;
     margin-left: 8px;
     margin-bottom: 0;
@@ -547,13 +541,11 @@ ul.home-tabs-container {
 }
 
 /* UofM Footer info */
-#block-block-4,
 #uofm-footer {
     line-height: 1.5em;
     clear:left;
     overflow:hidden;
 }
-#block-block-4 .unit,
 #uofm-footer .unit {
     font-weight:bold;
     color:#717174;
