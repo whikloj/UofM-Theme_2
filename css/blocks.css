@@ -547,12 +547,14 @@ ul.home-tabs-container {
 }
 
 /* UofM Footer info */
-#block-block-4 {
+#block-block-4,
+#uofm-footer {
     line-height: 1.5em;
     clear:left;
     overflow:hidden;
 }
-#block-block-4 .unit {
+#block-block-4 .unit,
+#uofm-footer .unit {
     font-weight:bold;
     color:#717174;
 }
