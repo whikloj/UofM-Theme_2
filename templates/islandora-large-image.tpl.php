@@ -71,5 +71,8 @@
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object_id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
+  ga('set', 'dimension1', '<?php print $object_id;?>');
+  ga('set', 'dimension2', '<?php print implode($collection_pids,'|');?>');
+  ga('set', 'dimension3', '<?php print $islandora_object_label;?>');
 //-->
 </script>

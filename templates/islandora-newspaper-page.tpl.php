@@ -46,5 +46,8 @@
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collections,'|');?>', 3]);
+  ga('set', 'dimension1', '<?php print $object->id;?>');
+  ga('set', 'dimension2', '<?php print implode($collections,'|');?>');
+  ga('set', 'dimension3', '<?php ?>');
 //-->
 </script>
