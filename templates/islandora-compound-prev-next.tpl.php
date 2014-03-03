@@ -22,7 +22,7 @@
     <?php print l(t('manage parent'), $parent_url); ?>
  <?php endif; ?>
  </span><br/>
-
+<!--
  <?php if (!empty($previous_pid)): ?>
    <?php print l(t('Previous'), 'islandora/object/' . $previous_pid); ?>
  <?php endif; ?>
@@ -32,7 +32,7 @@
  <?php if (!empty($next_pid)): ?>
    <?php print l(t('Next'), 'islandora/object/' . $next_pid); ?>
  <?php endif; ?>
-
+-->
  <?php if ($child_count > 1): ?>
    <div class="islandora-compound-thumbs-wrapper">
    <div class="islandora-compound-thumbs">
