@@ -26,7 +26,7 @@
     module_load_include('inc','islandora','includes/utilities');
     $parent_collections = islandora_get_parents_from_rels_ext($islandora_object);
     if (is_array($parent_collections) && count($parent_collections) == 0){
-      $part = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI,'isPartOf');
+      $part = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI,variable_get('islandora_compound_object_relationship', 'isConstituentOf'));
       if (is_array($part) && count($part) > 0){
         $object_id = $part[0]['object']['value'];
         $new_object = islandora_object_load($object_id);
