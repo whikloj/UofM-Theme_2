@@ -350,6 +350,12 @@ ul.islandora-solr-display li.first {
 #block-user-login { /* "User login form" block */
 }
 
+.section-restricted-login #block-user-login div.item-list { 
+/* Hide the Create New Account link on the restricted-login page */
+    display: none;
+}
+
+
 #block-user-new { /* "Who's new" block for a list of the newest users */
 }
 
