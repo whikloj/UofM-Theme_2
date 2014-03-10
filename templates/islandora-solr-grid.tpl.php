@@ -16,8 +16,7 @@
   <div class="islandora-solr-search-results">
     <div class="islandora-solr-grid clearfix">
     <?php 
-      foreach($results as $result): 
-        $class = ?>
+      foreach($results as $result): ?>
       <dl class="solr-grid-field">
         <dt class="solr-grid-thumb">
           <?php
