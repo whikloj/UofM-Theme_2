@@ -117,7 +117,7 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_library('system', 'ui.widget');
   drupal_add_js(drupal_get_path('theme','UofM_2') . '/js/collection_page.js',array('group'=>JS_THEME));
   
-  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])){
+  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['classes_array'][] = 'islandora-collection';
   }
   
@@ -153,7 +153,7 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
  */
 
 function UofM_2_preprocess_page(&$variables, $hook) {
-  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])){
+  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
   }
 }
@@ -227,21 +227,20 @@ function UofM_2_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-function UofM_2_preprocess_islandora_basic_collection_grid(&$variables){
+function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
   try {
     foreach ($variables['associated_objects_array'] as $pid => $obj){
       $new_class = "";
       $classes = $variables['associated_objects_array'][$pid]['class'];
       $models = $obj['object']->models;
-      foreach ($models as $model){
-        if ($model == 'islandora:collectionCModel'){
-          $new_class .= ' item-type-collection';
-        } else if ($model == 'islandora:sp_videoCModel'){
-          $new_class .= ' item-type-video';
-        }
+      if (in_array('islandora:collectionCModel', $models)) {
+        $new_class .= ' item-type-collection';
+      } else if (in_array('islandora:sp_videoCModel', $models)) {
+        $new_class .= ' item-type-video';
+        $type_icon = '<span class="islandora-solr-grid-video"></span>';
       }
-      if (!empty($new_class)){
-        $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'];
+      if (!empty($new_class)) {
+        $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'] . (isset($type_icon) ? $type_icon : "");
         $path = $variables['associated_objects_array'][$pid]['path'];
         $title = $variables['associated_objects_array'][$pid]['title'];
         $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('title' => $title,'class' => $classes.$new_class)));
@@ -253,3 +252,16 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables){
   } 
 }
 
+function UofM_2_preprocess_islandora_solr_grid(&$variables) {
+  for ($x = 0; $x < count($variables['results']); $x += 1) {
+    $variables['results'][$x]['classes'] = array();
+    if (array_key_exists('type_of_resource_facet_ms', $variables['results'][$x]['solr_doc']) &&
+    in_array('moving image', $variables['results'][$x]['solr_doc']['type_of_resource_facet_ms'])) {
+      $variables['results'][$x]['classes'][] = 'item-type-video';
+    }
+    else if (array_key_exists('content_models', $variables['results'][$x]) &&
+    in_array('info:fedora/islandora:collectionCModel', $variables['results'][$x]['content_models'])) {
+      $variables['results'][$x]['classes'][] = 'item-type-collection';
+    }
+  } // end for
+}

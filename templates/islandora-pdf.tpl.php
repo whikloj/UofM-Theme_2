@@ -6,6 +6,7 @@
  *
  * @TODO: Add documentation about this file and the available variables
  * @TODO: don't call drupal_set_title here
+ * $islandora_object : FedoraObject
  */
  
  $collection_pids = array(); // To hold parent collection pids for Google Analytics
@@ -37,10 +38,10 @@
 <script type="text/javascript">
 <!--
   var _gaq = _gaq || [];
-  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collection_pids,'|');?>', 3]);
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
-  ga('set', 'dimension1', '<?php print $object->id;?>');
+  ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
   <?php foreach($collection_pids as $cpid){?>
     ga('set', 'dimension2', '<?php print $cpid;?>');
   <?php } ?>

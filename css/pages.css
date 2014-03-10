@@ -418,6 +418,17 @@ dt.solr-grid-thumb img {
     text-align:center;
 }
 
+.solr-grid-thumb .islandora-solr-grid-video, 
+.islandora-basic-collection-thumb .islandora-solr-grid-video {
+  background: transparent url('../images/play-2.png') no-repeat 0% 100%;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: absolute;
+  margin-top: -34px;
+  z-index: 2;
+}
+
 html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
     position: relative;

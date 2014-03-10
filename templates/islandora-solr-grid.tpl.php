@@ -16,20 +16,24 @@
   <div class="islandora-solr-search-results">
     <div class="islandora-solr-grid clearfix">
     <?php 
-      foreach($results as $result): ?>
+      foreach($results as $result): 
+        $class = ?>
       <dl class="solr-grid-field">
         <dt class="solr-grid-thumb">
           <?php
             $image = '<img src="' . url($result['thumbnail_url'], array('query' => $result['thumbnail_url_params'])) . '" />';
+            if (in_array('item-type-video',$result['classes'])) {
+              $image .= '<span class="islandora-solr-grid-video"></span>';
+            }
             print l($image, $result['object_url'], array(
               'html' => TRUE,
               'query' => $result['object_url_params'],
               'fragment' => isset($result['object_url_fragment']) ? $result['object_url_fragment'] : '',
-               'attributes' => array('class' => (in_array('info:fedora/islandora:collectionCModel',$result['content_models']) ? 'item-type-collection':'')),
+               'attributes' => array('class' => implode(' ',$result['classes'])),
             ));
           ?>
         </dt>
-        <?php if (in_array('info:fedora/islandora:collectionCModel',$result['content_models'])): ?>
+        <?php if (in_array('item-type-collection',$result['classes'])): ?>
         <span class="islandora-solr-grid-collection">Collection</span>
         <?php endif; ?>
         <dd class="solr-grid-caption">
