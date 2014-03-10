@@ -420,7 +420,7 @@ dt.solr-grid-thumb img {
 
 .solr-grid-thumb .islandora-solr-grid-video, 
 .islandora-basic-collection-thumb .islandora-solr-grid-video {
-  background: transparent url('../images/play-2.png') no-repeat 0% 100%;
+  background: transparent url('../images/play.png') no-repeat 0% 100%;
   width: 32px;
   height: 32px;
   display: block;
