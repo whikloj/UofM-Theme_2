@@ -153,8 +153,12 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
  */
 
 function UofM_2_preprocess_page(&$variables, $hook) {
+  $status = drupal_get_http_header("status");
   if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
+  }
+  else if ($status == "404 Not Found") {
+    $variables['theme_hook_suggestions'][] = 'page__404';
   }
 }
 // */
