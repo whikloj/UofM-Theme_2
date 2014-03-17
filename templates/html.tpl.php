@@ -102,7 +102,7 @@
     <![endif]-->
   <?php endif; ?>
   <?php $ga = theme_get_setting('UofM_2_analytics_code');
-  if (!is_null($ga)): ?>
+  if (!is_null($ga) && strlen($ga) > 0): ?>
   <!-- Google Analytics (Part 1) -->
   <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -124,7 +124,7 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-  <?php if (!is_null($ga)): ?>
+  <?php if (!is_null($ga) && strlen($ga) > 0): ?>
   <!-- Google Analytics (Part 2) -->
   <script type="text/javascript">
   ga('send','pageview');
