@@ -101,6 +101,19 @@
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
   <?php endif; ?>
+  <?php $ga = theme_get_setting('UofM_2_analytics_code');
+  if (!is_null($ga)): ?>
+  <!-- Google Analytics (Part 1) -->
+  <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '<?php print theme_get_setting('UofM_2_analytics_code'); ?>', 'auto');  // Replace with your property ID.
+  </script>
+  <!-- End Google Analytics (Part 1) -->
+  <?php endif; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php if ($skip_link_text && $skip_link_anchor): ?>
@@ -111,5 +124,12 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <?php if (!is_null($ga)): ?>
+  <!-- Google Analytics (Part 2) -->
+  <script type="text/javascript">
+  ga('send','pageview');
+  </script>
+  <!-- End Google Analytics (Part 2) -->
+  <?php endif; ?>
 </body>
 </html>

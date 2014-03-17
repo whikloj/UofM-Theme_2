@@ -23,6 +23,12 @@ function UofM_2_form_system_theme_settings_alter(&$form, &$form_state, $form_id 
     '#description'   => t("This option doesn't do anything; it's just an example."),
   );
   // */
+  $form['UofM_2_analytics_code'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Google Analytics Tracking Code'),
+    '#default_value' => theme_get_setting('UofM_2_analytics_code'),
+    '#description' => t("Tracking code for your Google Analytics account to use builtin collection tracking code."),
+  );
 
   // Remove some of the base theme's settings.
   /* -- Delete this line if you want to turn off this setting.
