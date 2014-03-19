@@ -212,6 +212,10 @@ h3.title { /* Comment title */
   margin: 0.2em 0;
 }
 
+h1.page-404 {
+    float: none !important; /* Don't float as the messages have no tags around them */
+}
+
 
 .page-islandora-search h1.solr-result, #viewer-content h1.solr-result {
     background: -moz-linear-gradient(top,  #a3a3a3, #717171); /* FF3.6+ */
