@@ -49,20 +49,23 @@
       <div class="islandora-large-image-content">
         <?php print $islandora_content; ?>
       </div>
-    <?php endif; ?>
-  <div class="islandora-large-image-sidebar">
-    <?php if ($parent_collections): ?>
-      <div>
-        <h2><?php print t('In collections'); ?></h2>
-        <ul>
-          <?php foreach ($parent_collections as $collection): ?>
-        <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
-         <?php $collection_pids[] = $collection->id; ?>
-          <?php endforeach; ?>
-        </ul>
+    <?php endif;
+      if (isset($dental_info)) {
+       print $dental_info;
+      } ?>
+      <div class="islandora-large-image-sidebar">
+        <?php if ($parent_collections): ?>
+          <div>
+            <h2><?php print t('In collections'); ?></h2>
+            <ul>
+              <?php foreach ($parent_collections as $collection): ?>
+                <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
+                <?php $collection_pids[] = $collection->id; ?>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        <?php endif; ?>
       </div>
-    <?php endif; ?>
-  </div>
   </div>
 </div>
 <script type="text/javascript">
