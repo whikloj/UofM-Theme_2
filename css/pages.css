@@ -736,6 +736,7 @@ button.BRicon.info {
 
 .uofm-dental-info h2 {
     margin: 0px 0.5em;
+    cursor: pointer;
 }
 .uofm-dental-info h2:hover {
     text-decoration: underline;
