@@ -725,3 +725,21 @@ button.BRicon.info {
 .openseadragon-canvas div {
     background-color: rgb(0, 0, 0) !important;
 }
+
+.uofm-dental-info {
+    background-color: #F2F2F2;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin-top: 5px;
+}
+
+.uofm-dental-info h2 {
+    margin: 0px 0.5em;
+}
+.uofm-dental-info h2:hover {
+    text-decoration: underline;
+}
+.uofm-dental-info table {
+    display: none;
+}
