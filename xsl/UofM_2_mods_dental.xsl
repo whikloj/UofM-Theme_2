@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" encoding="utf-8"/>
-    <xsl:include href="utilities.xsl" />
+    <xsl:include href="string-utilities.xsl" />
 
     <xsl:param name="islandoraUrl"/>
     <xsl:param name="PID"/>
