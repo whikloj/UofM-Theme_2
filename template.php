@@ -302,4 +302,18 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
       }
     }
   }
+  $object_id = $object->id;
+  if (!$variables['parent_collections'] || (is_array($variables['parent_collections']) && count($variables['parent_collections']) == 0)){
+    $parent_collections = islandora_get_parents_from_rels_ext($object);
+    if (is_array($parent_collections) && count($parent_collections) == 0){
+      $part = $object->relationships->get(FEDORA_RELS_EXT_URI,variable_get('islandora_compound_object_relationship', 'isConstituentOf'));
+      if (is_array($part) && count($part) > 0){
+        $new_id = $part[0]['object']['value'];
+        $new_object = islandora_object_load($new_id);
+        if ($new_object instanceof AbstractObject) {
+          $variables['parent_collections'] = islandora_get_parents_from_rels_ext($new_object);
+        }
+      }
+    }
+   }
 }
