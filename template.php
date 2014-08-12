@@ -111,9 +111,11 @@
   */
 function UofM_2_preprocess_html(&$variables) {
   /* -- Custom Fonts -- */
+  /*
   drupal_add_css('http://openfontlibrary.org/face/linear-regular', array('type' => 'external'));
   drupal_add_css('http://openfontlibrary.org/face/open-baskerville', array('type' => 'external'));
   drupal_add_css('http://openfontlibrary.org/face/news-cycle', array('type' => 'external'));
+  */
   drupal_add_library('system', 'ui.widget');
   drupal_add_js(drupal_get_path('theme','UofM_2') . '/js/collection_page.js',array('group'=>JS_THEME));
   
