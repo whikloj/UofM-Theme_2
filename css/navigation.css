@@ -184,6 +184,7 @@ li a.active {
     background-color: transparent;
     color:#fff;
     border: 0px solid transparent;
+    max-width: 200px;
 }
 #islandora-collection-search-form #edit-collection-select option,
 #islandora-collection-search-form #edit-collection-select .selectboxit-container {
