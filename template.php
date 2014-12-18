@@ -341,7 +341,7 @@ EOQ;
   $results = $object->repository->ri->sparqlQuery($query);
   $collections = array();
   foreach ($results as $info) {
-    $collections[] = $info['value'];
+    $collections[] = $info['paper']['value'];
   }
   if (array_key_exists('parent_collections', $variables)) {
     $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
@@ -405,12 +405,6 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
     );
     $attributes = array('class' => array('links', 'inline'));
     $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
-  }
-  // Text view.
-  if (isset($object['OCR']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['OCR'])) {
-    $url = islandora_datastream_get_url($object['OCR'], 'view');
-    $attributes = array('attributes' => array('title' => t('View text')));
-    $controls['text_view'] = $view_prefix . l(t('Text'), $url, $attributes);
   }
   if (isset($object['JP2']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['JP2'])) {
     // JP2 download.

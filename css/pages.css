@@ -747,3 +747,7 @@ button.BRicon.info {
     display:block;
     clear:left;
 }
+
+.islandora-newspaper-controls {
+    clear:left; /* Break the float */
+}
