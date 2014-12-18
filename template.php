@@ -317,5 +317,67 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
         }
       }
     }
-   }
+  }
+}
+
+/**
+ * Theme the page selector.
+ */
+function UofM_2_islandora_newspaper_page_select(array $variables) {
+  module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
+  $path = drupal_get_path('module', 'islandora_newspaper');
+  drupal_add_js($path . '/js/islandora_newspaper.js');
+  $object = $variables['object'];
+  $results = $object->relationships->get(ISLANDORA_RELS_EXT_URI, 'isPageOf');
+  $result = reset($results);
+  $parent = $result ? islandora_object_load($result['object']['value']) : FALSE;
+  $pages = $parent ? islandora_paged_content_get_pages($parent) : FALSE;
+  if (!$pages) {
+    return;
+  }
+
+  $variables = array(
+    '#options' => array(),
+    '#attributes' => array('class' => array('page-select')),
+    '#value' => $object->id,
+  );
+  foreach ($pages as $pid => $page) {
+    $variables['#options'][$pid] = $page['page'];
+  }
+  $prefix = '<strong>' . t('Page') . ':</strong> ';
+  return $prefix . t('!page_selector of @total', array(
+    '!page_selector' => theme('select', array('element' => $variables)),
+    '@total' => count($pages),
+  ));
+}
+
+function islandora_newspaper_preprocess_islandora_newspaper_page_controls(&$variables) {
+  module_load_include('inc', 'islandora', 'includes/datastream');
+  module_load_include('inc', 'islandora', 'includes/utilities');
+  global $base_url;
+  $view_prefix = '<strong>' . t('View:') . ' </strong>';
+  $download_prefix = '<strong>' . t('Download:') . ' </strong>';
+  $object = $variables['object'];
+  $issue = islandora_newspaper_get_issue($object);
+  $issue = $issue ? islandora_object_load($issue) : FALSE;
+  $newspaper = FALSE;
+  if ($issue) {
+    $newspaper = islandora_newspaper_get_newspaper($issue);
+  }
+  $controls = array(
+    'page_select' => theme('islandora_newspaper_page_select', array('object' => $object)),
+  );
+  if ($newspaper) {
+    $controls[] = array(
+      'title' => t('All Issues'),
+      'href' => url("islandora/object/{$newspaper}", array('absolute' => TRUE)),
+    );
+  }
+  if (isset($object['JP2']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['JP2'])) {
+    $controls['clip'] = theme(
+      'islandora_openseadragon_clipper',
+      array('pid' => $object->id)
+    );
+  }
+  $variables['controls'] = $controls;
 }
