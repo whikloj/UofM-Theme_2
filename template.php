@@ -321,6 +321,36 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
 }
 
 /**
+ * Preprocess to get collections for newspaper pages
+ */
+function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
+  $object = $variables['islandora_object'];
+  $query = <<<EOQ
+  SELECT ?paper
+  FROM <#ri>
+  WHERE {
+    <info:fedora/{$object->id}> <fedora-rels-ext:isMemberOf> ?issue .
+    ?issue <fedora-rels-ext:isMemberOf> ?paper ;
+         <fedora-model:hasModel> <info:fedora/islandora:newspaperIssueCModel> ;
+         <fedora-model:state> <fedora-model:Active> .
+    ?paper <fedora-model:hasModel> <info:fedora/islandora:newspaperCModel> .
+  }
+EOQ;
+
+  $results = $object->repository->ri->sparqlQuery($query);
+  $collections = array();
+  foreach ($results as $info) {
+    $collections[] = $info['value'];
+  }
+  if (array_key_exists('parent_collections', $variables)) {
+    $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
+  }
+  else {
+    $variables['parent_collections'] = $collections;
+  }
+}
+
+/**
  * Theme the page selector.
  */
 function UofM_2_islandora_newspaper_page_select(array $variables) {

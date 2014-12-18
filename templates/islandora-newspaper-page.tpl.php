@@ -6,26 +6,11 @@
  *   This is the template file for the object page for newspaper
  *   This override adds a print.
  */
-  module_load_include('inc','islandora_newspaper','includes/utilities');
-  $issue_pid = islandora_newspaper_get_issue($object);
-  $collections = array();
-  if ($issue_pid){
-    if (is_array($issue_pid)){
-      foreach ($issue_pid as $pid){
-        $tmpobj = islandora_object_load($pid);
-        $collections[] = islandora_newspaper_get_newspaper($tmpobj);
-      }
-    } else {
-      $tmpobj = islandora_object_load($issue_pid);
-      $collections[] = islandora_newspaper_get_newspaper($tmpobj);
-    }
-  } 
  
 ?>
 <div class="islandora-newspaper-object islandora">
-  <?php print l("Download printable PDF", 'islandora/manitoba/pdf/print/' . $object->id, array('attributes'=>array('class'=>array('download-pdf-link')))); ?>
   <div class="islandora-newspaper-controls">
-    <?php print theme('islandora_newspaper_page_controls', array('object' => $object)); ?>
+    <?php print theme('islandora_newspaper_page_controls', array('object' => $islandora_object)); ?>
   </div>
   <div class="islandora-newspaper-content-wrapper clearfix">
     <?php if ($content): ?>
@@ -44,10 +29,12 @@
 <script type="text/javascript">
 <!--
   var _gaq = _gaq || [];
-  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
-  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($collections,'|');?>', 3]);
-  ga('set', 'dimension1', '<?php print $object->id;?>');
-  ga('set', 'dimension2', '<?php print implode($collections,'|');?>');
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($parent_collections,'|');?>', 3]);
+  ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
+  <?php foreach ($parent_collections as $coll): ?>
+  ga('set', 'dimension2', '<?php print $collections;?>');
+  <?php endforeach; ?>
   ga('set', 'dimension3', '<?php ?>');
 //-->
 </script>
