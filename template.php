@@ -324,7 +324,8 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
  * Preprocess to get collections for newspaper pages
  */
 function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
-  $object = $variables['islandora_object'];
+  $object = $variables['object'];
+  $variables['islandora_object'] = $object;
   $query = <<<EOQ
   SELECT ?paper
   FROM <#ri>
@@ -381,7 +382,7 @@ function UofM_2_islandora_newspaper_page_select(array $variables) {
   ));
 }
 
-function islandora_newspaper_preprocess_islandora_newspaper_page_controls(&$variables) {
+function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/datastream');
   module_load_include('inc', 'islandora', 'includes/utilities');
   global $base_url;
@@ -389,21 +390,30 @@ function islandora_newspaper_preprocess_islandora_newspaper_page_controls(&$vari
   $download_prefix = '<strong>' . t('Download:') . ' </strong>';
   $object = $variables['object'];
   $issue = islandora_newspaper_get_issue($object);
-  $issue = $issue ? islandora_object_load($issue) : FALSE;
-  $newspaper = FALSE;
   if ($issue) {
+    $issue = $issue ? islandora_object_load($issue) : FALSE;
     $newspaper = islandora_newspaper_get_newspaper($issue);
   }
   $controls = array(
     'page_select' => theme('islandora_newspaper_page_select', array('object' => $object)),
   );
+
   if ($newspaper) {
-    $controls[] = array(
+    $links[] = array(
       'title' => t('All Issues'),
       'href' => url("islandora/object/{$newspaper}", array('absolute' => TRUE)),
     );
+    $attributes = array('class' => array('links', 'inline'));
+    $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
+  }
+  // Text view.
+  if (isset($object['OCR']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['OCR'])) {
+    $url = islandora_datastream_get_url($object['OCR'], 'view');
+    $attributes = array('attributes' => array('title' => t('View text')));
+    $controls['text_view'] = $view_prefix . l(t('Text'), $url, $attributes);
   }
   if (isset($object['JP2']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['JP2'])) {
+    // JP2 download.
     $controls['clip'] = theme(
       'islandora_openseadragon_clipper',
       array('pid' => $object->id)

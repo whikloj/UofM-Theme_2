@@ -32,8 +32,8 @@
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($parent_collections,'|');?>', 3]);
   ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
-  <?php foreach ($parent_collections as $coll): ?>
-  ga('set', 'dimension2', '<?php print $collections;?>');
+  <?php foreach ($parent_collections as $collection): ?>
+  ga('set', 'dimension2', '<?php print $collection;?>');
   <?php endforeach; ?>
   ga('set', 'dimension3', '<?php ?>');
 //-->
