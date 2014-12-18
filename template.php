@@ -408,7 +408,7 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
   }
   if (isset($object['JP2']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['JP2'])) {
     // JP2 download.
-    $controls['clip'] = theme(
+    $controls['clip'] = "<strong>Clip image:</strong> " . theme(
       'islandora_openseadragon_clipper',
       array('pid' => $object->id)
     );
