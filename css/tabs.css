@@ -74,6 +74,7 @@ ul.primary li, .home-tab {
 
 
 ul.primary li.active,
+ul.primary li.is-active,
 ul.primary li:hover,
 .home-tab.active,
 .home-tab:hover {
