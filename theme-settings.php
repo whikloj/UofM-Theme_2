@@ -29,6 +29,12 @@ function UofM_2_form_system_theme_settings_alter(&$form, &$form_state, $form_id 
     '#default_value' => theme_get_setting('UofM_2_analytics_code'),
     '#description' => t("Tracking code for your Google Analytics account to use builtin collection tracking code."),
   );
+  $form['UofM_2_translate_code'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Google Translate Code'),
+    '#default_value' => theme_get_setting('UofM_2_translate_code'),
+    '#description' => t("Tracking code for Google Translate to use a website translation widget."),
+  );
 
   // Remove some of the base theme's settings.
   /* -- Delete this line if you want to turn off this setting.

@@ -751,3 +751,22 @@ button.BRicon.info {
 .islandora-newspaper-controls {
     clear:left; /* Break the float */
 }
+
+#google_translate_element {
+  display: inline-block;
+  float: right;
+} 
+
+#google_translate_element .goog-te-gadget, 
+#google_translate_element .goog-logo-link, 
+#google_translate_element .goog-logo-link:link,
+#google_translate_element .goog-logo-link:visited,
+#google_translate_element .goog-logo-link:hover,
+#google_translate_element .goog-logo-link:active {
+  font-size: 0.714em;
+}
+
+#google_translate_element .goog-te-combo, 
+#google_translate_element .goog-te-gadget-simple {
+  font-size: 9pt;
+}

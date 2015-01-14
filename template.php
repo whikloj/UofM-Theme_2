@@ -119,6 +119,9 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_library('system', 'ui.widget');
   drupal_add_js(drupal_get_path('theme','UofM_2') . '/js/collection_page.js',array('group'=>JS_THEME));
   
+  $variables['goog_analytics'] = theme_get_setting('UofM_2_analytics_code');
+  $variables['goog_translate'] = theme_get_setting('UofM_2_translate_code');
+  
   if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['classes_array'][] = 'islandora-collection';
   }

@@ -101,8 +101,8 @@
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
   <?php endif; ?>
-  <?php $ga = theme_get_setting('UofM_2_analytics_code');
-  if (!is_null($ga) && strlen($ga) > 0): ?>
+  <?php
+  if (!is_null($goog_analytics) && strlen($goog_analytics) > 0): ?>
   <!-- Google Analytics (Part 1) -->
   <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -110,9 +110,12 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '<?php print theme_get_setting('UofM_2_analytics_code'); ?>', 'auto');  // Replace with your property ID.
+  ga('create', '<?php print $goog_analytics; ?>', 'auto');  // Replace with your property ID.
   </script>
   <!-- End Google Analytics (Part 1) -->
+  <?php endif; 
+  if (!is_null($goog_translate) && strlen($goog_translate) > 0): ?>
+  <meta name="google-translate-customization" content="<?php print $goog_translate;?>"></meta>
   <?php endif; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
