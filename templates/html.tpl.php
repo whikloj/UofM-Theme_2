@@ -127,7 +127,7 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-  <?php if (!is_null($ga) && strlen($ga) > 0): ?>
+  <?php if (!is_null($g0g_translate) && strlen($goog_translate) > 0): ?>
   <!-- Google Analytics (Part 2) -->
   <script type="text/javascript">
   ga('send','pageview');
