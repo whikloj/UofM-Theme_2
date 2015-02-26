@@ -31,10 +31,10 @@
                'attributes' => array('class' => implode(' ',$result['classes'])),
             ));
           ?>
+          <?php if (in_array('item-type-collection',$result['classes'])): ?>
+          <span class="islandora-solr-grid-collection">Collection</span>
+          <?php endif; ?>
         </dt>
-        <?php if (in_array('item-type-collection',$result['classes'])): ?>
-        <span class="islandora-solr-grid-collection">Collection</span>
-        <?php endif; ?>
         <dd class="solr-grid-caption">
           <?php
             $object_label = isset($result['object_label']) ? $result['object_label'] : '';

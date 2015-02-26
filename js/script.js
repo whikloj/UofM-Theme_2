@@ -59,4 +59,14 @@
     }
   });
 
+  jQuery(window).load(function(){
+    if (jQuery('.solr-grid-thumb, .islandora-basic-collection-thumb').length > 0) {
+      jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption').mouseover(function(){
+        jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption').show();
+      }).mouseout(function(){
+        jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption').hide();
+      });
+    }
+  });
+
 })(jQuery, Drupal, this, this.document);
