@@ -266,7 +266,6 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
  * Implements theme_preprocess_islandora_solr_grid().
   */
 function UofM_2_preprocess_islandora_solr_grid(&$variables) {
-  function islandora_solr_preprocess_islandora_solr(&$variables) {
   $results = $variables['results'];
   foreach ($results as $key => $result) {
     // Thumbnail.
