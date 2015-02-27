@@ -255,6 +255,7 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
       $path = $variables['associated_objects_array'][$pid]['path'];
       $title = $variables['associated_objects_array'][$pid]['title'];
       $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('class' => $classes.$new_class)));
+      $variables['associated_objects_array'][$pid]['title_link'] = l($title, $path, array('html' => TRUE, 'attributes' => array()));
       $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
     }
   } catch (Exception $e){
