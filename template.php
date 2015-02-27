@@ -236,6 +236,9 @@ function UofM_2_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+/**
+ * Implements theme_preprocess_islandora_basic_collection_grid().
+ */
 function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
   try {
     foreach ($variables['associated_objects_array'] as $pid => $obj){
@@ -248,31 +251,51 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
         $new_class .= ' item-type-video';
         $type_icon = '<span class="islandora-solr-grid-video"></span>';
       }
-      if (!empty($new_class)) {
-        $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'] . (isset($type_icon) ? $type_icon : "");
-        $path = $variables['associated_objects_array'][$pid]['path'];
-        $title = $variables['associated_objects_array'][$pid]['title'];
-        $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('title' => $title,'class' => $classes.$new_class)));
-        $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
-      }
+      $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'] . (isset($type_icon) ? $type_icon : "");
+      $path = $variables['associated_objects_array'][$pid]['path'];
+      $title = $variables['associated_objects_array'][$pid]['title'];
+      $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('class' => $classes.$new_class)));
+      $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
     }
   } catch (Exception $e){
     drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
   } 
 }
 
+/**
+ * Implements theme_preprocess_islandora_solr_grid().
+  */
 function UofM_2_preprocess_islandora_solr_grid(&$variables) {
-  for ($x = 0; $x < count($variables['results']); $x += 1) {
-    $variables['results'][$x]['classes'] = array();
-    if (array_key_exists('type_of_resource_facet_ms', $variables['results'][$x]['solr_doc']) &&
-    in_array('moving image', $variables['results'][$x]['solr_doc']['type_of_resource_facet_ms'])) {
-      $variables['results'][$x]['classes'][] = 'item-type-video';
+  function islandora_solr_preprocess_islandora_solr(&$variables) {
+  $results = $variables['results'];
+  foreach ($results as $key => $result) {
+    // Thumbnail.
+    $path = url($result['thumbnail_url'], array('query' => $result['thumbnail_url_params']));
+    $image = theme('image', array('path' => $path));
+
+    $options = array('html' => TRUE);
+    if (isset($result['object_label'])) {
+      $options['attributes']['title'] = $result['object_label'];
     }
-    else if (array_key_exists('content_models', $variables['results'][$x]) &&
-    in_array('info:fedora/islandora:collectionCModel', $variables['results'][$x]['content_models'])) {
-      $variables['results'][$x]['classes'][] = 'item-type-collection';
+    if (isset($result['object_url_params'])) {
+      $options['query'] = $result['object_url_params'];
     }
-  } // end for
+    if (isset($result['object_url_fragment'])) {
+      $options['fragment'] = $result['object_url_fragment'];
+    }
+    // Thumbnail link.
+    $variables['results'][$key]['thumbnail'] = l($image, $result['object_url'], $options);
+    // Classes
+    $variables['results'][$key]['classes'] = array();
+    if (array_key_exists('type_of_resource_facet_ms', $variables['results'][$key]['solr_doc']) &&
+      in_array('moving image', $variables['results'][$key]['solr_doc']['type_of_resource_facet_ms'])) {
+      $variables['results'][$key]['classes'][] = 'item-type-video';
+    }
+    else if (array_key_exists('content_models', $variables['results'][$key]) &&
+      in_array('info:fedora/islandora:collectionCModel', $variables['results'][$key]['content_models'])) {
+      $variables['results'][$key]['classes'][] = 'item-type-collection';
+    }
+  }
 }
 
 /**

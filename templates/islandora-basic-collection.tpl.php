@@ -9,6 +9,7 @@
 ?>
 
 <div class="islandora islandora-basic-collection">
+  <div class="islandora-basic-collection-list">
     <?php $row_field = 0; ?>
     <?php foreach($associated_objects_array as $associated_object): ?>
       <div class="islandora-basic-collection-object islandora-basic-collection-list-item clearfix">
@@ -32,4 +33,5 @@
       </div>
     <?php $row_field++; ?>
     <?php endforeach; ?>
+  </div>
 </div>

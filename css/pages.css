@@ -334,7 +334,14 @@ body.no-sidebars .islandora-pdf-sidebar {
     padding: 15px;
 }
 
+.islandora-solr-search-results {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
 /* above except in search results */
+.islandora-solr-search-results .islandora-solr-list,
 .islandora-solr-search-results .islandora-solr-grid {
     border-top: none;
     height: 280px;
@@ -356,7 +363,7 @@ dl.solr-grid-field {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    margin: 1em;
+    margin: 0.3em;
     padding: 0; 
 }
 
@@ -410,9 +417,11 @@ dt.solr-grid-thumb img {
     margin-top:20px;
 }
 
+.islandora-basic-collection-list,
 .islandora-basic-collection-grid {
   height: 280px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /*.solr-grid-thumb a.item-type-collection,
@@ -475,7 +484,7 @@ dd.solr-grid-caption a:active,
 dd.solr-grid-caption a:link,
 dd.solr-grid-caption a:visited {
   height: 100%;
-  width: 100%;
+  width: 100px;
   display: inline-block;
   padding:5px;
   color: #fff;
