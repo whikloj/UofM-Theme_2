@@ -354,6 +354,8 @@ body.no-sidebars .islandora-pdf-sidebar {
     width: auto;
 }
 
+.islandora-newspaper-issue .islandora-objects-grid .islandora-objects-grid-item,
+.islandora-newspaper-issue .islandora-objects-grid dl.islandora-object,
 dl.islandora-basic-collection-object,
 dl.solr-grid-field {
     height: 110px;
@@ -367,6 +369,7 @@ dl.solr-grid-field {
     padding: 0; 
 }
 
+.islandora-newspaper-issue .islandora-objects-grid dt.islandora-object-thumb img,
 dt.islandora-basic-collection-thumb img,
 dt.solr-grid-thumb img {
   height: 110px;
@@ -453,10 +456,13 @@ html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
     position: relative;
 }
 
+.islandora-newspaper-issue .islandora-objects-grid dt.islandora-object-thumb,
 dt.islandora-basic-collection-thumb,
 dt.solr-grid-thumb {
   display: block;
 }
+
+.islandora-newspaper-issue .islandora-objects-grid dd.islandora-object-caption,
 dd.islandora-basic-collection-caption,
 dd.solr-grid-caption {
   background-color: rgba(0,0,0,0.7);
@@ -475,6 +481,8 @@ dd.solr-grid-caption {
   border-bottom-left-radius: 5px;
 }
 
+.islandora-newspaper-issue .islandora-objects-grid dd.islandora-object-caption a,
+.islandora-newspaper-issue .islandora-objects-grid dd.islandora-object-caption a:visited,
 dd.islandora-basic-collection-caption a,
 dd.islandora-basic-collection-caption a:active,
 dd.islandora-basic-collection-caption a:visited,
