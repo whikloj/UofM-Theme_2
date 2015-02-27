@@ -60,7 +60,7 @@
   });
 
   jQuery(window).load(function(){
-    if (jQuery('.solr-grid-thumb, .islandora-basic-collection-thumb').length > 0) {
+    if (jQuery('.islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb').length > 0) {
       jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-newspaper-issue .islandora-object-thumb, .islandora-newspaper-issue .islandora-object-caption').mouseover(function(){
         jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption, .islandora-object-caption').show();
       }).mouseout(function(){
