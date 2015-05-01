@@ -48,8 +48,9 @@
     }*/
   });
 
+  // Scroll active compound into view.
   jQuery(window).load(function(){ 
-    if (jQuery('.islandora-compound-thumbs').length > 0 && jQuery('.islandora-compound-thumbs').width() > jQuery('.islandora-compound-thumbs-wrapper').width()){
+    if (jQuery('.islandora-compound-thumbs').length > 0) {
       var activeLeft = jQuery('.islandora-compound-thumb a.active').offset().left;
       var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper').width();
       var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper').offset().left;
@@ -59,6 +60,7 @@
     }
   });
 
+  // Show and hide captions from new grid display.
   jQuery(window).load(function(){
     if (jQuery('.islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb').length > 0) {
       jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-newspaper-issue .islandora-object-thumb, .islandora-newspaper-issue .islandora-object-caption').mouseover(function(){
