@@ -432,12 +432,5 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
     $attributes = array('class' => array('links', 'inline'));
     $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
   }
-  if (isset($object['JP2']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['JP2'])) {
-    // JP2 download.
-    $controls['clip'] = "<strong>Clip image:</strong> " . theme(
-      'islandora_openseadragon_clipper',
-      array('pid' => $object->id)
-    );
-  }
   $variables['controls'] = $controls;
 }

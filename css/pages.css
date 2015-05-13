@@ -810,6 +810,7 @@ button.BRicon.info {
 }
 
 #google_translate_element {
+  clear: left;
   display: inline-block;
   float: right;
 } 

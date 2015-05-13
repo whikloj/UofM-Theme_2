@@ -218,6 +218,7 @@ html.gte-ie9 #islandora-collection-search-form #edit-collection-select option {
     margin-top:10px;
     margin-left:15px;
     font-weight:bold;
+    line-height:1em;
 }
 .breadcrumb ol {
   margin: 0;

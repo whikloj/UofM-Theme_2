@@ -345,6 +345,7 @@ ul.islandora-solr-display li.first {
 }
 
 #block-system-powered-by { /* "Powered by Drupal" block */
+  float: left;
 }
 
 #block-user-login { /* "User login form" block */
@@ -678,3 +679,15 @@ ul.home-tabs-container {
     max-width: 110px;
 }
 
+#derivative-message {
+    color: #111;
+    float: right;
+    line-height: 1.2em;
+    margin-top: 10px;
+    width: 450px;
+}
+
+#block-autologout-info {
+  margin-top: 10px;
+  float: left;
+}
