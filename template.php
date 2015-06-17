@@ -352,23 +352,7 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
 function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
   $object = $variables['object'];
   $variables['islandora_object'] = $object;
-  $query = <<<EOQ
-  SELECT ?paper
-  FROM <#ri>
-  WHERE {
-    <info:fedora/{$object->id}> <fedora-rels-ext:isMemberOf> ?issue .
-    ?issue <fedora-rels-ext:isMemberOf> ?paper ;
-         <fedora-model:hasModel> <info:fedora/islandora:newspaperIssueCModel> ;
-         <fedora-model:state> <fedora-model:Active> .
-    ?paper <fedora-model:hasModel> <info:fedora/islandora:newspaperCModel> .
-  }
-EOQ;
-
-  $results = $object->repository->ri->sparqlQuery($query);
-  $collections = array();
-  foreach ($results as $info) {
-    $collections[] = $info['paper']['value'];
-  }
+  $collections = UofM_2_newspaper_page_to_paper($object);
   if (array_key_exists('parent_collections', $variables)) {
     $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
   }
@@ -381,14 +365,14 @@ EOQ;
  * Theme the page selector.
  */
 function UofM_2_islandora_newspaper_page_select(array $variables) {
-  module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
+  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
   $path = drupal_get_path('module', 'islandora_newspaper');
   drupal_add_js($path . '/js/islandora_newspaper.js');
   $object = $variables['object'];
   $results = $object->relationships->get(ISLANDORA_RELS_EXT_URI, 'isPageOf');
   $result = reset($results);
   $parent = $result ? islandora_object_load($result['object']['value']) : FALSE;
-  $pages = $parent ? islandora_paged_content_get_pages($parent) : FALSE;
+  $pages = $parent ? islandora_custom_solr_newspaper_get_pages($parent) : FALSE;
   if (!$pages) {
     return;
   }
@@ -415,13 +399,10 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
   $view_prefix = '<strong>' . t('View:') . ' </strong>';
   $download_prefix = '<strong>' . t('Download:') . ' </strong>';
   $object = $variables['object'];
-  $issue = islandora_newspaper_get_issue($object);
-  if ($issue) {
-    $issue = $issue ? islandora_object_load($issue) : FALSE;
-    $newspaper = islandora_newspaper_get_newspaper($issue);
-  }
+  $newspapers = UofM_2_newspaper_page_to_paper($object);
+  $newspaper = reset($newspapers);
   $controls = array(
-    'page_select' => theme('islandora_newspaper_page_select', array('object' => $object)),
+    'page_select' => theme('islandora_custom_solr_newspaper_page_select', array('object' => $object)),
   );
 
   if ($newspaper) {
@@ -433,4 +414,25 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
     $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
   }
   $variables['controls'] = $controls;
+}
+
+function UofM_2_newspaper_page_to_paper($page) {
+  $query = <<<EOQ
+  SELECT ?paper
+  FROM <#ri>
+  WHERE {
+    <info:fedora/{$page->id}> <fedora-rels-ext:isMemberOf> ?issue .
+    ?issue <fedora-rels-ext:isMemberOf> ?paper ;
+         <fedora-model:hasModel> <info:fedora/islandora:newspaperIssueCModel> ;
+         <fedora-model:state> <fedora-model:Active> .
+    ?paper <fedora-model:hasModel> <info:fedora/islandora:newspaperCModel> .
+  }
+EOQ;
+
+  $results = $page->repository->ri->sparqlQuery($query);
+  $issues = array();
+  foreach ($results as $info) {
+    $issues[] = $info['paper']['value'];
+  }
+  return $issues;
 }
