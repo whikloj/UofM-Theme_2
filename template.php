@@ -392,6 +392,13 @@ function UofM_2_islandora_newspaper_page_select(array $variables) {
   ));
 }
 
+function UofM_2_preprocess_islandora_custom_solr_newspaper_page_select(&$variables) {
+  UofM_2_islandora_newspaper_page_select($variables);
+}
+
+/**
+ * Theme newspaper page controls.
+ */
 function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/datastream');
   module_load_include('inc', 'islandora', 'includes/utilities');
@@ -435,4 +442,46 @@ EOQ;
     $issues[] = $info['paper']['value'];
   }
   return $issues;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function UofM_2_preprocess_islandora_custom_solr_newspaper_page(&$variables) {
+  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
+  $object = $variables['object'];
+  $variables['islandora_object'] = $object;
+  $newspaper = islandora_custom_solr_get_newspaper($object);
+  $collections = array();
+  if ($newspaper) {
+    $collections[] = $newspaper['PID'];
+  }
+  if (array_key_exists('parent_collections', $variables)) {
+    $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
+  }
+  else {
+    $variables['parent_collections'] = $collections;
+  }
+}
+
+function UofM_2_preprocess_islandora_custom_solr_newspaper_page_controls(array &$variables) {
+  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
+  global $base_url;
+  $view_prefix = '<strong>' . t('View:') . ' </strong>';
+  $download_prefix = '<strong>' . t('Download:') . ' </strong>';
+  $object = $variables['object'];
+  $newspaper = islandora_custom_solr_get_newspaper($object);
+  $controls = array(
+    'page_select' => theme('islandora_custom_solr_newspaper_page_select', array('object' => $object)),
+  );
+
+  if ($newspaper) {
+    $links[] = array(
+      'title' => t('All Issues'),
+      'href' => url("islandora/object/{$newspaper['PID']}", array('absolute' => TRUE)),
+    );
+    $attributes = array('class' => array('links', 'inline'));
+    $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
+  }
+  $variables['controls'] = $controls;
 }
