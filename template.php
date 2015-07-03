@@ -504,14 +504,16 @@ function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter
     }
   }
   // Get rid of default compound_jail.js and use ours.
-  foreach ($data['content']['#attached']['js'] as $key => $element) {
-    if (strpos($key, 'compound_jail.js') > 0) {
-      unset($data['content']['#attached']['js'][$key]);
+  if (isset($data['content']['#attached']['js'])) {
+    foreach ($data['content']['#attached']['js'] as $key => $element) {
+      if (strpos($key, 'compound_jail.js') > 0) {
+        unset($data['content']['#attached']['js'][$key]);
+      }
     }
+    $data['content']['#attached']['js'][drupal_get_path('theme', 'UofM_2') . '/js/compound_jail.js'] = array(
+      'group' => JS_LIBRARY,
+    );
   }
-  $data['content']['#attached']['js'][drupal_get_path('theme', 'UofM_2') . '/js/compound_jail.js'] = array(
-    'group' => JS_LIBRARY,
-  );
   // Add all the thumbnails into the wrapper element and unset them.
   foreach ($data['content'] as $key => $element) {
     if (isset($element['#type']) && $element['#type'] == 'container') {
