@@ -643,7 +643,14 @@ ul.home-tabs-container {
 }
 
 
-.islandora-compound-thumbs-wrapper {
+#block-islandora-compound-object-compound-jail-display {
+    overflow-y: hidden;
+    height: auto;
+    margin-bottom: 2em;
+}
+
+.islandora-compound-thumbs-wrapper, 
+#block-islandora-compound-object-compound-jail-display .islandora-compound-jail-thumbs {
     /**
      * http://jsfiddle.net/mattball/avTgR/
      *   for answer to infinite horizontal scroll
@@ -657,8 +664,10 @@ ul.home-tabs-container {
     overflow:auto;
 }
 
+#block-islandora-compound-object-compound-jail-display .islandora-compound-jail-thumbs,
 .islandora-compound-thumbs {
     white-space: nowrap;
+    border-bottom: 1px dotted #cccccc;
 }
 
 .islandora-compound-thumb {
@@ -667,11 +676,27 @@ ul.home-tabs-container {
     -webkit-box-sizing: border-box;
     display: inline-block;
     width:auto;
+    border-bottom: none;
 }
 
+#block-islandora-compound-object-compound-jail-display .islandora-compound-title a {
+    display: inline;
+}
+
+#block-islandora-compound-object-compound-jail-display .islandora-compound-thumb {
+    margin-right: 5px;
+}
+
+#block-islandora-compound-object-compound-jail-display .islandora-compound-thumb .islandora-compound-caption,
 .islandora-compound-thumb .islandora-compound-caption {
     /* Caption above each thumbnail in a compound object */
     display:none;
+}
+
+/* Ugly stuff we need to change */
+#block-islandora-compound-object-compound-jail-display > div {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .islandora-compound-thumb img {

@@ -485,3 +485,48 @@ function UofM_2_preprocess_islandora_custom_solr_newspaper_page_controls(array &
   }
   $variables['controls'] = $controls;
 }
+
+function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter(&$data, $block) {
+  // Create our wrapper element.
+  $wrapper = array(
+    '#type' => 'markup',
+    '#prefix' => '<div class="islandora-compound-jail-thumbs">',
+    '#suffix' => '</div>',
+  );
+  // Put manage link in with title to save space.
+  if (isset($data['content']['part_title'])) {
+    $data['content']['part_title']['#type'] = 'markup';
+    $data['content']['part_title']['#prefix'] = '<span class="islandora-compound-title">';
+    $data['content']['part_title']['#suffix'] = '</span>';
+    if (isset($data['content']['manage_link'])) {
+      $data['content']['part_title']['#markup'] .= " " . $data['content']['manage_link']['#markup'];
+      unset($data['content']['manage_link']);
+    }
+  }
+  // Get rid of default compound_jail.js and use ours.
+  foreach ($data['content']['#attached']['js'] as $key => $element) {
+    if (strpos($key, 'compound_jail.js') > 0) {
+      unset($data['content']['#attached']['js'][$key]);
+    }
+  }
+  $data['content']['#attached']['js'][drupal_get_path('theme', 'UofM_2') . '/js/compound_jail.js'] = array(
+    'group' => JS_LIBRARY,
+  );
+  // Add all the thumbnails into the wrapper element and unset them.
+  foreach ($data['content'] as $key => $element) {
+    if (isset($element['#type']) && $element['#type'] == 'container') {
+      $element['#attributes'] += array('class' => 'islandora-compound-thumb');
+      if (isset($element['link'])) {
+        if (isset($element['link']['#options']['attributes'])) {
+          $element['link']['#options']['attributes'] += array('class' => 'islandora-compound-caption');
+        }
+        else {
+          $element['link']['#options']['attributes'] = array('class' => 'islandora-compound-caption');
+        }
+      }
+      $wrapper[$key] = $element;
+      unset($data['content'][$key]);
+    }
+  }
+  $data['content']['jail-wrapper'] = $wrapper;
+}
