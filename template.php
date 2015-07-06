@@ -517,13 +517,13 @@ function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter
   // Add all the thumbnails into the wrapper element and unset them.
   foreach ($data['content'] as $key => $element) {
     if (isset($element['#type']) && $element['#type'] == 'container') {
-      $element['#attributes'] += array('class' => 'islandora-compound-thumb');
+      $element['#attributes'] += array('class' => array('islandora-compound-thumb'));
       if (isset($element['link'])) {
         if (isset($element['link']['#options']['attributes'])) {
-          $element['link']['#options']['attributes'] += array('class' => 'islandora-compound-caption');
+          $element['link']['#options']['attributes'] += array('class' => array('islandora-compound-caption'));
         }
         else {
-          $element['link']['#options']['attributes'] = array('class' => 'islandora-compound-caption');
+          $element['link']['#options']['attributes'] = array('class' => array('islandora-compound-caption'));
         }
       }
       $wrapper[$key] = $element;

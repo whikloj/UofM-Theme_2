@@ -50,12 +50,13 @@
 
   // Scroll active compound into view.
   jQuery(window).load(function(){ 
-    if (jQuery('.islandora-compound-thumbs').length > 0) {
-      var activeLeft = jQuery('.islandora-compound-thumb a.active').offset().left;
-      var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper').width();
-      var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper').offset().left;
+    if (jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs').length > 0) {
+      var active = jQuery('.islandora-compound-thumb a.active:visible, .islandora-compound-object-jail-active:visible');
+      var activeLeft = jQuery(active).offset().left;
+      var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs').width();
+      var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs').offset().left;
       if (activeLeft > (wrapLeft + wrapWidth)){
-        jQuery('.islandora-compound-thumb a.active').scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
+        jQuery(active).scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
       }
     }
   });
