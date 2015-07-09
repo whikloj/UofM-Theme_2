@@ -514,6 +514,7 @@ function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter
       'group' => JS_LIBRARY,
     );
   }
+  $counter = 0;
   // Add all the thumbnails into the wrapper element and unset them.
   foreach ($data['content'] as $key => $element) {
     if (isset($element['#type']) && $element['#type'] == 'container') {
@@ -528,7 +529,10 @@ function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter
       }
       $wrapper[$key] = $element;
       unset($data['content'][$key]);
+      $counter += 1;
     }
   }
-  $data['content']['jail-wrapper'] = $wrapper;
+  if ($counter > 0) {
+    $data['content']['jail-wrapper'] = $wrapper;
+  }
 }
