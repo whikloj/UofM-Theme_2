@@ -5,17 +5,22 @@
   
   <xsl:template name="toLowerCase">
     <xsl:param name="text" />
-    <xsl:value-of select="transform($text,$uppercase,$lowercase)"/>
+    <xsl:value-of select="translate($text,$uppercase,$lowercase)"/>
   </xsl:template>
   
   <xsl:template name="toUpperCase">
     <xsl:param name="text" />
-    <xsl:value-of select="transform($text,$lowercase,$uppercase)"/>
+    <xsl:value-of select="translate($text,$lowercase,$uppercase)"/>
   </xsl:template>
   
   <xsl:template name="toProperCase">
     <xsl:param name="text" />
-    <xsl:value-of select="concat(transform(substring($text, 1, 1), $lowercase, $uppercase), transform(substring($text, 2), $uppercase, $lowercase))" />
+    <xsl:if test="string-length($text) &gt; 0">
+      <xsl:call-template name="toUpperCase"><xsl:with-param name="text" select="substring($text, 1, 1)"/></xsl:call-template>
+    </xsl:if>
+    <xsl:if test="string-length($text) &gt; 1">
+      <xsl:call-template name="toLowerCase"><xsl:with-param name="text" select="substring($text, 2)"/></xsl:call-template>
+    </xsl:if>
   </xsl:template>
   
 </xsl:stylesheet>
