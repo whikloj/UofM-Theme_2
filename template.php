@@ -243,6 +243,7 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
   try {
     foreach ($variables['associated_objects_array'] as $pid => $obj){
       $new_class = "";
+      unset($type_icon);
       $classes = $variables['associated_objects_array'][$pid]['class'];
       $models = $obj['object']->models;
       if (in_array('islandora:collectionCModel', $models)) {
