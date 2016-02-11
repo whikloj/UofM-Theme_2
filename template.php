@@ -117,7 +117,6 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_css('http://openfontlibrary.org/face/news-cycle', array('type' => 'external'));
   */
   drupal_add_library('system', 'ui.widget');
-  drupal_add_js(drupal_get_path('theme','UofM_2') . '/js/collection_page.js',array('group'=>JS_THEME));
   
   $variables['goog_analytics'] = theme_get_setting('UofM_2_analytics_code');
   $variables['goog_translate'] = theme_get_setting('UofM_2_translate_code');
