@@ -168,7 +168,14 @@ html.gte-ie9 .region-featured {
     background: -webkit-linear-gradient(top, #aeaeae 0%, #555555 99%);
     background: linear-gradient(#aeaeae, #555555);
     box-shadow: 0 2px 4px #777;
-    
+}
+#searchbar.position-fixed {
+    position:fixed;
+    top:0;
+    left:0;
+    margin-top:0;
+    width:100;
+    z-index:1000;
 }
 
 html.lt-ie9 .region-searchbar,
@@ -340,16 +347,6 @@ body.no-sidebars .islandora-pdf-sidebar {
     overflow: hidden;
 }
 
-/* above except in search results */
-.islandora-solr-search-results .islandora-solr-list,
-.islandora-solr-search-results .islandora-solr-grid {
-    border-top: none;
-    height: 280px;
-    overflow: auto;
-    margin: 0; /* otherwise our resize JS looks weird */
-    width: 100%; /* override Islandora setting of 96% */
-}
-
 .islandora-object-thumb img {
     width: auto;
 }
@@ -418,13 +415,6 @@ dt.solr-grid-thumb img {
 
 .islandora-basic-collection-wrapper {
     margin-top:20px;
-}
-
-.islandora-basic-collection-list,
-.islandora-basic-collection-grid {
-  height: 280px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /*.solr-grid-thumb a.item-type-collection,
