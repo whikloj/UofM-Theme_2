@@ -33,7 +33,7 @@
         //console.log(jQuery(window).scrollTop());
         if (jQuery(window).scrollTop() > searchbarTop) {
           jQuery('#searchbar').addClass('position-fixed');
-        } else if (jQuery(window).scrollTop() > searchbarTop) {
+        } else if (jQuery(window).scrollTop() < searchbarTop) {
           jQuery('#searchbar').removeClass('position-fixed');
         }
       });
