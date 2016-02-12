@@ -174,7 +174,7 @@ html.gte-ie9 .region-featured {
     top:0;
     left:0;
     margin-top:0;
-    width:100;
+    width:100%;
     z-index:1000;
 }
 

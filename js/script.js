@@ -28,30 +28,32 @@
     attach: function(context, settings) {
 
       // Make searchbar stick to the top of the screen.
-      var searchbarTop = jQuery('#searchbar').offset().top;
+      var searchbarTop = jQuery('#searchbar', context).offset().top;
       jQuery(window).scroll(function(){
         //console.log(jQuery(window).scrollTop());
         if (jQuery(window).scrollTop() > searchbarTop) {
-          jQuery('#searchbar').addClass('position-fixed');
+          jQuery('#searchbar', context).addClass('position-fixed');
         } else if (jQuery(window).scrollTop() < searchbarTop) {
-          jQuery('#searchbar').removeClass('position-fixed');
+          jQuery('#searchbar', context).removeClass('position-fixed');
         }
       });
 
       // Scroll active compound into view.
-      jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs').imagesLoaded(function() {
-        var active = jQuery('.islandora-compound-thumb a.active:visible, .islandora-compound-object-jail-active:visible');
-        var activeLeft = jQuery(active).offset().left;
-        var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs').width();
-        var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs').offset().left;
-        if (activeLeft > (wrapLeft + wrapWidth)){
-          jQuery(active).scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
-        }
-      });
+      if (jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs', context).length > 0) {
+        jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs', context).imagesLoaded(function() {
+          var active = jQuery('.islandora-compound-thumb a.active:visible, .islandora-compound-object-jail-active:visible', context);
+          var activeLeft = jQuery(active).offset().left;
+          var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs', context).width();
+          var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs', context).offset().left;
+          if (activeLeft > (wrapLeft + wrapWidth)){
+            jQuery(active).scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
+          }
+        });
+      }
 
       // Show and hide captions from new grid display.
-      if (jQuery('.islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb').length > 0) {
-        jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-newspaper-issue .islandora-object-thumb, .islandora-newspaper-issue .islandora-object-caption').mouseover(function(){
+      if (jQuery('.islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb', context).length > 0) {
+        jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-newspaper-issue .islandora-object-thumb, .islandora-newspaper-issue .islandora-object-caption', context).mouseover(function(){
           jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption, .islandora-object-caption').show();
         }).mouseout(function(){
           jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption, .islandora-object-caption').hide();
