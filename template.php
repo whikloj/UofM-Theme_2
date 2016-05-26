@@ -264,6 +264,42 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_hook().
+ *
+ * Splits the islandora_object_mapper class to get the pid,
+ * then add classes for collections.
+ */
+function UofM_2_preprocess_islandora_objects_grid(&$variables) {
+  $new_objects = array();
+  foreach ($variables['objects'] as $key => $obj){
+    $new_class = "";
+    unset($type_icon);
+    $classes = $obj['class'];
+    $parts = explode('-', $classes);
+    $namespace = array_shift($parts);
+    $pid = $namespace . ':' . implode('-', $parts);
+    $object = islandora_object_load($pid);
+    if (!$object) {
+      $pid = $namespace . ':' . implode('_', $parts);
+      $object = islandora_object_load($pid);
+    }
+    if ($object) {
+      $models = $object->models;
+      if (in_array('islandora:collectionCModel', $models)) {
+        $new_class .= ' item-type-collection';
+      } else if (in_array('islandora:sp_videoCModel', $models)) {
+        $new_class .= ' item-type-video';
+        $type_icon = '<span class="islandora-solr-grid-video"></span>';
+      }
+      $obj['thumb'] .= (isset($type_icon) ? $type_icon : "");
+    }
+    $obj['class'] .= $new_class;
+    $variables['objects'][$key]['thumb'] = $obj['thumb'];
+    $variables['objects'][$key]['class'] = $obj['class'];
+  }
+}
+
+/**
  * Implements theme_preprocess_islandora_solr_grid().
   */
 function UofM_2_preprocess_islandora_solr_grid(&$variables) {
