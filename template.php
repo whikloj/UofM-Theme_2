@@ -157,13 +157,58 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
  */
 
 function UofM_2_preprocess_page(&$variables, $hook) {
-  $status = drupal_get_http_header("status");
-  if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
-    $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
-  }
-  else if ($status == "404 Not Found") {
-    $variables['theme_hook_suggestions'][] = 'page__404';
-  }
+    $status = drupal_get_http_header("status");
+  
+    if (module_exists('islandora_collection') && variable_get('islandora_basic_collection_display_backend', ISLANDORA_BASIC_COLLECTION_LEGACY_BACKEND) == 'islandora_solr_query_backend') {
+        $object = menu_get_object('islandora_object', 2);
+        if ($object) {
+            if ($object && in_array('islandora:collectionCModel', $object->models)) {
+                drupal_add_css(drupal_get_path('module', 'islandora_solr') . '/css/islandora_solr.theme.css');
+                $url = 'islandora/object/' . $object->id;
+                try {
+                    $dc = $object['DC']->content;
+                    $dc_object = DublinCore::importFromXMLString($dc)->asArray();
+                }
+                catch (Exception $e) {
+                    drupal_set_message(t('Error retrieving object %s %t', array('%s' => $islandora_object->id, '%t' => $e->getMessage())), 'error', FALSE);
+                }
+
+                $collection = array();
+                $desc_elem = FALSE;
+                if (isset($dc_object) &&isset($dc_object['dc:description'])) {
+                    $desc = $dc_object['dc:description']['value'];
+                    $desc_elem = array(
+                        '#type' => 'html_tag', 
+                        '#tag' => 'div',
+                        '#value' => check_plain($desc),
+                        '#attributes' => array('class' => 'islandora-basic-collection-info-description'),
+                    );
+                }
+                $collection['description'] = $desc_elem;
+                $img = FALSE;
+                if (isset($object['TN'])) {
+                    $img = array(
+                        '#theme' => 'image',
+                        '#path' => (isset($object['TN']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['TN']) ?
+                            "$url/datastream/TN/view" :
+                        drupal_get_path('module', 'islandora') . "/images/folder.png"),
+                        '#alt' => t($object->label),
+                        '#attributes' => array('class' => 'islandora-basic-collection-info-thumbnail'), 
+                    );
+                }
+                $collection['image'] = $img;
+                $variables['islandora_collection'] = $collection;
+                $variables['islandora_object'] = $object;
+                $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
+            }
+        }
+    } 
+    else if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
+        $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
+    }
+    else if ($status == "404 Not Found") {
+        $variables['theme_hook_suggestions'][] = 'page__404';
+    }
 }
 // */
 
@@ -239,28 +284,31 @@ function UofM_2_preprocess_block(&$variables, $hook) {
  * Implements theme_preprocess_islandora_basic_collection_grid().
  */
 function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
-  try {
-    foreach ($variables['associated_objects_array'] as $pid => $obj){
-      $new_class = "";
-      unset($type_icon);
-      $classes = $variables['associated_objects_array'][$pid]['class'];
-      $models = $obj['object']->models;
-      if (in_array('islandora:collectionCModel', $models)) {
-        $new_class .= ' item-type-collection';
-      } else if (in_array('islandora:sp_videoCModel', $models)) {
-        $new_class .= ' item-type-video';
-        $type_icon = '<span class="islandora-solr-grid-video"></span>';
+    try {
+          if (isset($variables['associated_objects_array'])) {
+              foreach ($variables['associated_objects_array'] as $pid => $obj){
+                  $new_class = "";
+                  unset($type_icon);
+                  $classes = $variables['associated_objects_array'][$pid]['class'];
+                  $models = $obj['object']->models;
+                  if (in_array('islandora:collectionCModel', $models)) {
+                      $new_class .= ' item-type-collection';
+                  } else if (in_array('islandora:sp_videoCModel', $models)) {
+                      $new_class .= ' item-type-video';
+                      $type_icon = '<span class="islandora-solr-grid-video"></span>';
+                  }
+                  $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'] . (isset($type_icon) ? $type_icon : "");
+                  $path = $variables['associated_objects_array'][$pid]['path'];
+                  $title = $variables['associated_objects_array'][$pid]['title'];
+                  $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('class' => $classes.$new_class)));
+                  $variables['associated_objects_array'][$pid]['title_link'] = l($title, $path, array('html' => TRUE, 'attributes' => array()));
+                  $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
+              }
+          }             
       }
-      $thumb_img = $variables['associated_objects_array'][$pid]['thumbnail'] . (isset($type_icon) ? $type_icon : "");
-      $path = $variables['associated_objects_array'][$pid]['path'];
-      $title = $variables['associated_objects_array'][$pid]['title'];
-      $variables['associated_objects_array'][$pid]['thumb_link'] = l($thumb_img, $path, array('html' => TRUE, 'attributes' => array('class' => $classes.$new_class)));
-      $variables['associated_objects_array'][$pid]['title_link'] = l($title, $path, array('html' => TRUE, 'attributes' => array()));
-      $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
-    }
-  } catch (Exception $e){
-    drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
-  } 
+      catch (Exception $e){
+          drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
+      } 
 }
 
 /**

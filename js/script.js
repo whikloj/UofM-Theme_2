@@ -52,8 +52,8 @@
       }
 
       // Show and hide captions from new grid display.
-      if (jQuery('.islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb', context).length > 0) {
-        jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-newspaper-issue .islandora-object-thumb, .islandora-newspaper-issue .islandora-object-caption', context).mouseover(function(){
+      if (jQuery('.islandora-objects-grid, .islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb', context).length > 0) {
+        jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-object-thumb, .islandora-object-caption', context).mouseover(function(){
           jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption, .islandora-object-caption').show();
         }).mouseout(function(){
           jQuery(this).parent().children('.solr-grid-caption, .islandora-basic-collection-caption, .islandora-object-caption').hide();
