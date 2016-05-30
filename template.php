@@ -159,7 +159,7 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
 function UofM_2_preprocess_page(&$variables, $hook) {
     $status = drupal_get_http_header("status");
   
-    if (module_exists('islandora_collection') && variable_get('islandora_basic_collection_display_backend', ISLANDORA_BASIC_COLLECTION_LEGACY_BACKEND) == 'islandora_solr_query_backend') {
+    if (module_exists('islandora_basic_collection') && variable_get('islandora_basic_collection_display_backend', ISLANDORA_BASIC_COLLECTION_LEGACY_BACKEND) == 'islandora_solr_query_backend') {
         $object = menu_get_object('islandora_object', 2);
         if ($object) {
             if ($object && in_array('islandora:collectionCModel', $object->models)) {
