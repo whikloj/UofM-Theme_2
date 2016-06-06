@@ -141,6 +141,7 @@
     </div>
     <?php print $breadcrumb; ?>
 
+<?php if (isset($islandora_basic_collection_solr) && $islandora_basic_collection_solr): ?>
     <div class="islandora-basic-collection-info">
       <?php if ($islandora_collection['image']) {
          print render($islandora_collection['image']);
@@ -154,8 +155,10 @@
          print render($islandora_collection['description']);
       } ?>
     </div>
+<?php endif; ?>
 
     <div id="content" class="column" role="main">
+
       <?php print render($page['highlighted']); ?>
       
       <a id="main-content"></a>

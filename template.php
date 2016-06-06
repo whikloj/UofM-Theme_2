@@ -199,6 +199,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                 $collection['image'] = $img;
                 $variables['islandora_collection'] = $collection;
                 $variables['islandora_object'] = $object;
+                $variables['islandora_basic_collection_solr'] = TRUE;
                 $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
             }
         }
