@@ -140,10 +140,10 @@
       <?php print render($page['searchbar']); ?>
     </div>
     <?php print $breadcrumb; ?>
-    
+
     <div class="islandora-basic-collection-info">
       <?php if ($islandora_collection['image']) {
-         print render($islandora_collection['image']); 
+         print render($islandora_collection['image']);
        } ?>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
@@ -151,10 +151,10 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php if ($islandora_collection['description']) {
-         print render($islandora_collection['description']); 
+         print render($islandora_collection['description']);
       } ?>
     </div>
-    
+
     <div id="content" class="column" role="main">
       <?php print render($page['highlighted']); ?>
       

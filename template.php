@@ -158,7 +158,7 @@ function UofM_2_preprocess_maintenance_page(&$variables, $hook) {
 
 function UofM_2_preprocess_page(&$variables, $hook) {
     $status = drupal_get_http_header("status");
-  
+
     if (module_exists('islandora_basic_collection') && variable_get('islandora_basic_collection_display_backend', ISLANDORA_BASIC_COLLECTION_LEGACY_BACKEND) == 'islandora_solr_query_backend') {
         $object = menu_get_object('islandora_object', 2);
         if ($object) {
@@ -178,7 +178,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                 if (isset($dc_object) &&isset($dc_object['dc:description'])) {
                     $desc = $dc_object['dc:description']['value'];
                     $desc_elem = array(
-                        '#type' => 'html_tag', 
+                        '#type' => 'html_tag',
                         '#tag' => 'div',
                         '#value' => check_plain($desc),
                         '#attributes' => array('class' => 'islandora-basic-collection-info-description'),
@@ -193,7 +193,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                             "$url/datastream/TN/view" :
                         drupal_get_path('module', 'islandora') . "/images/folder.png"),
                         '#alt' => t($object->label),
-                        '#attributes' => array('class' => 'islandora-basic-collection-info-thumbnail'), 
+                        '#attributes' => array('class' => 'islandora-basic-collection-info-thumbnail'),
                     );
                 }
                 $collection['image'] = $img;
@@ -202,7 +202,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                 $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
             }
         }
-    } 
+    }
     else if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
         $variables['theme_hook_suggestions'][] = 'page__islandora__collection';
     }
@@ -304,11 +304,11 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
                   $variables['associated_objects_array'][$pid]['title_link'] = l($title, $path, array('html' => TRUE, 'attributes' => array()));
                   $variables['associated_objects_array'][$pid]['class'] = $classes.$new_class;
               }
-          }             
+          }
       }
       catch (Exception $e){
           drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
-      } 
+      }
 }
 
 /**
