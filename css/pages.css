@@ -369,7 +369,7 @@ dl.solr-grid-field {
     padding: 0; 
 }
 
-dt.islandora-object-thumb img
+dt.islandora-object-thumb img,
 dt.islandora-basic-collection-thumb img,
 dt.solr-grid-thumb img {
   height: 110px;

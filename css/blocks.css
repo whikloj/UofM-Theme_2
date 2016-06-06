@@ -417,6 +417,9 @@ dl.solr-fields {
 }
 .block ul.islandora-solr-facet li a {
 }
+.block ul.islandora-solr-facet .plusminus {
+    display: none;
+}
 
 #slogan-floater {
 	position: relative;
