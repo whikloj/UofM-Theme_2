@@ -351,6 +351,13 @@ body.no-sidebars .islandora-pdf-sidebar {
     width: auto;
 }
 
+/**
+ * Hide the object switcher as we use the Solr one.
+ */
+.islandora-objects-display-switch {
+    display: none;
+}
+
 .islandora-objects-grid {
   box-sizing: border-box;
 }
