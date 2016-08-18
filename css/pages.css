@@ -366,7 +366,7 @@ body.no-sidebars .islandora-pdf-sidebar {
     border-bottom: 1px solid #ddd;
 }
 
-dl.islandora-object,
+.islandora-objects-grid dl.islandora-object,
 dl.islandora-basic-collection-object,
 dl.solr-grid-field {
     height: 110px;

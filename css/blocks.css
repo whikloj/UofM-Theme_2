@@ -401,7 +401,7 @@ ul.islandora-solr-display li.first {
 }
 
 dl.solr-fields {
-	background: #efefef;
+	border-top: none;
 }
 
 .block ul.islandora-solr-facet {
