@@ -355,6 +355,10 @@ body.no-sidebars .islandora-pdf-sidebar {
   box-sizing: border-box;
 }
 
+.islandora-objects-list-item {
+    border-bottom: 1px solid #ddd;
+}
+
 dl.islandora-object,
 dl.islandora-basic-collection-object,
 dl.solr-grid-field {
@@ -456,7 +460,7 @@ dt.solr-grid-thumb {
   display: block;
 }
 
-dd.islandora-object-caption,
+.islandora-objects-grid dd.islandora-object-caption,
 dd.islandora-basic-collection-caption,
 dd.solr-grid-caption {
   background-color: rgba(0,0,0,0.7);
@@ -494,6 +498,13 @@ dd.solr-grid-caption a:visited {
   color: #fff;
 }
 
+.islandora-objects-list dd.islandora-object-caption a,
+.islandora-objects-list dd.islandora-object-caption a:active,
+.islandora-objects-list dd.islandora-object-caption a:visited,
+.islandora-objects-list dd.islandora-object-caption a:link {
+    color: #000;
+    width: 100%;
+}
 
 .islandora-basic-collection-collection,
 .islandora-solr-grid-collection {
