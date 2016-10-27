@@ -621,3 +621,13 @@ function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter
     $data['content']['jail-wrapper'] = $wrapper;
   }
 }
+
+/**
+ * Implements hook_process_theme().
+ *
+ * Makes the print dialog appear on print pages using the image clipper.
+ */
+function UofM_2_process_islandora_object_print(&$variables) {
+  // Prompt to print.
+  drupal_add_js('jQuery(document).ready(function () { window.print(); });', 'inline');
+}
