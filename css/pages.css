@@ -461,6 +461,10 @@ html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
     position: relative;
 }
 
+.item-type-collection .islandora-object-caption {
+  display: block !important;
+}
+
 dt.islandora-object-thumb,
 dt.islandora-basic-collection-thumb,
 dt.solr-grid-thumb {
