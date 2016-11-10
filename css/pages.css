@@ -461,7 +461,8 @@ html.lt-ie9 .islandora-basic-collection-grid .item-type-collection {
     position: relative;
 }
 
-.item-type-collection .islandora-object-caption {
+.item-type-collection .islandora-object-caption,
+.item-type-collection .solr-grid-caption {
   display: block !important;
 }
 

@@ -17,7 +17,7 @@
     <div class="islandora-solr-grid clearfix">
     <?php 
       foreach($results as $result): ?>
-      <dl class="solr-grid-field">
+      <dl class="solr-grid-field <?php print implode($result['classes'], ' ');?>">
         <dt class="solr-grid-thumb">
           <?php
             $image = '<img src="' . url($result['thumbnail_url'], array('query' => $result['thumbnail_url_params'])) . '" />';
