@@ -528,7 +528,14 @@ ul.home-tabs-container {
 
 #home-panel-collections {
     height: 284px;
-    overflow:auto;
+    overflow:hidden;
+}
+
+#home-panel-collections .manidora-collection-scroll {
+    height: 270px;
+    margin-top: -1px;
+    overflow: auto;
+    position: relative;
 }
 
 #home-panel-collections .column_50 {

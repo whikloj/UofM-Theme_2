@@ -27,16 +27,18 @@
   Drupal.behaviors.UofM_Theme_2 = {
     attach: function(context, settings) {
 
-      // Make searchbar stick to the top of the screen.
-      var searchbarTop = jQuery('#searchbar', context).offset().top;
-      jQuery(window).scroll(function(){
-        //console.log(jQuery(window).scrollTop());
-        if (jQuery(window).scrollTop() > searchbarTop) {
-          jQuery('#searchbar', context).addClass('position-fixed');
-        } else if (jQuery(window).scrollTop() < searchbarTop) {
-          jQuery('#searchbar', context).removeClass('position-fixed');
-        }
-      });
+      if (jQuery('#searchbar', context).length > 0) {
+        // Make searchbar stick to the top of the screen.
+        var searchbarTop = jQuery('#searchbar', context).offset().top;
+        jQuery(window).scroll(function () {
+          //console.log(jQuery(window).scrollTop());
+          if (jQuery(window).scrollTop() > searchbarTop) {
+            jQuery('#searchbar', context).addClass('position-fixed');
+          } else if (jQuery(window).scrollTop() < searchbarTop) {
+            jQuery('#searchbar', context).removeClass('position-fixed');
+          }
+        });
+      }
 
       // Scroll active compound into view.
       if (jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs', context).length > 0) {
