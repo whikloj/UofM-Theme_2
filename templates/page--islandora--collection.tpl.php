@@ -142,7 +142,9 @@
     <?php print $breadcrumb; ?>
 
 <?php if (isset($islandora_basic_collection_solr) && $islandora_basic_collection_solr): ?>
-    <div class="islandora-basic-collection-info">
+    <div class="islandora-basic-collection-info-wrapper">
+        <?php print render($tabs); ?>
+        <div class="islandora-basic-collection-info">
       <?php if ($islandora_collection['image']) {
          print render($islandora_collection['image']);
        } ?>
@@ -154,7 +156,8 @@
       <?php if ($islandora_collection['description']) {
          print render($islandora_collection['description']);
       } ?>
-    </div>
+        </div>
+      </div>
 <?php endif; ?>
 
     <div id="content" class="column" role="main">
@@ -163,7 +166,9 @@
       
       <a id="main-content"></a>
       <?php print $messages; ?>
-      <?php print render($tabs); ?>
+      <?php if (!isset($islandora_basic_collection_solr) || !$islandora_basic_collection_solr) {
+          print render($tabs);
+      } ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>

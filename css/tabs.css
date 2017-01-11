@@ -103,7 +103,8 @@ ul.primary li a:hover {
     display: inline-block;
 }
 
-#content ul.primary {
+#content ul.primary,
+.islandora-basic-collection-info-wrapper ul.primary {
     margin-top:0;
 }
 

@@ -189,14 +189,20 @@ html.gte-ie9 .region-searchbar {
  * Content
  */
 
-#content {
+#content,
+.islandora-basic-collection-info-wrapper {
   float: left;
   line-height: 1.5em;
   margin-top:5px;
 }
 
-.no-sidebars #content {
+.no-sidebars #content,
+.islandora-basic-collection-info-wrapper {
     width:100%;
+}
+
+.islandora-basic-collection-info-wrapper {
+    margin-top: 15px;
 }
 
 
