@@ -40,6 +40,6 @@
 <?php foreach ($collection_pids as $cpid){ ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
 <?php } ?>
-  _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
+  _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($islandora_object_label, "'\\");?>', 3]);
 //-->
 </script>

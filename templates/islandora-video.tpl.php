@@ -17,7 +17,7 @@
  * @see theme_islandora_video()
  */
  $collection_pids = array(); // To hold parent collection pids for Google Analytics
- 
+
 ?>
 
 <div class="islandora-video-object islandora" itemscope itemtype="http://schema.org/VideoObject">
@@ -50,7 +50,7 @@
 <?php foreach ($collection_pids as $cpid){ ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
 <?php } ?>
-  _gaq.push(['_setCustomVar', 3, 'Title', '<?php print $islandora_object_label;?>', 3]);
+  _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($islandora_object_label, "'\\");?>', 3]);
 //-->
 </script>
 
