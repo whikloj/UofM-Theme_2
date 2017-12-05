@@ -6,7 +6,7 @@
  *   This is the template file for the object page for newspaper
  *   This override adds a print.
  */
- 
+
 ?>
 <div class="islandora-newspaper-object islandora">
   <div class="islandora-newspaper-controls">
@@ -27,11 +27,9 @@
   </div>
 </div>
 <script type="text/javascript">
-<!--
+  <!--
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
-<?php foreach ($parent_collections as $cpid){ ?>
-  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
-<?php } ?>
+  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($parent_collections,'|');?>', 3]);
 //-->
 </script>

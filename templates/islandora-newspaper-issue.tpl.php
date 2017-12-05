@@ -15,3 +15,10 @@
     <?php print theme('islandora_objects', array('objects' => $pages)); ?>
   <?php endif; ?>
 </div>
+<script type="text/javascript">
+  <!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($parent_collections,'|');?>', 3]);
+  //-->
+</script>

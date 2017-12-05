@@ -117,14 +117,14 @@ function UofM_2_preprocess_html(&$variables) {
   drupal_add_css('http://openfontlibrary.org/face/news-cycle', array('type' => 'external'));
   */
   drupal_add_library('system', 'ui.widget');
-  
+
   $variables['goog_analytics'] = theme_get_setting('UofM_2_analytics_code');
   $variables['goog_translate'] = theme_get_setting('UofM_2_translate_code');
-  
+
   if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['classes_array'][] = 'islandora-collection';
   }
-  
+
 }
 
 
@@ -170,7 +170,12 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                     $dc_object = DublinCore::importFromXMLString($dc)->asArray();
                 }
                 catch (Exception $e) {
-                    drupal_set_message(t('Error retrieving object %s %t', array('%s' => $islandora_object->id, '%t' => $e->getMessage())), 'error', FALSE);
+                    drupal_set_message(t('Error retrieving object %s %t',
+                      array(
+                        '%s' => $object->id,
+                        '%t' => $e->getMessage()
+                      )
+                    ), 'error', FALSE);
                 }
 
                 $collection = array();
@@ -308,7 +313,9 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
           }
       }
       catch (Exception $e){
-          drupal_set_message(t('Error collection models for object %s %t', array('%s'=>$islandora_object->id,'%t'=>$e->getMessage())),'error',FALSE);
+          drupal_set_message(t('Error collection models for object %t', array(
+            '%t'=>$e->getMessage()
+          )),'error',FALSE);
       }
 }
 
@@ -386,7 +393,7 @@ function UofM_2_preprocess_islandora_solr_grid(&$variables) {
 /**
  * Implements hook_preprocess_islandora_large_image()
  *
- * Adds the $variables['dental_info'] to display the 
+ * Adds the $variables['dental_info'] to display the
  * specialized dental tags on the View tab
  */
 function UofM_2_preprocess_islandora_large_image(&$variables) {
@@ -432,6 +439,22 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
 }
 
 /**
+ * Preprocess to get collections for newspaper issues
+ */
+function UofM_2_preprocess_islandora_newspaper_issue(&$variables) {
+  module_load_include('inc', 'islandora', 'includes/utilities');
+  $object = $variables['object'];
+  $variables['islandora_object'] = $object;
+  $collections = islandora_get_parents_from_rels_ext($object);
+  if (array_key_exists('parent_collections', $variables)) {
+    $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
+  }
+  else {
+    $variables['parent_collections'] = $collections;
+  }
+}
+
+/**
  * Preprocess to get collections for newspaper pages
  */
 function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
@@ -447,41 +470,6 @@ function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
 }
 
 /**
- * Theme the page selector.
- */
-function UofM_2_islandora_newspaper_page_select(array $variables) {
-  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
-  $path = drupal_get_path('module', 'islandora_newspaper');
-  drupal_add_js($path . '/js/islandora_newspaper.js');
-  $object = $variables['object'];
-  $results = $object->relationships->get(ISLANDORA_RELS_EXT_URI, 'isPageOf');
-  $result = reset($results);
-  $parent = $result ? islandora_object_load($result['object']['value']) : FALSE;
-  $pages = $parent ? islandora_custom_solr_newspaper_get_pages($parent) : FALSE;
-  if (!$pages) {
-    return;
-  }
-
-  $variables = array(
-    '#options' => array(),
-    '#attributes' => array('class' => array('page-select')),
-    '#value' => $object->id,
-  );
-  foreach ($pages as $pid => $page) {
-    $variables['#options'][$pid] = $page['page'];
-  }
-  $prefix = '<strong>' . t('Page') . ':</strong> ';
-  return $prefix . t('!page_selector of @total', array(
-    '!page_selector' => theme('select', array('element' => $variables)),
-    '@total' => count($pages),
-  ));
-}
-
-function UofM_2_preprocess_islandora_custom_solr_newspaper_page_select(&$variables) {
-  UofM_2_islandora_newspaper_page_select($variables);
-}
-
-/**
  * Theme newspaper page controls.
  */
 function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) {
@@ -493,9 +481,13 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
   $object = $variables['object'];
   $newspapers = UofM_2_newspaper_page_to_paper($object);
   $newspaper = reset($newspapers);
-  $controls = array(
-    'page_select' => theme('islandora_custom_solr_newspaper_page_select', array('object' => $object)),
-  );
+  $controls = &$variables['controls'];
+  // Remove View OCR
+  unset($controls['text_view']);
+  // Remove tiff download
+  unset($controls['tiff_download']);
+  // Remove page pager
+  unset($controls['page_pager']);
 
   if ($newspaper) {
     $links[] = array(
@@ -505,19 +497,20 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
     $attributes = array('class' => array('links', 'inline'));
     $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
   }
-  $variables['controls'] = $controls;
 }
 
 function UofM_2_newspaper_page_to_paper($page) {
   $query = <<<EOQ
+  PREFIX fedora-rels-ext: <info:fedora/fedora-system:def/relations-external#>
+  PREFIX fedora-model: <info:fedora/fedora-system:def/model#>
   SELECT ?paper
   FROM <#ri>
   WHERE {
-    <info:fedora/{$page->id}> <fedora-rels-ext:isMemberOf> ?issue .
-    ?issue <fedora-rels-ext:isMemberOf> ?paper ;
-         <fedora-model:hasModel> <info:fedora/islandora:newspaperIssueCModel> ;
-         <fedora-model:state> <fedora-model:Active> .
-    ?paper <fedora-model:hasModel> <info:fedora/islandora:newspaperCModel> .
+    <info:fedora/{$page->id}> fedora-rels-ext:isMemberOf ?issue .
+    ?issue fedora-rels-ext:isMemberOf ?paper ;
+         fedora-model:hasModel <info:fedora/islandora:newspaperIssueCModel> ;
+         fedora-model:state fedora-model:Active .
+    ?paper fedora-model:hasModel <info:fedora/islandora:newspaperCModel> .
   }
 EOQ;
 
@@ -527,48 +520,6 @@ EOQ;
     $issues[] = $info['paper']['value'];
   }
   return $issues;
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function UofM_2_preprocess_islandora_custom_solr_newspaper_page(&$variables) {
-  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
-  $object = $variables['object'];
-  $variables['islandora_object'] = $object;
-  $newspaper = islandora_custom_solr_get_newspaper($object);
-  $collections = array();
-  if ($newspaper) {
-    $collections[] = $newspaper['PID'];
-  }
-  if (array_key_exists('parent_collections', $variables)) {
-    $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
-  }
-  else {
-    $variables['parent_collections'] = $collections;
-  }
-}
-
-function UofM_2_preprocess_islandora_custom_solr_newspaper_page_controls(array &$variables) {
-  module_load_include('inc', 'islandora_custom_solr', 'includes/newspaper');
-  global $base_url;
-  $view_prefix = '<strong>' . t('View:') . ' </strong>';
-  $download_prefix = '<strong>' . t('Download:') . ' </strong>';
-  $object = $variables['object'];
-  $newspaper = islandora_custom_solr_get_newspaper($object);
-  $controls = array(
-    'page_select' => theme('islandora_custom_solr_newspaper_page_select', array('object' => $object)),
-  );
-
-  if ($newspaper) {
-    $links[] = array(
-      'title' => t('All Issues'),
-      'href' => url("islandora/object/{$newspaper['PID']}", array('absolute' => TRUE)),
-    );
-    $attributes = array('class' => array('links', 'inline'));
-    $controls['issue_navigator'] = theme('links', array('links' => $links, 'attributes' => $attributes));
-  }
-  $variables['controls'] = $controls;
 }
 
 function UofM_2_block_view_islandora_compound_object_compound_jail_display_alter(&$data, $block) {
