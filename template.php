@@ -326,7 +326,6 @@ function UofM_2_preprocess_islandora_basic_collection_grid(&$variables) {
  * then add classes for collections.
  */
 function UofM_2_preprocess_islandora_objects_grid(&$variables) {
-  $new_objects = array();
   foreach ($variables['objects'] as $key => $obj){
     $new_class = "";
     unset($type_icon);
@@ -422,7 +421,6 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
       }
     }
   }
-  $object_id = $object->id;
   if (!$variables['parent_collections'] || (is_array($variables['parent_collections']) && count($variables['parent_collections']) == 0)){
     $parent_collections = islandora_get_parents_from_rels_ext($object);
     if (is_array($parent_collections) && count($parent_collections) == 0){
@@ -475,9 +473,6 @@ function UofM_2_preprocess_islandora_newspaper_page(&$variables) {
 function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/datastream');
   module_load_include('inc', 'islandora', 'includes/utilities');
-  global $base_url;
-  $view_prefix = '<strong>' . t('View:') . ' </strong>';
-  $download_prefix = '<strong>' . t('Download:') . ' </strong>';
   $object = $variables['object'];
   $newspapers = UofM_2_newspaper_page_to_paper($object);
   $newspaper = reset($newspapers);
