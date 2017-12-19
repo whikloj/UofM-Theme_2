@@ -483,6 +483,8 @@ function UofM_2_preprocess_islandora_newspaper_page_controls(array &$variables) 
   unset($controls['tiff_download']);
   // Remove page pager
   unset($controls['page_pager']);
+  // Remove issue pager
+  unset($controls['issue_pager']);
 
   if ($newspaper) {
     $links[] = array(
