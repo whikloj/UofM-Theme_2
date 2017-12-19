@@ -6,6 +6,7 @@
         bookReader.init();
         bookReader.switchMode(1);
         //bookReader.jumpToPage(1);
+        bookReader.resizePageView();
       });
     }
   };
