@@ -24,7 +24,6 @@
 ?>
 
 <div class="islandora-large-image-object islandora">
-<?php print manidora_print_insert_link("islandora/object/{$islandora_object->id}"); ?>
   <div class="islandora-large-image-content-wrapper clearfix">
     <?php if ($islandora_content): ?>
       <?php if (isset($image_clip)): ?>

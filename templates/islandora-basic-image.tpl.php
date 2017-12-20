@@ -11,7 +11,6 @@
 ?>
 
 <div class="islandora-basic-image-object islandora">
-  <?php print manidora_print_insert_link("islandora/object/{$islandora_object->id}"); ?>
   <div class="islandora-basic-image-content-wrapper clearfix">
     <?php if (isset($islandora_content)): ?>
       <div class="islandora-basic-image-content">
