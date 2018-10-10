@@ -30,6 +30,10 @@
   <!--
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
+  ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
+ <?php foreach($parent_collections as $cpid): ?>
+  ga('set', 'dimenstion2', '<?php print $cpid;?>');
+ <?php endforeach; ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print implode($parent_collections,'|');?>', 3]);
 //-->
 </script>
