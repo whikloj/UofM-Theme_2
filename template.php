@@ -579,3 +579,10 @@ function UofM_2_process_islandora_object_print(&$variables) {
   // Prompt to print.
   drupal_add_js('jQuery(document).ready(function () { window.print(); });', 'inline');
 }
+
+/**
+ * Implements hook_menu_alter().
+ */
+function UofM_2_menu_alter(&$items) {
+  unset($items['user/password']);
+}
