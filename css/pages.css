@@ -777,6 +777,10 @@ span.field-label { /* The inline field label used by the Fences module */
     display: none;
 }
 
+#manidora-newspaper-search-form .form-item-titles {
+    max-height: 350px;
+    overflow-y: scroll;
+}
 
 .no-results {
   margin-left: 6em;
