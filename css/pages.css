@@ -24,7 +24,7 @@ body {
   background: #F4F4F3;
   /* This is needed because the Book Reader has a font-size: 67.5% on body */
   font-size: 100%;
-  font-style: normal; 
+  font-style: normal;
   font-weight: 100;
   letter-spacing: 0.5pt;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 #page-title {
-  float:left; 
+  float:left;
 }
 
 
@@ -144,7 +144,7 @@ html.lt-ie9 #site-name {
 
 html.lt-ie9 .region-featured,
 html.gte-ie9 .region-featured {
-    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc); 
+    behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
     zoom:1;
 }
 
@@ -247,9 +247,9 @@ h1.page-404 {
     overflow: hidden;
     padding: 2px 50px 2px 13px;
 }
-html.lt-ie9 .page-islandora-search h1.solr-result, 
+html.lt-ie9 .page-islandora-search h1.solr-result,
 html.lt-ie9 #viewer-content h1.solr-result,
-html.gte-ie9 .page-islandora-search h1.solr-result, 
+html.gte-ie9 .page-islandora-search h1.solr-result,
 html.gte-ie9 #viewer-content h1.solr-result {
     -pie-background: linear-gradient(#a3a3a3,#717171);
     behavior: url(/sites/all/themes/UofM-Theme_2/css/PIE.htc);
@@ -300,11 +300,11 @@ body.islandora-collection #viewer-content {
     margin: 0.25em 0;
 }
 
-.islandora-basic-image-content-wrapper, 
+.islandora-basic-image-content-wrapper,
 .islandora-large-image-content-wrapper,
-#book-page-viewer, 
-#book-viewer, 
-.islandora-objects-grid, 
+#book-page-viewer,
+#book-viewer,
+.islandora-objects-grid,
 .islandora-solr-grid,
 .islandora-video-content-wrapper,
 .islandora-audio-content-wrapper,
@@ -314,7 +314,7 @@ body.islandora-collection #viewer-content {
     border-top: 1px dotted #dedede;
 }
 
-body.no-sidebars .islandora-basic-image-content, 
+body.no-sidebars .islandora-basic-image-content,
 body.no-sidebars .islandora-large-image-content,
 body.no-sidebars .islandora-newspaper-content {
     width: 100%;
@@ -326,10 +326,10 @@ body.no-sidebars .islandora-audio-content,
 body.no-sidebars .islandora-pdf-content {
     text-align:center;
     float:none;
-    width: 65%;    
+    width: 65%;
 }
 
-body.no-sidebars .islandora-basic-image-sidebar, 
+body.no-sidebars .islandora-basic-image-sidebar,
 body.no-sidebars .islandora-large-image-sidebar,
 body.no-sidebars .islandora-video-sidebar,
 body.no-sidebars .islandora-audio-sidebar,
@@ -383,7 +383,7 @@ dl.solr-grid-field {
     position: relative;
     display: inline-block;
     margin: 0.3em;
-    padding: 0; 
+    padding: 0;
 }
 
 dt.islandora-object-thumb img,
@@ -451,7 +451,7 @@ dt.solr-grid-thumb img {
     text-align:center;
 }*/
 
-.solr-grid-thumb .islandora-solr-grid-video, 
+.solr-grid-thumb .islandora-solr-grid-video,
 .islandora-basic-collection-thumb .islandora-solr-grid-video {
   background: transparent url('../images/play.png') no-repeat 0% 100%;
   width: 32px;
@@ -539,7 +539,7 @@ dd.solr-grid-caption a:visited {
 
 /* Make the viewer take the whole page */
 body.no-sidebars .islandora-large-image-content {
-    width: 100%; 
+    width: 100%;
 }
 body.no-sidebars .islandora-large-image-sidebar {
     clear:left;
@@ -669,7 +669,7 @@ span.field-label { /* The inline field label used by the Fences module */
   border: 1px solid #ececec;
 }
 
-.item-list .pager li:hover { 
+.item-list .pager li:hover {
   background: #ececec;
 }
 
@@ -737,7 +737,7 @@ span.field-label { /* The inline field label used by the Fences module */
     margin-left: 15px;
 }
 /*
-#islandora-solr-result-count { 
+#islandora-solr-result-count {
     display:none;
 }
 */
@@ -777,7 +777,7 @@ span.field-label { /* The inline field label used by the Fences module */
     display: none;
 }
 
-#manidora-newspaper-search-form .form-item-titles {
+#manidora-newspaper-search-form #edit-titles {
     max-height: 350px;
     overflow-y: scroll;
 }
@@ -842,10 +842,10 @@ button.BRicon.info {
   clear: left;
   display: inline-block;
   float: right;
-} 
+}
 
-#google_translate_element .goog-te-gadget, 
-#google_translate_element .goog-logo-link, 
+#google_translate_element .goog-te-gadget,
+#google_translate_element .goog-logo-link,
 #google_translate_element .goog-logo-link:link,
 #google_translate_element .goog-logo-link:visited,
 #google_translate_element .goog-logo-link:hover,
@@ -853,7 +853,7 @@ button.BRicon.info {
   font-size: 0.714em;
 }
 
-#google_translate_element .goog-te-combo, 
+#google_translate_element .goog-te-combo,
 #google_translate_element .goog-te-gadget-simple {
   font-size: 9pt;
 }
