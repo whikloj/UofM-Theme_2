@@ -857,3 +857,8 @@ button.BRicon.info {
 #google_translate_element .goog-te-gadget-simple {
   font-size: 9pt;
 }
+
+.maintenance-page.in-maintenance #page-title {
+  float: none;
+}
+
