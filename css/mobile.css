@@ -1,21 +1,30 @@
-@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-    /* iPad non-retina - Portrait*/
+
+@media only screen and (max-width: 770px) {
     #page, .region-bottom {
         max-width: 764px;
+        width: 100%;
     }
     #header {
         padding-left: 2px;
         padding-right: 2px;
+        max-height: 50px;
+    }
+    #logo img {
+        max-height: 50px;
+    }
+    #name-and-slogan {
+        margin-top: 2px;
     }
     #search_parameters p {
         margin: 0 3px;
     }
     .sidebar-first #content {
-        width:78%;
-        margin: 15px -100% 0 22%;
+        width:100%;
+        margin: 0;
     }
     .sidebar-first .region-sidebar-first {
-        width: 21%;
+        /*width: 21%;*/
+        display: none;
     }
     
     ul.primary li, .home-tab {
@@ -26,20 +35,26 @@
         margin-right: 15px;
         padding-right: 40px;
     }
-    #block-manidora-manidora-homepage-thumbnails {
-        max-width: 346px;
-        max-height: 154px;
-        overflow:hidden;
+
+    #islandora-solr-top {
+       position: relative;
     }
-    .manidora-homepage-thumb-link {
-        margin: 6px 2px;
+
+    #block-manidora-manidora-homepage-thumbnails,
+    #block-manidora-manidora-whats-new,
+    #slogan-floater, /* search box and menu */
+    #welcome-block p:not(:first-child), /* paragraphs in welcome box */
+    aside, /* sidebars */
+    #block-menu-menu-search-bar-menu /* Advanced and newspaper search links */
+    {
+        display: none;
     }
+
     #featured {
-        font-size: 100% !important;
+        /*font-size: 100% !important;*/
+        max-height: 100px;
     }
-    #slogan-floater {
-        display:block;
-    }
+
     #block-menu-menu-new-main-menu,
     .page-frontpage #block-menu-menu-new-main-menu {
         margin-right:0px;

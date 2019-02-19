@@ -224,6 +224,10 @@ html.gte-ie9 #block-islandora-solr-advanced {
     float:right;
 }
 
+#featured h2 {
+	line-height: 1em;
+}
+
 #welcome-block {
 	position: relative;
 	float: left;
@@ -245,6 +249,7 @@ html.gte-ie9 #block-islandora-solr-advanced {
 }
 
 #welcome-block h2 {
+    line-height: 1.75em;
     font-size: 1.75em;
     margin-left: 8px;
     margin-bottom: 0;
@@ -469,9 +474,6 @@ span.radio1, span.radio2, span.radio3, #search_parameters input, #search_paramet
 	margin: 0 5px;
 }
 
-#featured h2 {
-	line-height: 1em;
-}
 
 /* Manidora Homepage Tabs block styles */
 ul.home-tabs-container {
@@ -517,7 +519,7 @@ ul.home-tabs-container {
 
 .column_50 {
     float:left;
-    padding-left: 10px;
+    padding-left: 5px;
     width: 48%;
     border-right: 1px dotted #aaa;
     height: 284px;
