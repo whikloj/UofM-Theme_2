@@ -20,12 +20,9 @@ foreach($parent_obj as $cpid){
 <!--
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
-  ga('set', 'dimension1', '<?php print $object->id;?>');
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($object->label, "'\\");?>', 3]);
-  ga('set', 'dimension2', '<?php print addcslashes($object->label, "'\\");?>');
-    <?php foreach ($collection_pids as $cpid){ ?>
+  <?php foreach ($collection_pids as $cpid): ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
-  ga('set', 'dimension3', '<?php print $cpid;?>');
-    <?php } ?>
+  <?php endforeach; ?>
 //-->
 </script>

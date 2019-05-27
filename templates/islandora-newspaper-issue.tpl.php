@@ -19,10 +19,8 @@
   <!--
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
-  ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
 <?php foreach ($parent_collections as $cpid){ ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
-  ga('set', 'dimension2', '<?php print $cpid;?>');
 <?php } ?>
   //-->
 </script>

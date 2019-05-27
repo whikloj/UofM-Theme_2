@@ -22,15 +22,43 @@
         width:100%;
         margin: 0;
     }
-    .sidebar-first .region-sidebar-first {
-        /*width: 21%;*/
-        display: none;
+
+    #block-manidora-manidora-homepage-tabs,
+    .islandora_fits_table {
+       width: 100%;
     }
-    
-    ul.primary li, .home-tab {
-        padding-right: 40px;
+
+    /* Break long values in FITS data */
+    .islandora_fits_table td {
+       word-break: break-word;
     }
-    
+
+    ul.tabs-primary, ul.home-tabs-container {
+       margin: 0px;
+       display: flex;
+       flex-flow: row;
+    }
+
+    ul.tabs-primary li, .home-tab {
+        padding: 5px 2px;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 0px;
+        margin-right: 0px;
+    }
+
+    ul.tabs-primary li:not(:last-child), .home-tab:not(:last-child) {
+        border-right: 1px solid #000;
+    }
+
+    #block-islandora-collection-search-islandora-collection-search {
+        padding: 0 8px;
+    }
+
+    #islandora-collection-search-form #edit-collection-select {
+        max-width: 100px;
+    }
+
     .sidebar h2.block-title {
         margin-right: 15px;
         padding-right: 40px;
@@ -45,7 +73,8 @@
     #slogan-floater, /* search box and menu */
     #welcome-block p:not(:first-child), /* paragraphs in welcome box */
     aside, /* sidebars */
-    #block-menu-menu-search-bar-menu /* Advanced and newspaper search links */
+    #block-menu-menu-search-bar-menu, /* Advanced and newspaper search links */
+    #block-menu-menu-new-main-menu /* Home link on nav menu */
     {
         display: none;
     }
@@ -72,5 +101,12 @@
     }
     article {
         padding: 0 5px;
+    }
+    div.vertical-tabs {
+        margin-left: 5em
+    }
+    .vertical-tabs ul.vertical-tabs-list {
+        width: 5em;
+        margin-left: -5em;
     }
 }

@@ -55,12 +55,9 @@
 <!--
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
-  ga('set', 'dimension1', '<?php print $islandora_object->id;?>');
 <?php foreach ($collection_pids as $cpid){ ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
-  ga('set', 'dimension2', '<?php print $cpid;?>');
 <?php } ?>
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($islandora_object_label, "'\\");?>', 3]);
-  ga('set', 'dimension3', '<?php print addcslashes($islandora_object_label, "'\\");?>');
 //-->
 </script>
