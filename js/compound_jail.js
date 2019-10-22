@@ -2,7 +2,6 @@
  * @file
  * Add JAIL for fancy loading of images for UofM Theme.
  */
-
 (function ($) {
     Drupal.settings.UofM_Theme_2_JAIL = {
         active: undefined,
@@ -26,7 +25,7 @@
                 event: 'scroll',
                 offset: 200,
             });
-            Drupal.behaviors.UofM_Theme_2_JAIL.scrollCompoundNav(context);
+            Drupal.behaviors.UofM_Theme_2_JAIL.scrollCompoundNav();
             window.setTimeout('Drupal.behaviors.UofM_Theme_2_JAIL.scrollCompoundNav()', 2000);
         }
     };
