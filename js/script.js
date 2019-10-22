@@ -40,19 +40,6 @@
         });
       }
 
-      // Scroll active compound into view.
-      if (jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs', context).length > 0) {
-        jQuery('.islandora-compound-thumbs, .islandora-compound-jail-thumbs', context).imagesLoaded(function() {
-          var active = jQuery('.islandora-compound-thumb a.active:visible, .islandora-compound-object-jail-active:visible', context);
-          var activeLeft = jQuery(active).offset().left;
-          var wrapWidth = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs', context).width();
-          var wrapLeft = jQuery('.islandora-compound-thumbs-wrapper, .islandora-compound-jail-thumbs', context).offset().left;
-          if (activeLeft > (wrapLeft + wrapWidth)){
-            jQuery(active).scrollParent().animate({'scrollLeft': (activeLeft - wrapLeft - (wrapWidth / 2)) + 'px'},500);
-          }
-        });
-      }
-
       // Show and hide captions from new grid display.
       if (jQuery('.islandora-objects-grid, .islandora-newspaper-issue, .solr-grid-thumb, .islandora-basic-collection-thumb', context).length > 0) {
         jQuery('.solr-grid-thumb, .solr-grid-caption, .islandora-basic-collection-thumb, .islandora-basic-collection-caption, .islandora-object-thumb, .islandora-object-caption', context).mouseover(function(){
@@ -63,8 +50,8 @@
       }
 
       // Toggle Dental information box if exists.
-      jQuery('.uofm-dental-info h2', context).click(function(){ 
-        jQuery(this).next('table').toggle(function(){ 
+      jQuery('.uofm-dental-info h2', context).click(function(){
+        jQuery(this).next('table').toggle(function(){
           var tmpT = (jQuery(this).is(':visible') ? 'hide' : 'show');
           jQuery(this).prev('h2').text('Information (' + tmpT + ')');
         });

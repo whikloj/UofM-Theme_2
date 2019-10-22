@@ -18,7 +18,7 @@
     position:relative;
     margin-top:29px; /* to allow the title to move above the box */
     margin-bottom:0;
-    padding-bottom:0; 
+    padding-bottom:0;
 }
 
 .block.first { /* The first block in the region */
@@ -133,7 +133,7 @@ html.gte-ie9 #block-islandora-solr-advanced {
 #block-menu-menu-search-bar ul.menu li.first,
 #block-menu-menu-search-bar-menu ul.menu li.first,
 #block-menu-menu-new-main-menu ul.menu li.first {
- 
+
 }
 
 #block-menu-menu-search-bar-menu ul.menu li.last,
@@ -162,7 +162,7 @@ html.gte-ie9 #block-islandora-solr-advanced {
 }
 
 #block-menu-menu-search-bar ul.menu li a:hover,
-#block-menu-menu-search-bar-menu ul.menu li a:hover, 
+#block-menu-menu-search-bar-menu ul.menu li a:hover,
 #block-menu-menu-new-main-menu ul.menu li a:hover,
 #block-menu-menu-search-bar-user-menu ul.menu li a:hover {
     text-decoration:underline;
@@ -196,8 +196,8 @@ html.gte-ie9 #block-islandora-solr-advanced {
     background: transparent url('../images/dark-grey-gradient.png') repeat-x 0% 0%;
     -moz-border-radius-topright:40px;
     -webkit-border-top-right-radius:40px;
-    border-radius: 0 40px 0 0; 
-    
+    border-radius: 0 40px 0 0;
+
     z-index: 1;
 	color: #FFFFFF;
 	/*font-size: 11px;*/
@@ -360,7 +360,7 @@ ul.islandora-solr-display li.first {
 #block-user-login { /* "User login form" block */
 }
 
-.section-restricted-login #block-user-login div.item-list { 
+.section-restricted-login #block-user-login div.item-list {
 /* Hide the Create New Account link on the restricted-login page */
     display: none;
 }
@@ -375,7 +375,7 @@ ul.islandora-solr-display li.first {
 }
 
 .sidebar h3 {
-    margin: 5px 0;	
+    margin: 5px 0;
 }
 
 .islandora-solr-facet-wrapper {
@@ -470,7 +470,7 @@ span.radio1, span.radio2, span.radio3, #search_parameters input, #search_paramet
 }
 
 #search_parameters p {
-	display: inline;	
+	display: inline;
 	margin: 0 5px;
 }
 
@@ -606,7 +606,7 @@ ul.home-tabs-container {
     font-size: 0.9em;
 }
 
-.islandora-solr-range-slider, 
+.islandora-solr-range-slider,
 .islandora-solr-date-filter {
     padding: 0px 5px;
 }
@@ -653,19 +653,19 @@ ul.home-tabs-container {
     margin-bottom: 2em;
 }
 
-.islandora-compound-thumbs-wrapper, 
+.islandora-compound-thumbs-wrapper,
 #block-islandora-compound-object-compound-jail-display .islandora-compound-jail-thumbs {
     /**
      * http://jsfiddle.net/mattball/avTgR/
      *   for answer to infinite horizontal scroll
-     */ 
+     */
     position:relative;
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x:scroll;
-    overflow-y:hidden;
-    overflow:auto;
+    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #block-islandora-compound-object-compound-jail-display .islandora-compound-jail-thumbs,
