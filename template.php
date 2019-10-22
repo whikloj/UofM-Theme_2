@@ -398,31 +398,6 @@ function UofM_2_preprocess_islandora_solr_grid(&$variables) {
 function UofM_2_preprocess_islandora_large_image(&$variables) {
   module_load_include('inc', 'islandora', 'includes/utilities'); // To get the islandora function
   $object = $variables['islandora_object'];
-  /*
-  $mods_text = $object->repository->api->a->getDatastreamDissemination($object->id, 'MODS');
-  if ($mods_text) {
-    $xslt_processor = new XSLTProcessor();
-    $xsl = new DOMDocument();
-    $file = drupal_get_path('theme', 'UofM_2') . '/xsl/UofM_2_mods_dental.xsl';
-    $xsl->load($file);
-    $input = new DOMDocument();
-    $did_load = $input->loadXML($mods_text);
-    if ($did_load) {
-      global $base_url;
-      $xslt_processor->importStylesheet($xsl);
-      $param_array = array(
-        'islandoraUrl' => $base_url,
-        'PID' => $object->id,
-      );
-      $xslt_processor->setParameter('', $param_array);
-      $mods_transformed = $xslt_processor->transformToXml($input);
-      if (strlen($mods_transformed) > 0) {
-        drupal_add_js( drupal_get_path('theme', 'UofM_2') . '/js/dental.js', 'file');
-        $variables['dental_info'] = $mods_transformed;
-      }
-    }
-  }
-  */
   if (!$variables['parent_collections'] || (is_array($variables['parent_collections']) && count($variables['parent_collections']) == 0)){
     $parent_collections = islandora_get_parents_from_rels_ext($object);
     if (is_array($parent_collections) && count($parent_collections) == 0){

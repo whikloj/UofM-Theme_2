@@ -21,8 +21,8 @@ foreach($parent_obj as $cpid){
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($object->label, "'\\");?>', 3]);
-  <?php foreach ($collection_pids as $cpid): ?>
+<?php foreach ($collection_pids as $cpid){ ?>
   _gaq.push(['_setCustomVar', 2, 'Collection', '<?php print $cpid;?>', 3]);
-  <?php endforeach; ?>
+<?php } ?>
 //-->
 </script>
