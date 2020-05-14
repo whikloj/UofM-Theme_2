@@ -1,0 +1,6 @@
+dd.islandora-object-caption,
+.islandora-newspaper-issue .islandora-objects-grid dd.islandora-object-caption,
+dd.islandora-basic-collection-caption,
+dd.solr-grid-caption {
+  display: block !important;
+}

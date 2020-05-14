@@ -1,0 +1,9 @@
+td a {
+  display: none;
+}
+
+td a:after {
+  content: "No Download";
+}
+
+
