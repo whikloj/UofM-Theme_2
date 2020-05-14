@@ -35,6 +35,9 @@
 </div>
 <script type="text/javascript">
 <!--
+  ga('set', 'cd1', '<?php print $islandora_object->id;?>');
+  ga('set', 'cd2', '<?php print implode('|', $collection_pids);?>');
+  ga('set', 'cd3', '<?php print addcslashes($islandora_object->label, "\'\\\\");?>');
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
 <?php foreach ($collection_pids as $cpid){ ?>
