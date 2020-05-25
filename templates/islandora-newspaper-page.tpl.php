@@ -29,7 +29,7 @@
 <script type="text/javascript">
   <!--
   ga('set', 'cd1', '<?php print $islandora_object->id;?>');
-  ga('set', 'cd2', '<?php print implode('|', $collection_pids);?>');
+  ga('set', 'cd2', '<?php print implode('|', $parent_collections);?>');
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
  <?php foreach($parent_collections as $cpid): ?>

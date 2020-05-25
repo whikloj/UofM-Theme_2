@@ -18,9 +18,9 @@ foreach($parent_obj as $cpid){
 <!-- @todo Add table of metadata values -->
 <script type="text/javascript">
 <!--
-  ga('set', 'cd1', '<?php print $islandora_object->id;?>');
+  ga('set', 'cd1', '<?php print $object->id;?>');
   ga('set', 'cd2', '<?php print implode('|', $collection_pids);?>');
-  ga('set', 'cd3', '<?php print addcslashes($islandora_object->label, "\'\\\\");?>');
+  ga('set', 'cd3', '<?php print addcslashes($object->label, "\'\\\\");?>');
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $object->id;?>', 3]);
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($object->label, "'\\");?>', 3]);

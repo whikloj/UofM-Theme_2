@@ -167,7 +167,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                 $url = 'islandora/object/' . $object->id;
                 try {
                     $dc = $object['DC']->content;
-                    $dc_object = DublinCore::importFromXMLString($dc)->asArray();
+                    $dc_object = DublinCore::importFromXMLString($dc);
                 }
                 catch (Exception $e) {
                     drupal_set_message(t('Error retrieving object %s %t',
@@ -180,8 +180,11 @@ function UofM_2_preprocess_page(&$variables, $hook) {
 
                 $collection = array();
                 $desc_elem = FALSE;
-                if (isset($dc_object) &&isset($dc_object['dc:description'])) {
-                    $desc = $dc_object['dc:description']['value'];
+                if (isset($dc_object) && isset($dc_object->dc['dc:description'])) {
+                    $desc = "";
+                    foreach ($dc_object->dc['dc:description'] as $value) {
+                        $desc .= (empty($desc) ? "" : " ") . $value;
+                    }
                     $desc_elem = array(
                         '#type' => 'html_tag',
                         '#tag' => 'div',
