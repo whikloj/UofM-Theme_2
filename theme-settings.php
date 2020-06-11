@@ -23,12 +23,43 @@ function UofM_2_form_system_theme_settings_alter(&$form, &$form_state, $form_id 
     '#description'   => t("This option doesn't do anything; it's just an example."),
   );
   // */
-  $form['UofM_2_analytics_code'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Google Analytics Tracking Code'),
-    '#default_value' => theme_get_setting('UofM_2_analytics_code'),
-    '#description' => t("Tracking code for your Google Analytics account to use builtin collection tracking code."),
-  );
+  $ga_code = theme_get_setting('UofM_2_ga_code');
+  if (is_null($ga_code)) {
+    $ga_code = theme_get_setting('UofM_2_analytics_code');
+  } 
+
+  $form['UofM_2_analytics'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Analytics tracking code'),
+    'UofM_2_ga_enabled' => array(
+      '#type' => 'checkbox',
+      '#default_value' => theme_get_setting('UofM_2_ga_enabled'),
+      '#title' => t('Enable Google Analytics tracking'),
+    ),
+    'UofM_2_ga_code' => array(
+      '#type' => 'textfield',
+      '#title' => t('Google Analytics Tracking Code'),
+      '#default_value' => $ga_code,
+      '#description' => t("Tracking code for your Google Analytics account to use builtin collection tracking code."),
+    ),
+    'UofM_2_matomo_enabled' => array(
+      '#type' => 'checkbox',
+      '#default_value' => theme_get_setting('UofM_2_matomo_enabled'),
+      '#title' => t('Enable Matomo analytics tracking'),
+    ),
+    'UofM_2_matomo_code' => array(
+      '#type' => 'textfield',
+      '#title' => t('Matomo analytics site code'),
+      '#default_value' => theme_get_setting('UofM_2_matomo_code'),
+      '#description' => t("Website code for this site in your Matomo instance to use builtin collection tracking code."),
+    ),
+    'UofM_2_matomo_host' => array(
+      '#type' => 'textfield',
+      '#title' => t('Matomo site hostname'),
+      '#default_value' => theme_get_setting('UofM_2_matomo_host'),
+      '#description' => t('Hostname of the Matomo instance, do NOT include the scheme (http://) as this will be automatically added.'),
+    ),
+  ); 
   $form['UofM_2_translate_code'] = array(
     '#type' => 'textfield',
     '#title' => t('Google Translate Code'),

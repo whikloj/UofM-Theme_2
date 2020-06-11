@@ -35,11 +35,20 @@
   </div>
   </div>
 </div>
+<?php if (!is_null($matomo_enabled) && $matomo_enabled == 1): ?>
+<script type="text/javascript">
+    <!--
+    var _paq = window._paq || [];
+    <?php foreach ($collection_pids as $collection): ?>
+    _paq.push(['trackContentImpression', '<?php print $collection; ?>', 'Part of Collection', '<?php print $_SERVER['REQUEST_URI']?>']);
+    <?php endforeach; ?>
+    _paq.push(['trackContentImpression', 'PDF', 'Display Type', '<?php print $_SERVER['REQUEST_URI']?>']);
+    //-->
+</script>
+<?php endif;
+if (!is_null($goog_enabled) && $goog_enabled == 1): ?>
 <script type="text/javascript">
 <!--
-  ga('set', 'cd1', '<?php print $islandora_object->id;?>');
-  ga('set', 'cd2', '<?php print implode('|', $collection_pids);?>');
-  ga('set', 'cd3', '<?php print addcslashes($islandora_object->label, "\'\\\\");?>');
   var _gaq = _gaq || [];
   _gaq.push(['_setCustomVar', 1, 'PID', '<?php print $islandora_object->id;?>', 3]);
 <?php foreach ($collection_pids as $cpid){ ?>
@@ -48,3 +57,4 @@
   _gaq.push(['_setCustomVar', 3, 'Title', '<?php print addcslashes($islandora_object_label, "'\\");?>', 3]);
 //-->
 </script>
+<?php endif; ?>

@@ -102,7 +102,7 @@
     <![endif]-->
   <?php endif; ?>
   <?php
-  if (!is_null($goog_analytics) && strlen($goog_analytics) > 0): ?>
+  if (!is_null($goog_enabled) && $goog_enabled == 1): ?>
   <!-- Google Analytics (Part 1) -->
   <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -113,7 +113,23 @@
   ga('create', '<?php print $goog_analytics; ?>', 'auto');  // Replace with your property ID.
   </script>
   <!-- End Google Analytics (Part 1) -->
-  <?php endif; 
+  <?php endif;
+  if (!is_null($matomo_enabled) && $matomo_enabled == 1): ?>
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//<?php print $matomo_host; ?>/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '<?php print $matomo_code; ?>']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+<?php endif;
   if (!is_null($goog_translate) && strlen($goog_translate) > 0): ?>
   <meta name="google-translate-customization" content="<?php print $goog_translate;?>"></meta>
   <?php endif; ?>
@@ -127,12 +143,20 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-  <?php if (!is_null($goog_translate) && strlen($goog_translate) > 0): ?>
+  <?php if (!is_null($goog_enabled) && $goog_enabled == 1): ?>
   <!-- Google Analytics (Part 2) -->
   <script type="text/javascript">
   ga('send','pageview');
   </script>
   <!-- End Google Analytics (Part 2) -->
-  <?php endif; ?>
+  <?php endif;
+  if (!is_null($matomo_enabled) && $matomo_enabled == 1): ?>
+  <!-- Matomo (Part 2) -->
+  <script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(['trackPageView']);
+  </script>
+  <!-- End Matomo (Part 2) -->
+<?php endif; ?>
 </body>
 </html>

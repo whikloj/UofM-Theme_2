@@ -118,15 +118,28 @@ function UofM_2_preprocess_html(&$variables) {
   */
   drupal_add_library('system', 'ui.widget');
 
-  $variables['goog_analytics'] = theme_get_setting('UofM_2_analytics_code');
-  $variables['goog_translate'] = theme_get_setting('UofM_2_translate_code');
-
   if (array_key_exists('page',$variables) && array_key_exists('content',$variables['page']) && array_key_exists('system_main',$variables['page']['content']) && array_key_exists('Collection View',$variables['page']['content']['system_main'])) {
     $variables['classes_array'][] = 'islandora-collection';
   }
 
 }
 
+/**
+ * Add some needed template variables for analytics tracking.
+ */
+function UofM_2_preprocess(&$variables) {
+  $ga_code = theme_get_setting('UofM_2_ga_code');
+  if (is_null($ga_code)) {
+    $ga_code = theme_get_setting('UofM_2_analytics_code');
+  }
+
+  $variables['goog_enabled'] = theme_get_setting('UofM_2_ga_enabled');
+  $variables['goog_analytics'] = $ga_code;
+  $variables['goog_translate'] = theme_get_setting('UofM_2_translate_code');
+  $variables['matomo_enabled'] = theme_get_setting('UofM_2_matomo_enabled');
+  $variables['matomo_code'] = theme_get_setting('UofM_2_matomo_code');
+  $variables['matomo_host'] = theme_get_setting('UofM_2_matomo_host');
+}
 
 /**
  * Override or insert variables into the maintenance page template.
@@ -231,10 +244,6 @@ function UofM_2_preprocess_page(&$variables, $hook) {
  */
 /*
 function UofM_2_preprocess_node(&$vars, $hook) {
-  ob_start();
-  print_r($vars);
-  $n = ob_get_clean();
-  watchdog('UM Theme','available vars in node <pre>%n</pre>',array('%n'=>$n));
 }
 // */
 
@@ -413,6 +422,23 @@ function UofM_2_preprocess_islandora_large_image(&$variables) {
         }
       }
     }
+  }
+}
+
+/**
+ * Preprocess book objects to get collections they are part of.
+ * @param $variables
+ */
+function UofM_2_preprocess_islandora_book(&$variables) {
+  module_load_include('inc', 'islandora', 'includes/utilities');
+  $object = $variables['object'];
+  $variables['islandora_object'] = $object;
+  $collections = islandora_get_parents_from_rels_ext($object);
+  if (array_key_exists('parent_collections', $variables)) {
+    $variables['parent_collections'] = array_merge($variables['parent_collections'], $collections);
+  }
+  else {
+    $variables['parent_collections'] = $collections;
   }
 }
 
