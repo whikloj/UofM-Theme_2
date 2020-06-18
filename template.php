@@ -128,6 +128,17 @@ function UofM_2_preprocess_html(&$variables) {
  * Add some needed template variables for analytics tracking.
  */
 function UofM_2_preprocess(&$variables) {
+  global $_islandora_solr_queryclass;
+  if (isset($_islandora_solr_queryclass)) {
+    $variables['solr_query'] = $_islandora_solr_queryclass->solrQuery;
+    if (isset($_islandora_solr_queryclass->islandoraSolrResult)) {
+      $variables['solr_result_count'] = $_islandora_solr_queryclass->islandoraSolrResult['response']['numFound'];
+    }
+    else {
+      $variables['solr_result_count'] = 'FALSE';
+    }
+  }
+
   $ga_code = theme_get_setting('UofM_2_ga_code');
   if (is_null($ga_code)) {
     $ga_code = theme_get_setting('UofM_2_analytics_code');
