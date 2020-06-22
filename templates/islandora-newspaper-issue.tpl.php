@@ -19,7 +19,7 @@
 <script type="text/javascript">
 <!--
   var _paq = window._paq || [];
-<?php foreach ($collection_pids as $collection): ?>
+<?php foreach ($parent_collections as $collection): ?>
   _paq.push(['trackContentImpression', '<?php print $collection; ?>', 'Part of Newspaper', '<?php print $_SERVER['REQUEST_URI']?>']);
 <?php endforeach; ?>
   _paq.push(['trackContentImpression', 'Newspaper Issue', 'Display Type', '<?php print $_SERVER['REQUEST_URI']?>']);

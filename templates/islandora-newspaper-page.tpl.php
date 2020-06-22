@@ -7,10 +7,6 @@
  *   This override adds a print.
  */
 
-$collection_pids = array();
-foreach ($parent_collections as $collection) {
-  $collection_pids[] = $collection->id;
-}
 ?>
 <div class="islandora-newspaper-object islandora">
   <div class="islandora-newspaper-controls">
@@ -34,7 +30,7 @@ foreach ($parent_collections as $collection) {
 <script type="text/javascript">
 <!--
   var _paq = window._paq || [];
-<?php foreach ($collection_pids as $collection): ?>
+<?php foreach ($parent_collections as $collection): ?>
   _paq.push(['trackContentImpression', '<?php print $collection; ?>', 'Part of Newspaper', '<?php print $_SERVER['REQUEST_URI']?>']);
 <?php endforeach; ?>
   _paq.push(['trackContentImpression', 'Newspaper Page', 'Display Type', '<?php print $_SERVER['REQUEST_URI']?>']);
