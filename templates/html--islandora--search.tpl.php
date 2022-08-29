@@ -94,7 +94,7 @@
   <!-- Matomo (Part 2) -->
   <script type="text/javascript">
   var _paq = window._paq || [];
-   _paq.push(['trackSiteSearch', "<?php print $solr_query; ?>", false, <?php print $solr_result_count; ?>]);
+   _paq.push(['trackSiteSearch', "<?php print addcslashes($solr_query, '"'); ?>", false, <?php print $solr_result_count; ?>]);
   </script>
   <!-- End Matomo (Part 2) -->
 <?php endif; ?>
