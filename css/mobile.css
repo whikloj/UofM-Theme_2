@@ -1,5 +1,5 @@
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
     #page, .region-bottom {
         max-width: 764px;
         width: 100%;
@@ -53,10 +53,15 @@
 
     #block-islandora-collection-search-islandora-collection-search {
         padding: 0 8px;
+        width: 100%;
+    }
+
+    #islandora-collection-search-form {
+        max-width: 100%;
     }
 
     #islandora-collection-search-form #edit-collection-select {
-        max-width: 100px;
+        max-width: 70%;
     }
 
     .sidebar h2.block-title {
@@ -108,5 +113,21 @@
     .vertical-tabs ul.vertical-tabs-list {
         width: 5em;
         margin-left: -5em;
+    }
+}
++/**
++ * Stuff for screens smaller than 424px
++ */
+@media only screen and (max-width: 424px) {
+    #islandora-collection-search-form #edit-collection-select {
+        max-width: 35%;
+    }
+}
+/**
++ * Stuff for 425 - 767px screens
++ */
+@media only screen and (max-width: 767px) and (min-width: 425px) {
+    #islandora-collection-search-form #edit-collection-select {
+        max-width: 40%;
     }
 }
