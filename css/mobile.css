@@ -114,21 +114,23 @@
         width: 5em;
         margin-left: -5em;
     }
-    .islandora-objects-grid dd.islandora-object-caption, dd.islandora-basic-collection-caption, dd.solr-grid-caption {
-        display:block !important;
+    .islandora-objects-grid dd.islandora-object-caption,
+    dd.islandora-basic-collection-caption,
+    dd.solr-grid-caption {
+        display: block !important;
     }
 }
-+/**
-+ * Stuff for screens smaller than 424px
-+ */
+/**
+ * Stuff for screens smaller than 424px
+ */
 @media only screen and (max-width: 424px) {
     #islandora-collection-search-form #edit-collection-select {
         max-width: 35%;
     }
 }
 /**
-+ * Stuff for 425 - 767px screens
-+ */
+ * Stuff for 425 - 767px screens
+ */
 @media only screen and (max-width: 767px) and (min-width: 425px) {
     #islandora-collection-search-form #edit-collection-select {
         max-width: 40%;
