@@ -121,7 +121,10 @@
         display: block !important;
     }
     /* Hide download column to shrink table size */
-    .sticky-table th:last-child, .sticky-table td:last-child {
+    .sticky-table th:last-child,
+    .sticky-table th:nth-child(0n+3),
+    .sticky-table td:last-child,
+    .sticky-table td:nth-child(0n+3) {
         display: none;
     }
 }
