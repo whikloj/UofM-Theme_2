@@ -168,6 +168,7 @@ html.gte-ie9 .region-featured {
     background: -webkit-linear-gradient(top, #aeaeae 0%, #555555 99%);
     background: linear-gradient(#aeaeae, #555555);
     box-shadow: 0 2px 4px #777;
+    overflow: auto;
 }
 #searchbar.position-fixed {
     position:fixed;
@@ -748,12 +749,6 @@ span.field-label { /* The inline field label used by the Fences module */
 
 
 /* Newspaper search page */
-#manidora-newspaper-search-form {
-    clear:left;
-}
-#manidora-newspaper-search-form #edit-right-column {
-    float:right;
-}
 #manidora-newspaper-search-form #edit-right-column .label {
     font-weight: bold;
     margin-bottom: 0px;
@@ -762,24 +757,18 @@ span.field-label { /* The inline field label used by the Fences module */
     padding: 0 2px;
 }
 #manidora-newspaper-search-form #edit-right-column .date-limiter {
-    overflow:hidden;
+    display: flex;
+    flex-direction: row;
 }
 #manidora-newspaper-search-form .date-limiter span,
 #manidora-newspaper-search-form .form-item-date-from,
 #manidora-newspaper-search-form .form-item-date-to {
-    display: inline-block;
-    float: left;
     margin: 0px;
 }
 
 #manidora-newspaper-search-form .form-item-date-from label,
 #manidora-newspaper-search-form .form-item-date-to label {
     display: none;
-}
-
-#manidora-newspaper-search-form #edit-titles {
-    max-height: 350px;
-    overflow-y: scroll;
 }
 
 .no-results {

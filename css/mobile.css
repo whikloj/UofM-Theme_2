@@ -33,9 +33,15 @@
        width: 100%;
     }
 
-    /* Break long values in FITS data */
-    .islandora_fits_table td {
-       word-break: break-word;
+    .islandora_fits_table td, /* Break long values in FITS data */
+    .manidora-metadata td /* Break long values in metadata */
+    {
+         word-wrap: anywhere;
+    }
+
+    /* Un-break labels in metadata */
+    .manidora-metadata td.label {
+        word-wrap: normal;
     }
 
     ul.tabs-primary, ul.home-tabs-container {
@@ -83,7 +89,6 @@
     #slogan-floater, /* search box and menu */
     #welcome-block p:not(:first-child), /* paragraphs in welcome box */
     aside, /* sidebars */
-    #block-menu-menu-search-bar-menu, /* Advanced and newspaper search links */
     #block-menu-menu-new-main-menu, /* Home link on nav menu */
     .sticky-table th:last-child, /* Hide download column to shrink table size */
     .sticky-table td:last-child,
@@ -93,6 +98,29 @@
     {
         display: none;
     }
+    
+    #block-menu-menu-search-bar-menu /* Advanced and newspaper search links */
+    {
+        display: block;
+        width: 100%;
+        background: linear-gradient(#aeaeae,#555555);
+    }
+    #block-menu-menu-search-bar-menu ul.menu {
+        display: flex
+        flex-direction: row;
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+    #block-menu-menu-search-bar-menu ul.menu li {
+        list-style-image: none;
+        list-style-type: none;
+        border: none;
+        line-height: 1.3em;
+    }
+    #block-menu-menu-search-bar ul.menu li.last {
+        border: none;
+    }
+    
 
     #featured {
         /*font-size: 100% !important;*/
