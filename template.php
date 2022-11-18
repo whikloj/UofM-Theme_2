@@ -212,7 +212,7 @@ function UofM_2_preprocess_page(&$variables, $hook) {
                     $desc_elem = array(
                         '#type' => 'html_tag',
                         '#tag' => 'div',
-                        '#value' => check_plain($desc),
+                        '#value' => check_markup($desc, 'filtered_html'),
                         '#attributes' => array('class' => 'islandora-basic-collection-info-description'),
                     );
                 }
